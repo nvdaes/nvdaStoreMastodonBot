@@ -25,10 +25,20 @@ jobs:
          repository: nvdaes/addon-datastore
          ref: views
          path: store
+         fetch-depth: 0
+    - name: Read previous sha
+      id: prevSha
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./main/sha.txt
+    - name: Ged diff
+      run: |
+        git diff --numstat ${{ steps.sha.outputs.content }}..HEAD > diff.txt
+
     - name: Push changes
       run: |
         cd store
-        git log -1 --pretty="format:%H" > ../main/hash.txt
+        git log -1 --pretty="format:%H" > ../main/sha.txt
         cd ../main
 
           git config user.name github-actions
