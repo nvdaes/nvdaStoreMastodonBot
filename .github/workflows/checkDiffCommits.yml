@@ -29,4 +29,10 @@ jobs:
         path: ./hash.txt
     - name: Show hash
       run: echo "${{ steps.hash.outputs.content }}"
-      
+
+    - name: Push changes
+      run: |
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+        git commit -a -m "Update sha"
+        git push origin HEAD:main  
