@@ -52,10 +52,7 @@ jobs:
           if (length <== 1) {
             throw 'No files'
           }
-          if (length === 2) {
-          console.log(files[0])
-            return files[0]
-          }
+          
 
     - name: Push changes
       run: |
