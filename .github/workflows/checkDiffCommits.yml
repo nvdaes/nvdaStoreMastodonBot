@@ -50,10 +50,10 @@ jobs:
           const files = diff.split('\n')
           const length = files.length
           if (length <== 1) {
-            throw WNo files"
+            throw 'No files'
           }
           if (length === 2) {
-            return ${{ steps.diff.outputs.content }}.split('/')[-1]
+            return "${{ steps.diff.outputs.content }}.split('/')[-1]""
           }
 
     - name: Push changes
