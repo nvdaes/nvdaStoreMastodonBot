@@ -23,12 +23,11 @@ jobs:
                         const commit = result.data
                         const sha = commit.sha
                         return sha
-    - name: Write sha
-      run: |
-       echo "${{ steps.getSha.outputs.result }}" > sha.txt
     - name: Push changes
       run: |
-        git config --global user.name github-actions
-        git config --global user.email github-actions@github.com
-        git commit -a -m "Update sha"
+        echo "${{ steps.getSha.outputs.result }}" > sha.txt
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+        git commit -m "Update sha"
         git push
