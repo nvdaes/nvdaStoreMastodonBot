@@ -34,7 +34,7 @@ jobs:
     - name: Ged diff
       run: |
         cd store
-        git diff --numstat ${{ steps.sha.outputs.content }}..HEAD views/en > diff.txt
+        git diff --numstat ${{ steps.sha.outputs.content }}..HEAD views/en > ../main/diff.txt
 
     - name: Push changes
       run: |
