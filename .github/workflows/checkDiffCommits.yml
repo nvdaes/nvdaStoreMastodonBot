@@ -49,10 +49,10 @@ jobs:
           const diff = "${{ steps.diff.outputs.content }}"
           const files = diff.split('\n')
           const length = files.length
-          if (length === 0) {
+          if (length <== 1) {
             throw WNo files"
           }
-          if (length === 1) {
+          if (length === 2) {
             return ${{ steps.diff.outputs.content }}.split('/')[-1]
           }
 
