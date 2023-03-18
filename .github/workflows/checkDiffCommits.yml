@@ -53,7 +53,7 @@ jobs:
             throw 'No files'
           }
           if (length === 2) {
-            return "${{ steps.diff.outputs.content }}.split('/')[-1]""
+            return "${{ steps.diff.outputs.content }}.split('/')[-1]"
           }
 
     - name: Push changes
