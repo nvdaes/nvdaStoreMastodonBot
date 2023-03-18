@@ -14,6 +14,7 @@ jobs:
     - name: Checkout current
       uses: actions/checkout@v3
     - name: Get last commit of datastore
+      id: getSha
       uses: actions/github-script@v6
       with:
           script: |
@@ -21,4 +22,13 @@ jobs:
                         const result = await github.request(url)
                         const commit = result.data
                         const sha = commit.sha
-                        
+                        return sha
+    - name: Write sha
+      run: |
+       echo "${{ steps.getSha.outputs.result }}" > sha.txt
+    - name: Push changes
+      run: |
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+        git commit -a -m "Update sha"
+        git push origin HEAD:main
