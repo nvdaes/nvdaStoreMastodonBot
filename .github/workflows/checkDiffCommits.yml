@@ -21,6 +21,6 @@ jobs:
     - name: Write hash
       run: |
         cd datastore
-        echo "HASH=git log -1 --pretty="format:%H" >> $GITHUB_ENV
+        echo "HASH=git log -1 --pretty='format:%H'" >> $GITHUB_ENV
     - name: Show hash
       run: echo "${{ env.HASH }}"
