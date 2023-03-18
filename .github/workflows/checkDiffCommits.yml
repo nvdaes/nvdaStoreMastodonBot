@@ -23,7 +23,7 @@ jobs:
     - name: Write hash
       run: |
         cd datastore
-        git log -1 --pretty="format:%H" > ./hash.txt
+        git log -1 --pretty="format:%H" > ../hash.txt
     - name: Read hash
       id: hash
       uses: juliangruber/read-file-action@v1
