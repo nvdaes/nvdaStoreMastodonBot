@@ -13,24 +13,11 @@ jobs:
 
     - name: Checkout current
       uses: actions/checkout@v3
+    - name: Get last commit of datastore
+      uses: actions/github-script@v6
       with:
-          path: main
-    - name: Checkout addon-datastore repo
-      uses: actions/checkout@v3
-      with:
-        path: datastore
-        repository: nvdaes/addon-datastore
-        ref: views
-        fetch-depth: 0
-    - name: Write hash
-      run: |
-        cd datastore
-        git log -1 --pretty="format:%H" > ../main/hash.txt
-    - name: Push changes
-      run: |
-        cd main
-        git config --global user.name github-actions
-        git config --global user.email github-actions@github.com
-        git add sha.txt
-        git commit -m "Update sha"
-        git push origin HEAD:main
+          script: |
+            const url = 'https://api.github.com/repos/nvdaes/addon-datastore/commits'            const result = await github.request(diff_url)
+                        const result = await github.request(url)
+                        const commits = JSON.parse(result)
+                        const lastCommit = commits[0]
