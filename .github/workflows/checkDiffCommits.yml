@@ -15,29 +15,22 @@ jobs:
 
     - name: Checkout current
       uses: actions/checkout@v3
-    - name: Get previous commit of datastore
-      id: getPrev
-      uses: actions/github-script@v6
       with:
-          script: |
-            const url = 'https://raw.githubusercontent.com/nvdaes/nvdaStoreMastodonBot/main/sha.txt"
-                        const result = await github.request(url)
-                        const commit = result.data
-                        const sha = commit.sha
-                        return sha
-    - name: Get current commit of datastore
-      id: getCur
-      uses: actions/github-script@v6
+         repository: nvdaes/nvdaStoreMastodonBot
+         path: main
+
+    - name: Checkout store
+      uses: actions/checkout@v3
       with:
-          script: |
-            const url = 'https://api.github.com/repos/nvdaes/addon-datastore/commits/HEAD'
-                        const result = await github.request(url)
-                        const commit = result.data
-                        const sha = commit.sha
-                        return sha
+         repository: nvdaes/addon-datastore
+         ref: views
+         path: store
     - name: Push changes
       run: |
-        echo "${{ steps.getCur.outputs.result }}" > sha.txt
+        cd store
+        git log -1 --pretty="format:%H" > ../main/hash.txt
+        cd ../main
+
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
