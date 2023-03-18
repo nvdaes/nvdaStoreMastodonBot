@@ -23,9 +23,10 @@ jobs:
     - name: Write hash
       run: git log -1 --pretty="format:%H" > hash.txt
     - name: Read hash
-      uses: actions/github-script@v6
+      id: hash
+      uses: juliangruber/read-file-action@v1
       with:
-        script: |
-          const fileUrl = 'file://hash.txt'
-          const result = await github.request(fileUrl)
-          console.log(result)
+        path: ./hash.txt
+    - name: Show hash
+      run: echo "${{ steps.hash.outputs.content }}"
+      
