@@ -13,6 +13,8 @@ jobs:
 
     - name: Checkout current repo
       uses: actions/checkout@v3
+      with:
+        path: main
     - name: Checkout addon-datastore repo
       uses: actions/checkout@v3
       with:
@@ -21,19 +23,22 @@ jobs:
         ref: views
         fetch-depth: 0
     - name: Write hash
-      run: git log -1 --pretty="format:%H" > hash.txt
+      run: |
+        cd datastore
+        git log -1 --pretty="format:%H" > ../main/hash.txt
     - name: Read hash
       id: hash
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./hash.txt
+        path: ./main/hash.txt
     - name: Show hash
       run: echo "${{ steps.hash.outputs.content }}"
-
     - name: Push changes
       run: |
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
+        cd main
         git add hash.txt
         git commit -a -m "Update sha"
         git push origin HEAD:main  
+        
