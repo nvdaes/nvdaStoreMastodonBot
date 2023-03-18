@@ -26,7 +26,6 @@ jobs:
         git log -1 --pretty="format:%H" > ../hash.txt
     - name: Push changes
       run: |
-        cd main
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
         git add sha.txt
