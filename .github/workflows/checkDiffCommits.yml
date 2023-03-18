@@ -19,6 +19,6 @@ jobs:
           script: |
             const url = 'https://api.github.com/repos/nvdaes/addon-datastore/commits/HEAD'
                         const result = await github.request(url)
-                        const commits = JSON.parse(result)
+                        const commit = result.data
                         const sha = commit.sha
                         
