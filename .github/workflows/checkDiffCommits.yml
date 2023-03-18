@@ -11,6 +11,12 @@ jobs:
 
     steps:
 
+    - name: Checkout current
+      uses: actions/checkout@v3
+      with:
+        path: main
+        repository: nvdaes/nvdaStoreMastodonBot
+        ref: main
     - name: Checkout addon-datastore repo
       uses: actions/checkout@v3
       with:
@@ -21,6 +27,11 @@ jobs:
     - name: Write hash
       run: |
         cd datastore
-        echo "HASH=git log -1 --pretty='format:%H'" >> $GITHUB_ENV
-    - name: Show hash
-      run: echo "${{ env.HASH }}"
+        git log -1 --pretty="format:%H" > ../main/hash.txt
+    - name: Push changes
+      run: |
+        cd main
+        git config --global user.name github-actions
+        git config --global user.email github-actions@github.com
+        git commit -a -m "Update sha"
+        git push origin HEAD:main
