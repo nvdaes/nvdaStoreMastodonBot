@@ -13,6 +13,8 @@ jobs:
 
     - name: Checkout current
       uses: actions/checkout@v3
+      with:
+          path: main
     - name: Checkout addon-datastore repo
       uses: actions/checkout@v3
       with:
@@ -23,9 +25,10 @@ jobs:
     - name: Write hash
       run: |
         cd datastore
-        git log -1 --pretty="format:%H" > ../hash.txt
+        git log -1 --pretty="format:%H" > ../main/hash.txt
     - name: Push changes
       run: |
+        cd main
         git config --global user.name github-actions
         git config --global user.email github-actions@github.com
         git add sha.txt
