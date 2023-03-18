@@ -33,7 +33,8 @@ jobs:
         path: ./main/sha.txt
     - name: Ged diff
       run: |
-        git diff --numstat ${{ steps.sha.outputs.content }}..HEAD > diff.txt
+        cd store
+        git diff --numstat ${{ steps.sha.outputs.content }}..HEAD views/en > diff.txt
 
     - name: Push changes
       run: |
