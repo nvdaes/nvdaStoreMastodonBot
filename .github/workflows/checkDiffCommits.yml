@@ -30,24 +30,13 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: ./main/sha.txt
-    - name: Write diff
-      run: |
-        cd store
-        git checkout views
-        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
 
-    - name: Get diff
-      id: diff
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./main/diff.txt
     - name: Process diff
       id: processDiff
       uses: actions/github-script@v6
       with:
         script: |
-          const diff = "${{ steps.diff.outputs.content }}"
-          if (diff === "") }{ return }
+
           const compare = await github.request("GET /repos/nvdaes/addon-datastore/compare/${{ steps.prevSha.outputs.content}}")
           data = compare.data
           files = data.files
