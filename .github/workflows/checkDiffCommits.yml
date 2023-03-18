@@ -34,7 +34,7 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en > ../main/diff.txt
+        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
 
     - name: Push changes
       run: |
