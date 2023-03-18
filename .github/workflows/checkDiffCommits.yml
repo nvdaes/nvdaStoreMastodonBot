@@ -47,11 +47,9 @@ jobs:
       with:
         script: |
           const diff = "${{ steps.diff.outputs.content }}"
+          if (diff === "") { return }
           const files = diff.split('\n')
           const length = files.length
-          if (length <== 1) {
-            throw 'No files'
-          }
           
 
     - name: Push changes
