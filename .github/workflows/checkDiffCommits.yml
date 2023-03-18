@@ -11,8 +11,6 @@ jobs:
 
     steps:
 
-    - name: Checkout current repo
-      uses: actions/checkout@v3
     - name: Checkout addon-datastore repo
       uses: actions/checkout@v3
       with:
@@ -23,19 +21,6 @@ jobs:
     - name: Write hash
       run: |
         cd datastore
-        git log -1 --pretty="format:%H" > ../hash.txt
-    - name: Read hash
-      id: hash
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./hash.txt
+        echo "HASH=git log -1 --pretty="format:%H" >> $GITHUB_ENV
     - name: Show hash
-      run: echo "${{ steps.hash.outputs.content }}"
-    - name: Push changes
-      run: |
-        git config --global user.name github-actions
-        git config --global user.email github-actions@github.com
-        git add hash.txt
-        git commit -a -m "Update sha"
-        git push origin HEAD:main  
-        
+      run: echo "${{ env.HASH }}"
