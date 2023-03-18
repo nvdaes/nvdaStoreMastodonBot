@@ -1,0 +1,31 @@
+name: Check files changed
+
+on:
+  workflow_dispatch:
+    
+jobs:
+
+  diffs:
+  
+    runs-on: windows-latest
+
+    steps:
+
+    - name: Checkout current repo
+      uses: actions/checkout@v3
+    - name: Checkout addon-datastore repo
+      uses: actions/checkout@v3
+      with:
+        path: datastore
+        repository: nvdaes/addon-datastore
+        ref: views
+        fetch-depth: 0
+    - name: Write hash
+      run: echo ${{ github.hash }} > has.txt
+    - name: Read hash
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const fileUrl = 'file://hash.txt'
+          const result = await github.request(fileUrl)
+          console.log(result)
