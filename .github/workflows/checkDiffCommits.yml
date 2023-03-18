@@ -38,8 +38,9 @@ jobs:
         script: |
 
           const compare = await github.request("GET /repos/nvdaes/addon-datastore/compare/${{ steps.prevSha.outputs.content }}...HEAD")
-          const data = compare.data
-          const files = data.files
+          const data = await compare.data
+          return data
+
           return files
           
 
