@@ -57,6 +57,7 @@ jobs:
           console.log(`${diff.split(/\t/)[2]} ${numberOfFilesChanged}`)
     - name: Get metadata
       id: getMetadata
+      if: "${{ steps.processDiff.outputs.numberOfFilesChanged }} == 1"
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
