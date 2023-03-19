@@ -50,6 +50,7 @@ jobs:
           const diff = `${{ steps.diff.outputs.content }}`
           console.log(`${diff}`)
           const filesChanged = diff.split("\n")
+          core.setOutput('filesChanged', filesChanged)
           const numberOfFilesChanged = filesChanged.length -1
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           const filename = diff.split(/\t/)[2]
@@ -61,6 +62,26 @@ jobs:
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
+    - name: Build toot
+      id: buildToot
+      if: '${{ steps.diff.outputs.content }} != ""'
+      uses: actions/github-script@v6
+      with:
+        script: |
+          let toot = ""
+          if (${{ steps.processDiff.outputs.numberOfFilesChanged }} >=== 1) {
+            for (file of ${{ steps.processDif.outputs.filesChanged }}) {
+              let toot += file.split("views/en/latest/")[0]
+            if (file.startsWith("0")) {
+              toot += " (removed)"
+            }
+           }
+          
+          }
+          const name = ${{ steps.getMetadata.outputs.name }}
+          toot += name
+          console.log(`${toot}`)
+
     - name: Push changes
       run: |
         cd store
