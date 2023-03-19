@@ -53,6 +53,9 @@ jobs:
           let toot = ""
           if(numberOfFilesChanged > 1) {
             let toot = `$Updated {numberOfFilesChanged} add-ons`
+          } else {
+            const file = files[0]
+            const filename = file.split("\t")[2]
           }
                     
 
