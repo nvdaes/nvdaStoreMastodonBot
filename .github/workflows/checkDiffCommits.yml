@@ -50,6 +50,10 @@ jobs:
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length
           console.log(`${numberOfFilesChanged}`)
+          let toot = ""
+          if(numberOfFilesChanged > 1) {
+            let toot = `$Updated {numberOfFilesChanged} add-ons`
+          }
                     
 
     - name: Push changes
