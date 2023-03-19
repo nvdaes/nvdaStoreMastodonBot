@@ -1,4 +1,4 @@
-Office Desk 23.04
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/josephsl/officeDesk/releases/download/23.04/officeDesk-23.04.nvda-addon
-SHA 256: 0e88375b1597e1c6235a9e4a6e46ab4b2a3f01c0c89b64bb4fc788e31bcde099
+Search With 2.4
+Homepage: https://addons.nvda-project.org/addons/searchWith.en.html
+Download: https://github.com/ibrahim-s/searchWith/releases/download/2.4/searchWith-2.4.nvda-addon
+SHA 256: 1ca4ede0f2165e9b4be79e01e4c2db7a1535f4dce65ff5b0b60df4e2c3e53438
