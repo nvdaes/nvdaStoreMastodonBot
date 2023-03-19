@@ -84,7 +84,8 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
-
+    - name: Write toot
+      run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
 
     - name: Push changes
       run: |
