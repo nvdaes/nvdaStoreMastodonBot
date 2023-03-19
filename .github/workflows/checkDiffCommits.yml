@@ -55,7 +55,7 @@ jobs:
             let toot = `$Updated {numberOfFilesChanged} add-ons`
           } else {
             const filename = diff.split("views/en/latest/")[1]
-            console.log(`${filename}`)
+            console.log(`${diff}`)
           }
                     
 
