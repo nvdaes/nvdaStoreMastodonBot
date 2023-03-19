@@ -43,11 +43,12 @@ jobs:
         path: ./main/diff.txt
     - name: Process diff
       if: '${{ steps.diff.outputs.content }} != ""'
-      uses: action/github-script@v6
+      uses: actions/github-script@v6
       with:
         script: |
           const diff = ${{ steps.diff.outputs.content }}
           const filesChanged = diff.split("\n")
+          console.log(`Files changed: ${diff}`)
           
 
     - name: Push changes
