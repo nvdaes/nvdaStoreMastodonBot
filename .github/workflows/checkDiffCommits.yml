@@ -82,6 +82,7 @@ jobs:
             let toot = `Updated ${numberOfFilesChanged} add-ons`
           }
           console.log(toot)
+          core.setOutput('toot', toot) 
 
 
     - name: Push changes
