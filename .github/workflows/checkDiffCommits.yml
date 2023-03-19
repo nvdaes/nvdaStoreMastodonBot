@@ -70,7 +70,7 @@ jobs:
         script: |
           let toot = ""
           if (${{ steps.processDiff.outputs.numberOfFilesChanged }} >=== 1) {
-            for (file of ${{ steps.processDif.outputs.filesChanged }}) {
+            for (file of ${{ steps.processDiff.outputs.filesChanged }}) {
               let toot += file.split("views/en/latest/")[0]
             if (file.startsWith("0")) {
               toot += " (removed)"
