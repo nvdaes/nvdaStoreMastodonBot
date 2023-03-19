@@ -68,24 +68,24 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          let toot = ``
+          let toot = ""
           if (${{ steps.processDiff.outputs.numberOfFilesChanged }} === 1) {
-            const name = `${{ steps.getMetadata.outputs.displayName }}`
-            const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
-            const channel = `${{ steps.getMetadata.outputs.channel }}`
-            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
-            const url = `${{ steps.getMetadata.outputs.URL }}`
-            const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            let status = ``
+            const name = "${{ steps.getMetadata.outputs.displayName }}"
+            const version = "${{ steps.getMetadata.outputs.addonVersionName }}"
+            const channel = "${{ steps.getMetadata.outputs.channel }}"
+            const homepage = "${{ steps.getMetadata.outputs.homepage }}"
+            const url = "${{ steps.getMetadata.outputs.URL }}"
+            const sha = "${{ steps.getMetadata.outputs.sha256 }}"
+            let status = ""
             if ("${{ steps.processDiff.outputs.filesChanged }}"[0].startsWith("0")) {
-              let status = `Removed`
+              let status = "Removed"
             }
           let toot = `${status} ${name} ${version}. Homepage: ${homepage}. Download: ${url}. SHA 256: ${sha256}`
           } else {
             const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
             let toot = `Updated ${numberOfFilesChanged} add-ons`
           }
-          console.log(`${toot}`)
+          console.log(toot)
           console.log(`${numberOfFilesChanged}`)
 
     - name: Push changes
