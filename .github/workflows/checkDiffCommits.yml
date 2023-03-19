@@ -76,17 +76,14 @@ jobs:
             const homepage = "${{ steps.getMetadata.outputs.homepage }}"
             const url = "${{ steps.getMetadata.outputs.URL }}"
             const sha = "${{ steps.getMetadata.outputs.sha256 }}"
-            let status = ""
-            if ("${{ steps.processDiff.outputs.filesChanged }}"[0].startsWith("0")) {
-              let status = "Removed"
-            }
-          let toot = `${status} ${name} ${version}. Homepage: ${homepage}. Download: ${url}. SHA 256: ${sha256}`
+            let toot = `$${name} ${version}. Homepage: ${homepage}. Download: ${url}. SHA 256: ${sha256}`
+
           } else {
             const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
             let toot = `Updated ${numberOfFilesChanged} add-ons`
           }
           console.log(toot)
-          console.log(`${numberOfFilesChanged}`)
+
 
     - name: Push changes
       run: |
