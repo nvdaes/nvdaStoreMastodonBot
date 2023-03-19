@@ -51,10 +51,15 @@ jobs:
           console.log(`${diff}`)
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length -1
+          core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           const filename = diff.split(/\t/)[2]
           core.setOutput('filename', filename)
           console.log(`${diff.split(/\t/)[2]} ${numberOfFilesChanged}`)
-
+    - name: Get metadata
+      id: getMetadata
+      uses: ActionsTools/read-json-action@main
+      with:
+        file_path: "datastore/views/en/latest/${{ steps.processDiff.outputs.filename }}"
     - name: Push changes
       run: |
         cd store
