@@ -48,7 +48,7 @@ jobs:
         script: |
           const diff = ${{ steps.diff.outputs.content }}
           const filesChanged = diff.split("\n")
-          console.log(`Files changed: ${filesChanged}``
+          
 
     - name: Push changes
       run: |
