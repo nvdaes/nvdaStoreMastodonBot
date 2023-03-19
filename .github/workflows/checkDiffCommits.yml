@@ -42,7 +42,7 @@ jobs:
       with:
         path: ./main/diff.txt
     - name: Process diff
-      if: ${{ steps.diff.outputs.content }} != ""
+      if: '${{ steps.diff.outputs.content }} != ""'
       uses: action/github-script@v6
       with:
         script: |
