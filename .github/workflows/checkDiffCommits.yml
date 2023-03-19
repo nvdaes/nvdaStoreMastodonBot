@@ -22,7 +22,7 @@ jobs:
     - name: Checkout store
       uses: actions/checkout@v3
       with:
-         repository: nvdaes/addon-datastore
+         repository: nvaccess/addon-datastore
          path: store
          fetch-depth: 0
     - name: Read previous sha
