@@ -56,6 +56,7 @@ jobs:
           const filename = diff.split(/\t/)[2]
           core.setOutput('filename', filename)
           console.log(`${diff.split(/\t/)[2]} ${numberOfFilesChanged}`)
+        result-encoding: string
     - name: Get metadata
       id: getMetadata
       if: '${{ steps.diff.outputs.content }} != "" && ${{ steps.processDiff.outputs.numberOfFilesChanged }} == 1'
