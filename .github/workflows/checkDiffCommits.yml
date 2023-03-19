@@ -76,7 +76,7 @@ jobs:
             const homepage = "${{ steps.getMetadata.outputs.homepage }}"
             const url = "${{ steps.getMetadata.outputs.URL }}"
             const sha = "${{ steps.getMetadata.outputs.sha256 }}"
-            let toot = `${name} ${version}. Homepage: ${homepage}. Download: ${url}. SHA 256: ${sha}`
+            let toot = `${name} ${version}.\nHomepage: ${homepage}.\nDownload: ${url}.\nSHA 256: ${sha}`
 
           } else {
             const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
