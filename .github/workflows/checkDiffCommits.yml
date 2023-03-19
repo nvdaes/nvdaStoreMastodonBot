@@ -79,7 +79,7 @@ jobs:
           
           }
           const name = "${{ steps.getMetadata.outputs.displayName }}"
-          toot += name
+          toot += `${name}`
           console.log(`${toot}`)
 
     - name: Push changes
