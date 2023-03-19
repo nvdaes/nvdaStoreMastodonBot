@@ -50,6 +50,7 @@ jobs:
           console.log(`${diff}`)
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length
+          console.log(`{diff.split("views/en/latest")[1]}`)
 
     - name: Push changes
       run: |
