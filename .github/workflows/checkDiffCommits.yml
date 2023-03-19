@@ -78,7 +78,7 @@ jobs:
            }
           
           }
-          const name = "${{ steps.getMetadata.outputs.name }}"
+          const name = "${{ steps.getMetadata.outputs.displayName }}"
           toot += name
           console.log(`${toot}`)
 
