@@ -71,14 +71,14 @@ jobs:
           let toot = ``
           if (${{ steps.processDiff.outputs.numberOfFilesChanged }} === 1) {
             const name = `${{ steps.getMetadata.outputs.displayName }}`
-            const version = `${{ steps.getMetadata.outputs.version }}`
+            const version = `${{ steps.getMetadata.outputs.versionName }}`
             const channel = `${{ steps.getMetadata.outputs.channel }}`
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL }}`
             const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            let status =``
+            let status = ``
             if ("${{ steps.processDiff.outputs.filesChanged }}"[0].startsWith("0")) {
-              let status = "Removed"
+              let status = `Removed`
             }
           let toot = `${status} ${name} ${version}.\nHomepage: ${homepage}.\nDownload: ${url}.\nSHA 256: ${sha256}`
           } else {
