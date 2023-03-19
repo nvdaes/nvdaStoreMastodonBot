@@ -59,7 +59,7 @@ jobs:
         result-encoding: string
     - name: Get metadata
       id: getMetadata
-      if: '${{ steps.diff.outputs.content }} != "" && ${{ steps.processDiff.outputs.numberOfFilesChanged }} == 1'
+      if: '${{ steps.processDiff.outputs.numberOfFilesChanged }} == 1'
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
