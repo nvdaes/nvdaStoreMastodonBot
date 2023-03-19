@@ -59,7 +59,7 @@ jobs:
       id: getMetadata
       uses: ActionsTools/read-json-action@main
       with:
-        file_path: "datastore/${{ steps.processDiff.outputs.filename }}"
+        file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Push changes
       run: |
         cd store
