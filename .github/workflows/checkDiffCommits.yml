@@ -54,9 +54,8 @@ jobs:
           if(numberOfFilesChanged > 1) {
             let toot = `$Updated {numberOfFilesChanged} add-ons`
           } else {
-            const file = filesChanged[0]
-            const filename = file.split("views/en/latest/")[1]
-            console.log(`${file}`)
+            const filename = diff.split("views/en/latest/")[1]
+            console.log(`${filename}`)
           }
                     
 
