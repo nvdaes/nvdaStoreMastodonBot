@@ -35,7 +35,7 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en > ../main/diff.txt
+        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
@@ -55,7 +55,7 @@ jobs:
             let toot = `$Updated {numberOfFilesChanged} add-ons`
           } else {
             const file = filesChanged[0]
-            const filename = file.split("\t")[2]
+            const filename = file.split("views/en/latest/")[1]
             console.log(`${filename}`)
           }
                     
