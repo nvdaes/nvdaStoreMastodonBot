@@ -56,7 +56,7 @@ jobs:
           } else {
             const file = filesChanged[0]
             const filename = file.split("views/en/latest/")[1]
-            console.log(`${filename}`)
+            console.log(`${file}`)
           }
                     
 
