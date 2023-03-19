@@ -68,7 +68,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          let toot = ``
+          var toot = ``
           if (${{ steps.processDiff.outputs.numberOfFilesChanged }} === 1) {
             const name = `${{ steps.getMetadata.outputs.displayName }}`
             const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
@@ -76,10 +76,10 @@ jobs:
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL }}`
             const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            let toot = `${name} ${version}. Homepage: ${homepage}. Download: ${url}. SHA 256: ${sha}`
+            var toot = `${name}`
           } else {
             const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
-            let toot = `Updated ${numberOfFilesChanged} add-ons`
+            var toot = `Updated ${numberOfFilesChanged} add-ons`
           }
           console.log(toot)
           core.setOutput('toot', toot) 
