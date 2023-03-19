@@ -49,6 +49,7 @@ jobs:
           const diff = `${{ steps.diff.outputs.content }}`
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length
+          console.log(`${numberOfFilesChanged}`)
                     
 
     - name: Push changes
