@@ -42,6 +42,7 @@ jobs:
       with:
         path: ./main/diff.txt
     - name: Process diff
+      id: processDiff
       if: '${{ steps.diff.outputs.content }} != ""'
       uses: actions/github-script@v6
       with:
@@ -50,6 +51,8 @@ jobs:
           console.log(`${diff}`)
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length -1
+          const filename = diff.split(/\t/)[2]
+          core.setOutput('filename', filename)
           console.log(`${diff.split(/\t/)[2]} ${numberOfFilesChanged}`)
 
     - name: Push changes
