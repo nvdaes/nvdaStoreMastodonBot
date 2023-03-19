@@ -36,7 +36,7 @@ jobs:
         cd store
         git checkout views
         git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en > ../main/diff.txt
-    - name: Read previous sha
+    - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
       with:
