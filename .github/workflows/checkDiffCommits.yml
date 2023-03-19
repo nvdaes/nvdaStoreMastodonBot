@@ -47,17 +47,9 @@ jobs:
       with:
         script: |
           const diff = `${{ steps.diff.outputs.content }}`
+          console.log(`${diff}`)
           const filesChanged = diff.split("\n")
           const numberOfFilesChanged = filesChanged.length
-          console.log(`${diff}`)
-          let toot = ""
-          if(numberOfFilesChanged > 1) {
-            let toot = `$Updated {numberOfFilesChanged} add-ons`
-          } else {
-            const filename = diff.split("views/en/latest/")[1]
-            console.log(`${diff}`)
-          }
-                    
 
     - name: Push changes
       run: |
