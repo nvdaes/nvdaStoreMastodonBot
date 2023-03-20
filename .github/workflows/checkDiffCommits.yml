@@ -92,6 +92,7 @@ jobs:
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
 
     - name: Push changes
+      if: ${{ steps.processDiff.outputs.numberOfFilesChanged }}
       run: |
         cd store
         git log -1 --pretty="format:%H" > ../main/sha.txt
