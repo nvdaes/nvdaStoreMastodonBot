@@ -1,4 +1,1 @@
-Read Feeds 17.0.0 {}
-Homepage: https://github.com/nvdaes/readFeeds
-Download: https://github.com/nvdaes/readFeeds/releases/download/17.0.0/readFeeds-17.0.0.nvda-addon
-SHA 256: be449a9ec6109065fec6b789748fda7f8d743fcbc1e31a5a451ffc6fd2388a84n#NVDA #boot
+
