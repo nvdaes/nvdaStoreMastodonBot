@@ -101,5 +101,5 @@ jobs:
           git config user.email github-actions@github.com
           git add .
         git commit -m "Update sha"
-        git push
+        git push --porcelain
 
