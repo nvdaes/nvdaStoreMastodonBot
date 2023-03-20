@@ -68,7 +68,7 @@ jobs:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
       id: buildToot
-      if: '${{ steps.diff.outputs.numberOfFilesChanged }} >= "\n"'
+      if: "${{ steps.diff.outputs.numberOfFilesChanged }} > 0"
       uses: actions/github-script@v6
       with:
         script: |
