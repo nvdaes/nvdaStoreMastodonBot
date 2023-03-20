@@ -109,6 +109,7 @@ jobs:
 
     - name: Send toot to Mastodon
       id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
