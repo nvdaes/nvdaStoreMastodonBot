@@ -43,7 +43,7 @@ jobs:
         path: ./main/diff.txt
     - name: Process diff
       id: processDiff
-      if: '${{ steps.diff.outputs.content }} != ""'
+      if: '${{ steps.diff.outputs.content }} != "\n"'
       uses: actions/github-script@v6
       with:
         script: |
@@ -53,24 +53,27 @@ jobs:
           core.setOutput('filesChanged', filesChanged)
           const numberOfFilesChanged = filesChanged.length -1
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
-          const filename = diff.split(/\t/)[2]
+          const filename = ""
+          if (numberOfFilesChanged === 1) {
+            const filename = diff.split(/\t/)[2]
+          }
           core.setOutput('filename', filename)
-          console.log(`${diff.split(/\t/)[2]} ${numberOfFilesChanged}`)
+          console.log(`${filename} ${numberOfFilesChanged}`)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
-      if: '${{ steps.processDiff.outputs.numberOfFilesChanged }} == 1'
+      if: '${{ steps.processDiff.outputs.filename }} != ""'
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
       id: buildToot
-      if: '${{ steps.diff.outputs.content }} != ""'
+      if: '${{ steps.diff.outputs.content }} != "\n"'
       uses: actions/github-script@v6
       with:
         script: |
           var toot = ``
-          if (${{ steps.processDiff.outputs.numberOfFilesChanged }} === 1) {
+          if (${{ steps.processDiff.filename}} !== "") {
             const name = `${{ steps.getMetadata.outputs.displayName }}`
             const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
             const channel = `${{ steps.getMetadata.outputs.channel }}`
