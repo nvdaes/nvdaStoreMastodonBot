@@ -91,6 +91,7 @@ jobs:
             } else {
               var toot = `Updated ${numberOfFilesChanged} add-ons`
             }
+            var toot += "\rn#NVDA #boot"
           }
           console.log(toot)
           core.setOutput('toot', toot) 
