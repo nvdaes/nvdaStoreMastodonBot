@@ -62,7 +62,7 @@ jobs:
         result-encoding: string
     - name: Get metadata
       id: getMetadata
-      if: '${{ steps.processDiff.outputs.filename }} != ""'
+      if: "${{ steps.processDiff.outputs.filename }} != ${{ '' }}"
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
