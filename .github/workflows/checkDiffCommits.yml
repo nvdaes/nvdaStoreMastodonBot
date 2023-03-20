@@ -68,22 +68,25 @@ jobs:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
       id: buildToot
-      if: "${{ steps.diff.outputs.numberOfFilesChanged }} > 0"
       uses: actions/github-script@v6
       with:
         script: |
           var toot = ``
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
-          if (numberOfFilesChanged === 1) {
-            const name = `${{ steps.getMetadata.outputs.displayName }}`
-            const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
-            const channel = `${{ steps.getMetadata.outputs.channel }}`
-            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
-            const url = `${{ steps.getMetadata.outputs.URL }}`
-            const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            var toot = `${name} ${version}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+          if (numberOfFilesChanged === 0) {
+            var toot = ""
           } else {
-            var toot = `Updated ${numberOfFilesChanged} add-ons`
+            if (numberOfFilesChanged === 1) {
+              const name = `${{ steps.getMetadata.outputs.displayName }}`
+              const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
+              const channel = `${{ steps.getMetadata.outputs.channel }}`
+              const homepage = `${{ steps.getMetadata.outputs.homepage }}`
+              const url = `${{ steps.getMetadata.outputs.URL }}`
+              const sha = `${{ steps.getMetadata.outputs.sha256 }}`
+              var toot = `${name} ${version}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+            } else {
+              var toot = `Updated ${numberOfFilesChanged} add-ons`
+            }
           }
           console.log(toot)
           core.setOutput('toot', toot) 
