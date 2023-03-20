@@ -73,7 +73,7 @@ jobs:
       with:
         script: |
           var toot = ``
-          if (${{ steps.processDiff.filename}} !== '') {
+          if (${{ steps.processDiff.outputs.numberOfFilesChanged}} === 1) {
             const name = `${{ steps.getMetadata.outputs.displayName }}`
             const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
             const channel = `${{ steps.getMetadata.outputs.channel }}`
