@@ -102,4 +102,4 @@ jobs:
           git add .
         git commit -m "Update sha"
         git push
-        exit 0
+
