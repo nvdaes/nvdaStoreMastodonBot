@@ -68,12 +68,13 @@ jobs:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
       id: buildToot
-      if: '${{ steps.diff.outputs.content }} != "\n"'
+      if: '${{ steps.diff.outputs.numberOfFilesChanged }} >= "\n"'
       uses: actions/github-script@v6
       with:
         script: |
           var toot = ``
-          if (${{ steps.processDiff.outputs.numberOfFilesChanged}} === 1) {
+          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
+          if (numberOfFilesChanged === 1) {
             const name = `${{ steps.getMetadata.outputs.displayName }}`
             const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
             const channel = `${{ steps.getMetadata.outputs.channel }}`
@@ -82,7 +83,6 @@ jobs:
             const sha = `${{ steps.getMetadata.outputs.sha256 }}`
             var toot = `${name} ${version}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
           } else {
-            const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
             var toot = `Updated ${numberOfFilesChanged} add-ons`
           }
           console.log(toot)
