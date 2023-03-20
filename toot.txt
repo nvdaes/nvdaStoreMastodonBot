@@ -1,4 +1,1 @@
-Character information 2.1
-Homepage: https://addons.nvda-project.org/addons/charInfo.en.html
-Download: https://github.com/CyrilleB79/charInfo/releases/download/V2.1/charInfo-2.1.nvda-addon
-SHA 256: 54f2c59b4675dd7860c44d7a149869be2992e61215906193567a9d058fdd46f8
+
