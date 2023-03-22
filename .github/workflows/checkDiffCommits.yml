@@ -2,6 +2,8 @@ name: Check files changed and send toot
 
 on:
   workflow_dispatch:
+  
+  workflow_call:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
@@ -14,6 +16,8 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    outputs:
+      toot: ${{ steps.buildToot.outputs.toot }}
 
     steps:
 
@@ -75,7 +79,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          var toot = ``
+          var toot
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
           if (numberOfFilesChanged === 0) {
             var toot = ""
