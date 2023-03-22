@@ -116,16 +116,16 @@ jobs:
         git push
         fi
 
-    # - name: Send toot to Mastodon
-      # id: mastodon
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: cbrgm/mastodon-github-action@v1
-      # with:
-        # message: ${{ steps.buildToot.outputs.toot }}
-        # visibility: "public" # default: public
-      # env:
-        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
     - name: Send mail to spanish list
       uses: dawidd6/action-send-mail@v3
       with:
