@@ -129,7 +129,8 @@ jobs:
     - name: Send mail to spanish list
       uses: dawidd6/action-send-mail@v3
       with:
-        smtp-server: smtp.outlook.com
+        smtp-server: smtp-mail.outlook.com
+        server_port: 587
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         Subject: Complemento ${{ steps.getMetadata.outputs.displayName }} ${{ steps.getMetadata.outputs.addonVersionName }} ${{ steps.getMetadata.outputs.channel }} #Bot
