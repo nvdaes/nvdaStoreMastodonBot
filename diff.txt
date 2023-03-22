@@ -1,0 +1,11 @@
+1	1	views/en/latest/addonshelp/stable.json
+1	1	views/en/latest/audiochart/stable.json
+1	1	views/en/latest/beepkeyboard/stable.json
+1	1	views/en/latest/consoletoolkit/stable.json
+1	1	views/en/latest/directlink/stable.json
+1	1	views/en/latest/killnvda/stable.json
+1	1	views/en/latest/quickdictionary/stable.json
+1	1	views/en/latest/searchwith/stable.json
+1	1	views/en/latest/speechLogger/stable.json
+1	1	views/en/latest/winwizard/stable.json
+1	1	views/en/latest/wordnav/stable.json
