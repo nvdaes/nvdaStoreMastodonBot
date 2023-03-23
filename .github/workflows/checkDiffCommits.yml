@@ -126,17 +126,3 @@ jobs:
       env:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
-    - name: Send mail to spanish list
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp-mail.outlook.com
-        server_port: 587
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        Subject: Complemento ${{ steps.getMetadata.outputs.displayName }} ${{ steps.getMetadata.outputs.addonVersionName }} ${{ steps.getMetadata.outputs.channel }} #Bot
-        to: lista@nvdaes.groups.io
-        from: GitHub Actions
-        body: |
-         Info: ${{ steps.getMetadata.outputs.homepage }}
-         Descarga: ${{ steps.getMetadata.outputs.URL }}
-         SHA-256: ${{ steps.getMetadata.outputs.sha256 }}
