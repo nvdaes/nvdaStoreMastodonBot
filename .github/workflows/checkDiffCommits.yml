@@ -80,9 +80,13 @@ jobs:
       with:
         script: |
           var toot
+          var mailSubject
+          var mailBody
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
           if (numberOfFilesChanged === 0) {
             var toot = ""
+            var mailSubject = ""
+            var mailBody = ""
           } else {
             if (numberOfFilesChanged === 1) {
               const name = `${{ steps.getMetadata.outputs.displayName }}`
@@ -92,6 +96,8 @@ jobs:
               const url = `${{ steps.getMetadata.outputs.URL }}`
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
               var toot = `${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+              var mailSubject = `${name} ${version} ${channel}`
+              var mailBody = `Página de inicio: ${homepage}\nDescarga: ${url}\nSHA 256: ${sha}`
             } else {
               var toot = `Updated ${numberOfFilesChanged} add-ons`
             }
@@ -99,6 +105,8 @@ jobs:
           }
           console.log(toot)
           core.setOutput('toot', toot) 
+          core.setOutput('mailSubject', mailSubject)
+          core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Write toot
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
@@ -127,15 +135,14 @@ jobs:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
     - name: Send mail
+      if: ${{ steps.buildToot.outputs.mailSubject }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: Prueba con GitHub Actions
+        subject: Complemento ${{ steps.buildToot.outputs.mailSubject }} #bot
         to: lista@nvdaes.groups.io
-        from: GitHub Actions
-        body: |
-          Hola
-          Gracias por la paciencia con estas pruebas
+        from: Noelia Ruiz
+        body: ${{ steps.buildToot.outputs.mailBody }}
