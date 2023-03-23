@@ -126,3 +126,16 @@ jobs:
       env:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send mail
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: Prueba con GitHub Actions
+        to: lista@nvdaes.groups.io
+        from: GitHub Actions
+        body: |
+          Hola
+          Gracias por la paciencia con estas pruebas
