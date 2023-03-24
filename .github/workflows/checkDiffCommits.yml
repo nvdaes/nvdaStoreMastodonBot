@@ -66,7 +66,7 @@ jobs:
           var display
           var status
           for (file of filesChanged) {
-            var status = file.startWith('0') ? 'removed' : 'updated'
+            var status = file.startsWith('0') ? 'removed' : 'updated'
             display += `${status} ${file.split('/')[-2]} ${file.split('/')[-1].slice(0, -6)}`
           }
           console.log(display)
