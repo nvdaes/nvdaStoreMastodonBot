@@ -102,8 +102,7 @@ jobs:
               const homepage = `${{ steps.getMetadata.outputs.homepage }}`
               const url = `${{ steps.getMetadata.outputs.URL }}`
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-              const status = ${{ steps.processDiff.outputs.status }}
-              var toot = `${status} ${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+              var toot = `${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
             } else {
               var toot = ${{ steps.processDiff.outputs.display }}
             }
