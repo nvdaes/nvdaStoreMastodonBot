@@ -106,8 +106,8 @@ jobs:
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
               var toot = `hello`
             } else {
-              var toot = ${{ steps.processDiff.display }}
-          }
+              var toot = ${{ steps.processDiff.outputs.display }}
+            }
             toot += "\n#NVDA #bot"
           }
           console.log(toot)
