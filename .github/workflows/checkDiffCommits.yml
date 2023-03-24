@@ -96,8 +96,6 @@ jobs:
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
           if (numberOfFilesChanged === 0) {
             var toot = ""
-            var mailSubject = ""
-            var mailBody = ""
           } else {
             if (numberOfFilesChanged === 1) {
               const name = `${{ steps.getMetadata.outputs.displayName }}`
@@ -108,19 +106,13 @@ jobs:
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
               const status = ${{ steps.processDiff.outputs.status }}
               var toot = `${status} ${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
-              var mailSubject = `${status} ${name} ${version} ${channel}`
-              var mailBody = `Página de inicio: ${homepage}\nDescarga: ${url}\nSHA 256: ${sha}`
             } else {
               var toot = ${{ steps.processDiff.outputs.display }}
-              var mailSubject = Actualización de complementos
-              var mailBody = ${{ steps.processDiff.outputs.display }}
             }
             toot += "\n#NVDA #bot"
           }
           console.log(toot)
           core.setOutput('toot', toot) 
-          core.setOutput('mailSubject', mailSubject)
-          core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Write toot
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
