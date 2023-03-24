@@ -1,3 +1,3 @@
 module.exports = ({context}) => {
-    console.log(context.job.outputs.diff)
+    console.log(`${context.job.outputs.diff}`)
 }
