@@ -72,9 +72,9 @@ jobs:
             var statusEs = file.startsWith('0') ? 'Eliminado' : 'Actualizado'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
-            let jsonFileEs = file.split('/')[4]
-            if (jsonFileEs.startsWith('stable')) {
-              let jsonFileEs = `estable.json`
+            var jsonFileEs = jsonFile
+            if (jsonFile.startsWith('stable')) {
+              var jsonFileEs = `estable.json`
             }
             if (id === undefined) {
               continue
