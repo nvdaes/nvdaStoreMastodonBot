@@ -148,7 +148,6 @@ jobs:
           var mailBody = ``
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
           if (numberOfFilesChanged === 0) {
-            core.setOutput('mailBody', mailBody)
             return
           }
           var mailBody = `${{ steps.processDiff.outputs.displayEs }}`
@@ -161,7 +160,7 @@ jobs:
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Send mail
-      if: '${{ steps.buildMail.outputs.mailBody }} != `` '
+      if: ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
