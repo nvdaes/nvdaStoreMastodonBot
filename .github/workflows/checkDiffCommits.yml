@@ -65,10 +65,8 @@ jobs:
           console.log(`${numberOfFilesChanged} ${diff}`)
           var display = ``
           var status
+          var fileToDisplay = ''
           for (file of filesChanged) {
-            if (file === undefined) {
-              break
-            }
             var status = file.startsWith('0') ? 'removed' : 'updated'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
