@@ -52,7 +52,7 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const diff = `$${{ steps.diff.outputs.content }}.trim()}`
+          const diff = `${{ steps.diff.outputs.content }}.trim()}`
           const filesChanged = diff.split('\n')
           numberOfFilesChanged = filesChanged.length
           var filename
