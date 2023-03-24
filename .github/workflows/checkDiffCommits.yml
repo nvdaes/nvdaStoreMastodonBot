@@ -55,11 +55,21 @@ jobs:
           const diff = `${{ steps.diff.outputs.content }}`
           const filesChanged = diff.split('\n')
           numberOfFilesChanged = filesChanged.length -1
+          core.setOutput('filesChanged', filesChanged)
+          core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           var filename
           if (filesChanged === 1) {
             var filename = diff.split(/\t/)[-1]
           }
+          core.setOutput('filename', filename)
           console.log(`${numberOfFilesChanged} ${diff}`)
+          var display
+          var status
+          for (file of filesChanged) {
+            var status = file.startWith('0') ? 'removed' : 'updated'
+            display += `${status} ${file.split('/')[-2]} ${file.split('/')[-1].slice(0, -6)}`
+          }
+          console.log(display)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
@@ -68,7 +78,7 @@ jobs:
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
-      if: ${{ steps.diff.outputs.content }}
+      if: '${{ steps.diff.outputs.content }} != "\n"'
       id: buildToot
       uses: actions/github-script@v6
       with:
