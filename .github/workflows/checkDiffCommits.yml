@@ -64,14 +64,15 @@ jobs:
           core.setOutput('filename', filename)
           console.log(`${numberOfFilesChanged} ${diff}`)
           var display = ``
-          var status
-          var fileToDisplay = ''
           for (file of filesChanged) {
-            var status = file.startsWith('0') ? 'removed' : 'updated'
+            let status = file.startsWith('0') ? 'removed' : 'updated'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
-            var fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
+            let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
             display += fileToDisplay
+            if (id === undefined) {
+              break
+            }
           }
           console.log(display)
         result-encoding: string
