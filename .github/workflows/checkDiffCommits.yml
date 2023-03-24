@@ -108,7 +108,6 @@ jobs:
             } else {
               var toot = ${{ steps.processDiff.outputs.display }}
             }
-            toot += "\n#NVDA #bot"
           }
           console.log(toot)
           core.setOutput('toot', toot) 
