@@ -97,16 +97,16 @@ jobs:
             var toot = ""
           } else {
             if (numberOfFilesChanged === 1) {
-              const status = '${{ steps.processDiff.outputs.status }}'
+              const status = `${{ steps.processDiff.outputs.status }}`
               const name = `${{ steps.getMetadata.outputs.displayName }}`
               const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
               const channel = `${{ steps.getMetadata.outputs.channel }}`
               const homepage = `${{ steps.getMetadata.outputs.homepage }}`
               const url = `${{ steps.getMetadata.outputs.URL }}`
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-              var toot = `${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+              var toot = `hello`
             } else {
-              var toot = ${ steps.processDiff.display }
+              var toot = ${{ steps.processDiff.display }}
           }
             toot += "\n#NVDA #bot"
           }
