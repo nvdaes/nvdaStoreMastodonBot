@@ -16,8 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+
     outputs:
-      toot: ${{ steps.buildToot.outputs.toot }}
+      diff: ${{steps.diff.outputs.content}}
 
     steps:
 
@@ -51,22 +52,12 @@ jobs:
         path: ./main/diff.txt
     - name: Process diff
       id: processDiff
-      if: '${{ steps.diff.outputs.content }} != "\n"'
+      if: ${{ steps.diff.outputs.content }}
       uses: actions/github-script@v6
       with:
         script: |
-          const diff = `${{ steps.diff.outputs.content }}`
-          console.log(`${diff}`)
-          const filesChanged = diff.split("\n")
-          core.setOutput('filesChanged', filesChanged)
-          const numberOfFilesChanged = filesChanged.length -1
-          core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
-          var filename = ''
-          if (numberOfFilesChanged === 1) {
-            var filename = diff.split(/\t/)[2]
-          }
-          core.setOutput('filename', filename)
-          console.log(`${filename} ${numberOfFilesChanged}`)
+          const setOutputs = require('./main/.github/workflows/setOutputs.js')
+          setOutputs({core, ${{ steps.diff.outputs.content }}})
         result-encoding: string
     - name: Get metadata
       id: getMetadata
@@ -75,6 +66,7 @@ jobs:
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
+      if: ${{ steps.diff.outputs.content }}
       id: buildToot
       uses: actions/github-script@v6
       with:
@@ -95,11 +87,13 @@ jobs:
               const homepage = `${{ steps.getMetadata.outputs.homepage }}`
               const url = `${{ steps.getMetadata.outputs.URL }}`
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-              var toot = `${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
-              var mailSubject = `${name} ${version} ${channel}`
+              const status = ${{ steps.processDiff.outputs.status }}
+              var toot = `${status} ${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
+              var mailSubject = `${status} ${name} ${version} ${channel}`
               var mailBody = `Página de inicio: ${homepage}\nDescarga: ${url}\nSHA 256: ${sha}`
             } else {
-              var toot = `Updated ${numberOfFilesChanged} add-ons`
+              var toot = ${{ steps.processDiff.outputs.display }}
+              var mailBody = ${{ steps.processDiff.outputs.display }}
             }
             toot += "\n#NVDA #bot"
           }
@@ -124,16 +118,16 @@ jobs:
         git push
         fi
 
-    - name: Send toot to Mastodon
-      id: mastodon
-      if: ${{ steps.buildToot.outputs.toot }}
-      uses: cbrgm/mastodon-github-action@v1
-      with:
-        message: ${{ steps.buildToot.outputs.toot }}
-        visibility: "public" # default: public
-      env:
-        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    # - name: Send toot to Mastodon
+      # id: mastodon
+      # if: ${{ steps.buildToot.outputs.toot }}
+      # uses: cbrgm/mastodon-github-action@v1
+      # with:
+        # message: ${{ steps.buildToot.outputs.toot }}
+        # visibility: "public" # default: public
+      # env:
+        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
     - name: Send mail
       if: ${{ steps.buildToot.outputs.mailSubject }}
       uses: dawidd6/action-send-mail@v3
