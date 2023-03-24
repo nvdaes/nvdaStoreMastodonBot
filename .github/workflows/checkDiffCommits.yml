@@ -124,25 +124,24 @@ jobs:
         git push
         fi
 
-    # - name: Send toot to Mastodon
-      # id: mastodon
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: cbrgm/mastodon-github-action@v1
-      # with:
-        # message: ${{ steps.buildToot.outputs.toot }}
-        # visibility: "public" # default: public
-      # env:
-        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
     - name: Send mail
-      if: ${{ steps.buildToot.outputs.mailSubject }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: Complemento ${{ steps.buildToot.outputs.mailSubject }} #bot
+        subject: Complementos #bot
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
-        body: ${{ steps.buildToot.outputs.mailBody }}
+        body: ${{ steps.buildToot.outputs.toot }}
