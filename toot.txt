@@ -1,1 +1,4 @@
-
+Updated objPad stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/josephsl/objPad/releases/download/23.04/objPad-23.04.nvda-addon
+#NVDA #bot
