@@ -106,7 +106,7 @@ jobs:
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
               var toot = `hello`
             } else {
-              var toot = ${{ steps.processDiff.outputs.display }}
+              var toot = `${{ steps.processDiff.outputs.display }}``
             }
           }
           console.log(toot)
