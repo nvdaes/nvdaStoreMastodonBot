@@ -58,7 +58,8 @@ jobs:
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           var filename
           if (filesChanged === 1) {
-            var filename = diff.split(/\t/)[2]
+            let file = filesChanged[0]
+            var filename = file.split(/\t/)[2]
           }
           core.setOutput('filename', filename)
           console.log(`${numberOfFilesChanged} ${diff}`)
