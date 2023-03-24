@@ -94,10 +94,10 @@ jobs:
           var toot = ``
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
           if (numberOfFilesChanged === 0) {
-            core.setOutput('toot, toot)
+            core.setOutput('toot', toot)
             return
           }
-          var toot = `hello`
+          var toot = `${{ steps.diffs.outputs.display }}`
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
