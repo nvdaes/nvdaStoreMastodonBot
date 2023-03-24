@@ -96,6 +96,7 @@ jobs:
             var toot = ""
           } else {
             if (numberOfFilesChanged === 1) {
+              const status = '${{ steps.processDiff.outputs.status }}'
               const name = `${{ steps.getMetadata.outputs.displayName }}`
               const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
               const channel = `${{ steps.getMetadata.outputs.channel }}`
