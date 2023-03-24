@@ -52,10 +52,14 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          # const diff = `${{ steps.diff.outputs.content }}`
-          # console.log(diff)
-          const setOutputs = require('./main/.github/workflows/setOutputs.js')
-          setOutputs({context})
+          const diff = `${{ steps.diff.outputs.content }}.trim()`
+          const filesChanged = diff.split('\n')
+          numberOfFilesChanged = filesChanged.length
+          var filename
+          if (filesChanged === 1) {
+            var filename = diff.split(/\t/)[-1]
+          }
+          console.log(`${numberOfFilesChanged} ${diff}`)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
