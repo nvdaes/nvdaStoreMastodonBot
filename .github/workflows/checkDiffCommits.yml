@@ -57,7 +57,7 @@ jobs:
       with:
         script: |
           const setOutputs = require('./main/.github/workflows/setOutputs.js')
-          setOutputs({core, ${{ steps.diff.outputs.content }}})
+          setOutputs({context})
         result-encoding: string
     - name: Get metadata
       id: getMetadata
