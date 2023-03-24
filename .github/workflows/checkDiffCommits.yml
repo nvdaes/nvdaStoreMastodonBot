@@ -67,8 +67,8 @@ jobs:
           var status
           for (file of filesChanged) {
             var status = file.startsWith('0') ? 'removed' : 'updated'
-            let id = file.split('/')[-2]
-            let jsonFile = file.split('/')[-1]
+            let id = file.split('/')[3]
+            let jsonFile = file.split('/')[4]
             let fileToDisplay = `${status} ${id} ${jsonFile}`
             display += fileToDisplay
           }
