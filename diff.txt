@@ -1,0 +1,2 @@
+1	1	views/en/latest/enhancedTouchGestures/stable.json
+1	1	views/en/latest/goldwave/stable.json
