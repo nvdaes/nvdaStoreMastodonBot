@@ -63,11 +63,15 @@ jobs:
           }
           core.setOutput('filename', filename)
           console.log(`${numberOfFilesChanged} ${diff}`)
-          var display
+          var display = ``
           var status
           for (file of filesChanged) {
             var status = file.startsWith('0') ? 'removed' : 'updated'
-            display += `${status} ${file.split('/')[-2]} ${file.split('/')[-1]}`
+            let id = file.split('/')[-2]
+            let jsonFile = file.split('/')[-1]
+            let version = jsonFile.slice(0, -6)
+            let fileToDisplay = `${status} ${id} ${version}`
+            display += fileToDisplay
           }
           console.log(display)
         result-encoding: string
