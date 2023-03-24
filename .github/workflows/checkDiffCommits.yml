@@ -57,7 +57,7 @@ jobs:
           numberOfFilesChanged = filesChanged.length -1
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           var filename
-          if (filesChanged === 1) {
+          if (numberOfFilesChanged === 1) {
             let file = filesChanged[0]
             var filename = file.split(/\t/)[2]
           }
