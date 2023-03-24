@@ -85,7 +85,7 @@ jobs:
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
-    - name: Build toot and mail
+    - name: Build toot
       if: '${{ steps.diff.outputs.content }} != "\n"'
       id: buildToot
       uses: actions/github-script@v6
@@ -98,6 +98,13 @@ jobs:
             return
           }
           var toot = `${{ steps.processDiff.outputs.display }}`
+          if (numberOfFilesChanged === 1) {
+            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
+            const url = `${{ steps.getMetadata.outputs.URL}}`
+            toot+=`${homepage}\n`
+            toot+=`${url}\n`
+          }
+          toot += '#NVDA #bot'
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
