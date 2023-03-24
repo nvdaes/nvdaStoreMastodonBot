@@ -1,4 +1,1 @@
-Updated outlookextended stable
-Homepage: https://github.com/CyrilleB79/outlookExtended
-Download: https://github.com/CyrilleB79/outlookExtended/releases/download/V2.0/outlookExtended-2.0.nvda-addon
-#NVDA #bot
+
