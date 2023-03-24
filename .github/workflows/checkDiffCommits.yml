@@ -54,7 +54,7 @@ jobs:
         script: |
           const diff = `${{ steps.diff.outputs.content }}`
           const filesChanged = diff.split('\n')
-          numberOfFilesChanged = filesChanged.length -1
+          const numberOfFilesChanged = filesChanged.length -1
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           var filename
           if (numberOfFilesChanged === 1) {
