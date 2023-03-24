@@ -1,4 +1,4 @@
-Updated objPad stable
+Updated stationPlaylist stable
 Homepage: https://addons.nvda-project.org/
-Download: https://github.com/josephsl/objPad/releases/download/23.04/objPad-23.04.nvda-addon
+Download: https://github.com/josephsl/stationPlaylist/releases/download/23.04/stationPlaylist-23.04.nvda-addon
 #NVDA #bot
