@@ -64,20 +64,31 @@ jobs:
           core.setOutput('filename', filename)
           console.log(`${numberOfFilesChanged} ${diff}`)
           var display = ``
+          var displayEs = ``
           var status = ''
+          var statusEs = ''
           for (file of filesChanged) {
             var status = file.startsWith('0') ? 'Removed' : 'Updated'
+            var statusEs = file.startsWith('0') ? 'Eliminado' : 'Actualizado'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
+            let jsonFileEs = file.split('/')[4]
+            if (jsonFileEs.startsWith('stable')) {
+              let jsonFileEs = `estable.json`
+            }
             if (id === undefined) {
               continue
             }
             let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
+            let fileToDisplayEs = `${statusEs} ${id} ${jsonFileEs}`.slice(0, -5) + '\n'
             display += fileToDisplay
+            displayEs += fileToDisplayEs
           }
           console.log(display)
           core.setOutput('display', display)
+          core.setOutput('displayEs', displayEs)
           core.setOutput('status', status)
+          core.setOutput('statusEs', statusEs)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
@@ -101,8 +112,8 @@ jobs:
           if (numberOfFilesChanged === 1) {
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL}}`
-            toot+=`${homepage}\n`
-            toot+=`${url}\n`
+            toot += `Homepage: ${homepage}\n`
+            toot += `Download: ${url}\n`
           }
           toot += '#NVDA #bot'
           console.log(toot)
@@ -110,7 +121,6 @@ jobs:
         result-encoding: string
     - name: Write toot
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
-
     - name: Push changes
       run: |
         cd store
@@ -124,17 +134,38 @@ jobs:
         git push
         fi
 
-    - name: Send toot to Mastodon
-      id: mastodon
-      if: ${{ steps.buildToot.outputs.toot }}
-      uses: cbrgm/mastodon-github-action@v1
+    # - name: Send toot to Mastodon
+      # id: mastodon
+      # if: ${{ steps.buildToot.outputs.toot }}
+      # uses: cbrgm/mastodon-github-action@v1
+      # with:
+        # message: ${{ steps.buildToot.outputs.toot }}
+        # visibility: "public" # default: public
+      # env:
+        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Build mail
+      id: buildMail
+      uses: actions/github-script@v6
       with:
-        message: ${{ steps.buildToot.outputs.toot }}
-        visibility: "public" # default: public
-      env:
-        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+        script: |
+          var mailBody = ``
+          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
+          if (numberOfFilesChanged === 0) {
+            core.setOutput('mailBody', mailBody)
+            return
+          }
+          var mailBody = `${{ steps.processDiff.outputs.displayEs }}`
+          if (numberOfFilesChanged === 1) {
+            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
+            const url = `${{ steps.getMetadata.outputs.URL}}`
+            mailBody += `Página de inicio: ${homepage}\n`
+            mailBody += `Descarga: ${url}\n`
+          }
+          core.setOutput('mailBody', mailBody) 
+        result-encoding: string
     - name: Send mail
+      if: ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
@@ -144,4 +175,4 @@ jobs:
         subject: Complementos #bot
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
-        body: ${{ steps.buildToot.outputs.toot }}
+        body: ${{steps.buildMail.outputs.mailBody }}
