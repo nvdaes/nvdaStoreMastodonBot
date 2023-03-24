@@ -68,11 +68,10 @@ jobs:
             let status = file.startsWith('0') ? 'removed' : 'updated'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
-            let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
-            display += fileToDisplay
             if (id === undefined) {
               break
             }
+            let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
           }
           console.log(display)
         result-encoding: string
