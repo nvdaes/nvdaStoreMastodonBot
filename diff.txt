@@ -1,4 +1,0 @@
-1	1	views/en/latest/addonUpdater/stable.json
-1	0	views/en/latest/instantTranslate/stable.json
-1	1	views/en/latest/nvdaRd/beta.json
-1	1	views/en/latest/searchwith/stable.json
