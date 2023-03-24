@@ -72,12 +72,11 @@ jobs:
             var statusEs = file.startsWith('0') ? 'Eliminado' : 'Actualizado'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
-            let jsonFileEs = jsonFile.replace('stable', 'estable')
             if (id === undefined) {
               continue
             }
             let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
-            let fileToDisplayEs = `${statusEs} ${id} ${jsonFileEs}`.slice(0, -5) + '\n'
+            let fileToDisplayEs = `${statusEs} ${id} ${jsonFileEs}`.slice(0, -5) + '\n'.replace('stable', 'estable')
             display += fileToDisplay
             displayEs += fileToDisplayEs
           }
