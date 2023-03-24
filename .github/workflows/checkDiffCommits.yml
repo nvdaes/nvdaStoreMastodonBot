@@ -52,9 +52,9 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const diff = `${{ steps.diff.outputs.content }}.trim()}`
+          const diff = `${{ steps.diff.outputs.content }}`
           const filesChanged = diff.split('\n')
-          numberOfFilesChanged = filesChanged.length
+          numberOfFilesChanged = filesChanged.length -1
           var filename
           if (filesChanged === 1) {
             var filename = diff.split(/\t/)[-1]
