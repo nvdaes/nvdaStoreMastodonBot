@@ -76,7 +76,7 @@ jobs:
               continue
             }
             let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
-            let fileToDisplayEs = `${statusEs} ${id} ${jsonFileEs}`.slice(0, -5) + '\n'.replace('stable', 'estable')
+            let fileToDisplayEs = `${statusEs} ${id} ${jsonFile}`.slice(0, -5) + '\n'.replace('stable', 'estable')
             display += fileToDisplay
             displayEs += fileToDisplayEs
           }
