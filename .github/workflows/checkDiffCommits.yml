@@ -55,7 +55,6 @@ jobs:
           const diff = `${{ steps.diff.outputs.content }}`
           const filesChanged = diff.split('\n')
           numberOfFilesChanged = filesChanged.length -1
-          core.setOutput('filesChanged', filesChanged)
           core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
           var filename
           if (filesChanged === 1) {
@@ -75,6 +74,8 @@ jobs:
             display += fileToDisplay
           }
           console.log(display)
+          core.setOutput('display', display)
+          core.setOutput('status', status)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
@@ -82,7 +83,7 @@ jobs:
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
-    - name: Build toot
+    - name: Build toot and mail
       if: '${{ steps.diff.outputs.content }} != "\n"'
       id: buildToot
       uses: actions/github-script@v6
@@ -110,6 +111,7 @@ jobs:
               var mailBody = `Página de inicio: ${homepage}\nDescarga: ${url}\nSHA 256: ${sha}`
             } else {
               var toot = ${{ steps.processDiff.outputs.display }}
+              var mailSubject = Actualización de complementos
               var mailBody = ${{ steps.processDiff.outputs.display }}
             }
             toot += "\n#NVDA #bot"
