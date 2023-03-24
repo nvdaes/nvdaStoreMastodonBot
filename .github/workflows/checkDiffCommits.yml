@@ -52,7 +52,6 @@ jobs:
         path: ./main/diff.txt
     - name: Process diff
       id: processDiff
-      if: ${{ steps.diff.outputs.content }}
       uses: actions/github-script@v6
       with:
         script: |
