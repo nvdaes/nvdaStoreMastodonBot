@@ -69,7 +69,7 @@ jobs:
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
             if (id === undefined) {
-              break
+              continue
             }
             let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
           }
