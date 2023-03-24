@@ -97,7 +97,7 @@ jobs:
             core.setOutput('toot, toot)
             return
           }
-          var toot = `${{ steps.processDiff.outputs.display }}`
+          var toot = `hello`
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
