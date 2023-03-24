@@ -52,8 +52,10 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const diff = `${{ steps.diff.outputs.content }}`
-          console.log(diff)
+          # const diff = `${{ steps.diff.outputs.content }}`
+          # console.log(diff)
+          const setOutputs = require('./main/.github/workflows/setOutputs.js')
+          setOutputs({context})
         result-encoding: string
     - name: Get metadata
       id: getMetadata
