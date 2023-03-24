@@ -17,9 +17,6 @@ jobs:
     permissions:
       contents: write
 
-    outputs:
-      diff: ${{steps.diff.outputs.content}}
-
     steps:
 
     - name: Checkout current
@@ -55,8 +52,8 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          const setOutputs = require('./main/.github/workflows/setOutputs.js')
-          setOutputs({context})
+          const diff = '${{ steps.diff.outputs.content }}'
+          console.log(`${diff}`)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
