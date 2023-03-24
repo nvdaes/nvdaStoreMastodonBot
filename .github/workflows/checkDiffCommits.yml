@@ -53,7 +53,7 @@ jobs:
       with:
         script: |
           const diff = '${{ steps.diff.outputs.content }}'
-          console.log(`${diff}`)
+          console.log(diff)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
