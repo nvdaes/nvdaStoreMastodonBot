@@ -91,24 +91,13 @@ jobs:
       uses: actions/github-script@v6
       with:
         script: |
-          var toot
+          var toot = ``
           const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
           if (numberOfFilesChanged === 0) {
-            var toot = ""
-          } else {
-            if (numberOfFilesChanged === 1) {
-              const status = `${{ steps.processDiff.outputs.status }}`
-              const name = `${{ steps.getMetadata.outputs.displayName }}`
-              const version = `${{ steps.getMetadata.outputs.addonVersionName }}`
-              const channel = `${{ steps.getMetadata.outputs.channel }}`
-              const homepage = `${{ steps.getMetadata.outputs.homepage }}`
-              const url = `${{ steps.getMetadata.outputs.URL }}`
-              const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-              var toot = `hello`
-            } else {
-              var toot = `${{ steps.processDiff.outputs.display }}``
-            }
+            core.setOutput('toot, toot)
+            return
           }
+          var toot = `${{ steps.processDiff.outputs.display }}``
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
