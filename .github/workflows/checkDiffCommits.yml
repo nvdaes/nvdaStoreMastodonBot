@@ -91,7 +91,7 @@ jobs:
       with:
         script: |
           var toot
-          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged}}
+          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
           if (numberOfFilesChanged === 0) {
             var toot = ""
           } else {
@@ -103,9 +103,7 @@ jobs:
               const url = `${{ steps.getMetadata.outputs.URL }}`
               const sha = `${{ steps.getMetadata.outputs.sha256 }}`
               var toot = `${name} ${version} ${channel}\nHomepage: ${homepage}\nDownload: ${url}\nSHA 256: ${sha}`
-            } else {
-              var toot = ${{ steps.processDiff.outputs.display }}
-            }
+            } 
             toot += "\n#NVDA #bot"
           }
           console.log(toot)
