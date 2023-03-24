@@ -70,7 +70,7 @@ jobs:
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
             let channel = jsonFile.slice(0, -6)
-            let fileToDisplay = `${status} ${id} ${Channel}`
+            let fileToDisplay = `${status} ${id} ${channel}`
             display += fileToDisplay
           }
           console.log(display)
