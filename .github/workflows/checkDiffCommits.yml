@@ -72,6 +72,7 @@ jobs:
               continue
             }
             let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
+            display += fileToDisplay
           }
           console.log(display)
         result-encoding: string
