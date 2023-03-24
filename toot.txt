@@ -1,4 +1,1 @@
-Updated stationPlaylist stable
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/josephsl/stationPlaylist/releases/download/23.04/stationPlaylist-23.04.nvda-addon
-#NVDA #bot
+
