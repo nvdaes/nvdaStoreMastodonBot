@@ -69,7 +69,8 @@ jobs:
             var status = file.startsWith('0') ? 'removed' : 'updated'
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
-            let fileToDisplay = `${status} ${id} ${jsonFile}`
+            let channel = jsonFile.split('.')[0]
+            let fileToDisplay = `${status} ${id} ${channel}`
             display += fileToDisplay
           }
           console.log(display)
