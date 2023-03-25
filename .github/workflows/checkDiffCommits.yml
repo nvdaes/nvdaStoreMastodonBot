@@ -165,8 +165,9 @@ jobs:
             mailBody += `Código fuente: ${sourceURL}\n`
             mailBody += `SHA256: ${sha}\n`
           }
-          const prevSha = $ {{ steps.prevSha.outputs.content }}
+          const prevSha = `$ {{ steps.prevSha.outputs.content }}`
           mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${prevSha}`
+          console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Send mail
