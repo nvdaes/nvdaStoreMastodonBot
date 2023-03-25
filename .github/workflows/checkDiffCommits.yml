@@ -108,8 +108,10 @@ jobs:
           if (numberOfFilesChanged === 1) {
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL}}`
+            const sha = `${{ steps.getMetadata.outputs.sha256 }}`
             toot += `Homepage: ${homepage}\n`
             toot += `Download: ${url}\n`
+            toot += `SHA256: ${sha}\n`
           }
           toot += '#NVDA #bot'
           console.log(toot)
@@ -140,6 +142,11 @@ jobs:
       env:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Read current sha
+      id: curSha
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./main/sha.txt
     - name: Build mail
       id: buildMail
       uses: actions/github-script@v6
@@ -165,8 +172,8 @@ jobs:
             mailBody += `Código fuente: ${sourceURL}\n`
             mailBody += `SHA256: ${sha}\n`
           }
-          const prevSha = `${{ steps.prevSha.outputs.content }}`
-          mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${prevSha}`
+          const curSha = `${{ steps.curSha.outputs.content }}`
+          mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${curSha}`
           console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
