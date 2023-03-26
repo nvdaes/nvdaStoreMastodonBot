@@ -1,1 +1,24 @@
-
+Updated access8math stable
+Removed ccd dev
+Removed ccd stable
+Removed cua dev
+Removed cua stable
+Removed cursorLocator stable
+Removed em dev
+Removed em stable
+Removed emo dev
+Removed emo stable
+Removed pcKbBrl dev
+Removed pcKbBrl stable
+Removed pm dev
+Removed pm stable
+Removed rf dev
+Removed rf stable
+Removed rp dev
+Removed rp stable
+Removed rsy dev
+Removed rsy stable
+Updated vlc dev
+Updated vlc stable
+Updated wintenApps beta
+#NVDA #bot
