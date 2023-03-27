@@ -1,1 +1,3 @@
-
+Updated cursorLocator stable
+Updated pcKbBrl stable
+#NVDA #bot
