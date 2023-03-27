@@ -1,0 +1,10 @@
+0	1	views/en/latest/ets/stable.json
+0	1	views/en/latest/gwv/stable.json
+1	1	views/en/latest/mathcat/stable.json
+0	1	views/en/latest/nvda3208/stable.json
+0	1	views/en/latest/objLoc/stable.json
+0	1	views/en/latest/rm/stable.json
+0	1	views/en/latest/spl/stable.json
+0	1	views/en/latest/w10/dev.json
+0	1	views/en/latest/w10/stable.json
+1	1	views/en/latest/wintenApps/dev.json
