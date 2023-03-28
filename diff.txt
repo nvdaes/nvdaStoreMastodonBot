@@ -1,0 +1,2 @@
+1	1	views/en/latest/wintenApps/dev.json
+1	1	views/en/latest/wintenApps/stable.json
