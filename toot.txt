@@ -1,5 +1,1 @@
-Updated reviewCursorCopier stable
-Homepage: https://github.com/tuukkao/nvda-reviewCursorCopier
-Download: https://github.com/tuukkao/nvda-reviewCursorCopier/releases/download/1.5.2/reviewCursorCopier-1.5.2.nvda-addon
-SHA256: 55ba03e2f0ddff6ad636bd21e3d4809ab69f2160f3241a8102b7b2ac46d1b8c9
-#NVDA #bot
+
