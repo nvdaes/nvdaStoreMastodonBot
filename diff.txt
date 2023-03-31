@@ -1,0 +1,14 @@
+1	1	views/en/latest/TeleNVDA/stable.json
+1	1	views/en/latest/addonUpdater/stable.json
+1	1	views/en/latest/addonshelp/stable.json
+1	0	views/en/latest/cursorLocator/stable.json
+1	1	views/en/latest/enhancedAnnotations/stable.json
+1	1	views/en/latest/indentnav/stable.json
+1	0	views/en/latest/pcKbBrl/stable.json
+1	0	views/en/latest/remote/stable.json
+1	1	views/en/latest/reportPasswords/stable.json
+1	0	views/en/latest/reviewCursorCopier/stable.json
+1	1	views/en/latest/sentencenav/stable.json
+1	1	views/en/latest/wintenApps/beta.json
+1	1	views/en/latest/wintenApps/dev.json
+1	1	views/en/latest/wintenApps/stable.json
