@@ -130,7 +130,7 @@ jobs:
             toot += `Download: ${url}\n`
             toot += `SHA256: ${sha}\n`
           }
-          toot += '#NVDA #bot #test'
+          toot += '#NVDA #bot'
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
@@ -194,15 +194,15 @@ jobs:
           console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
-    # - name: Send mail
-      # if: ${{ steps.buildMail.outputs.mailBody }}
-      # uses: dawidd6/action-send-mail@v3
-      # with:
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{secrets.MAIL_USERNAME}}
-        # password: ${{secrets.MAIL_PASSWORD}}
-        # subject: 'Complementos #bot'
-        # to: lista@nvdaes.groups.io
-        # from: Noelia Ruiz
-        # body: ${{steps.buildMail.outputs.mailBody }}
+    - name: Send mail
+      if: ${{ steps.buildMail.outputs.mailBody }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: 'Complementos #bot'
+        to: lista@nvdaes.groups.io
+        from: Noelia Ruiz
+        body: ${{steps.buildMail.outputs.mailBody }}
