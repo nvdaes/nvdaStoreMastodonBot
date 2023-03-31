@@ -130,7 +130,7 @@ jobs:
             toot += `Download: ${url}\n`
             toot += `SHA256: ${sha}\n`
           }
-          toot += '#NVDA #bot'
+          toot += '#NVDA #bot #test'
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
