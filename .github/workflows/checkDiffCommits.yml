@@ -70,8 +70,8 @@ jobs:
           const filesUpdated = filesChanged.filter(updated)
           const filesRemoved = filesChanged.filter(removed)
           if (filesUpdated.length > 0) {
-            display += `Updated add-ons` 
-            displayEs += `Complementos actualizados` 
+            display += `Updated add-ons: ` 
+            displayEs += `Complementos actualizados: ` 
           }
           for (file of filesUpdated) {
             let id = file.split('/')[3]
@@ -85,8 +85,8 @@ jobs:
             displayEs += fileToDisplayEs
           }
           if (filesRemoved.length > 0) {
-            display += `Removed add-ons` 
-            displayEs += `Complementos eliminados` 
+            display += `Removed add-ons: ` 
+            displayEs += `Complementos eliminados: ` 
           }
           for (file of filesRemoved) {
             let id = file.split('/')[3]
