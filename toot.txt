@@ -1,15 +1,1 @@
-Updated add-onsTeleNVDA stable
-addonUpdater stable
-addonshelp stable
-cursorLocator stable
-enhancedAnnotations stable
-indentnav stable
-pcKbBrl stable
-remote stable
-reportPasswords stable
-reviewCursorCopier stable
-sentencenav stable
-wintenApps beta
-wintenApps dev
-wintenApps stable
-#NVDA #bot #test
+
