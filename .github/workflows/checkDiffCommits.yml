@@ -65,28 +65,43 @@ jobs:
           console.log(`${numberOfFilesChanged} ${diff}`)
           var display = ``
           var displayEs = ``
-          var status = ''
-          var statusEs = ''
+          function updated(value) { return value.startsWith('1') }
           function removed(value) { return value.startsWith('0') }
-          const removedFiles = filesChanged.filter(removed)
-          for (file of filesChanged) {
-            var status = file.startsWith('0') ? 'Removed' : 'Updated'
-            var statusEs = file.startsWith('0') ? 'Eliminado' : 'Actualizado'
+          const filesUpdated = filesChanged.filter(updated)
+          const filesRemoved = filesChanged.filter(removed)
+          if (filesUpdated.length > 0) {
+            display += `Updated add-ons` 
+            displayEs += `Complementos actualizados` 
+          }
+          for (file of filesUpdated) {
             let id = file.split('/')[3]
             let jsonFile = file.split('/')[4]
             if (id === undefined) {
               continue
             }
-            let fileToDisplay = `${status} ${id} ${jsonFile}`.slice(0, -5) + '\n'
-            let fileToDisplayEs = (`${statusEs} ${id} ${jsonFile}`.slice(0, -5) + '\n').replace('stable', 'estable')
+            let fileToDisplay = `${id} ${jsonFile}`.slice(0, -5) + '\n'
+            let fileToDisplayEs = (`${id} ${jsonFile}`.slice(0, -5) + '\n').replace('stable', 'estable')
+            display += fileToDisplay
+            displayEs += fileToDisplayEs
+          }
+          if (filesRemoved.length > 0) {
+            display += `Removed add-ons` 
+            displayEs += `Complementos eliminados` 
+          }
+          for (file of filesRemoved) {
+            let id = file.split('/')[3]
+            let jsonFile = file.split('/')[4]
+            if (id === undefined) {
+              continue
+            }
+            let fileToDisplay = `${id} ${jsonFile}`.slice(0, -5) + '\n'
+            let fileToDisplayEs = (`${id} ${jsonFile}`.slice(0, -5) + '\n').replace('stable', 'estable')
             display += fileToDisplay
             displayEs += fileToDisplayEs
           }
           console.log(display)
           core.setOutput('display', display)
           core.setOutput('displayEs', displayEs)
-          core.setOutput('status', status)
-          core.setOutput('statusEs', statusEs)
         result-encoding: string
     - name: Get metadata
       id: getMetadata
