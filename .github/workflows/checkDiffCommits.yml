@@ -67,7 +67,7 @@ jobs:
           var displayEs = ``
           var status = ''
           var statusEs = ''
-          removed(value)  => value.startsWith('0')
+          const removed= value => value.startsWith('0')
           const removedFiles = filesChanged.filtered(removed)
           for (file of filesChanged) {
             var status = file.startsWith('0') ? 'Removed' : 'Updated'
