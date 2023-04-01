@@ -1,1 +1,5 @@
-
+Updated add-ons: trainingKeyboardCommands stable
+Homepage: https://addons.nvda-project.org/addons/trainingKeyboardCommands.en.html
+Download: https://github.com/ibrahim-s/trainingNvdaCommands/releases/download/2.9/trainingKeyboardCommands-2.9.nvda-addon
+SHA256: c39c43d681e61e1375098597cca4692ec654d94cc4fdcd9369273edd89237892
+#NVDA #bot
