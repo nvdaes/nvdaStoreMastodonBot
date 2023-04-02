@@ -1,3 +1,1 @@
-Updated add-ons: pcKbBrl stable
-placeMarkers stable
-#NVDA #bot
+
