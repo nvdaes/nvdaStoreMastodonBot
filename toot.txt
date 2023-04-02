@@ -1,5 +1,3 @@
-Updated add-ons: eMule stable
-Homepage: https://github.com/nvdaes/emule
-Download: https://github.com/nvdaes/emule/releases/download/9.0.0/eMule-9.0.0.nvda-addon
-SHA256: 3db64b2335fefafa0fa24b0982e665e942766b871daedf18324631aef9a80467
+Updated add-ons: pcKbBrl stable
+placeMarkers stable
 #NVDA #bot
