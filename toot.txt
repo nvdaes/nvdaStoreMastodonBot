@@ -1,1 +1,5 @@
-
+Updated add-ons: reportSymbols stable
+Homepage: https://github.com/nvdaes/reportSymbols
+Download: https://github.com/nvdaes/reportSymbols/releases/download/10.0.0/reportSymbols-10.0.0.nvda-addon
+SHA256: 3705e73604e5950da77e2e9709e6fe839dbed2d014a0b6a40ffd90f4346c74c2
+#NVDA #bot
