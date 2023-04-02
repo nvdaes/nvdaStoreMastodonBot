@@ -1,5 +1,5 @@
-Updated add-ons: emoticons stable
-Homepage: https://github.com/nvdaes/emoticons
-Download: https://github.com/nvdaes/emoticons/releases/download/18.0.0/emoticons-18.0.0.nvda-addon
-SHA256: 1b08210169c828aa1beb71bb56be38fdb00e3854a3c7e07099a3d741f8791dba
+Updated add-ons: eMule stable
+Homepage: https://github.com/nvdaes/emule
+Download: https://github.com/nvdaes/emule/releases/download/9.0.0/eMule-9.0.0.nvda-addon
+SHA256: 3db64b2335fefafa0fa24b0982e665e942766b871daedf18324631aef9a80467
 #NVDA #bot
