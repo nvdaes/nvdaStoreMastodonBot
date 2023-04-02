@@ -1,5 +1,5 @@
-Updated add-ons: clipContentsDesigner stable
-Homepage: https://github.com/nvdaes/clipContentsDesigner
-Download: https://github.com/nvdaes/clipContentsDesigner/releases/download/18.0.0/clipContentsDesigner-18.0.0.nvda-addon
-SHA256: b9038fd8d5f83e9e3b15ae014a0c95bff4a3bbcacf202db9dbd63d05976b36b6
+Updated add-ons: emoticons stable
+Homepage: https://github.com/nvdaes/emoticons
+Download: https://github.com/nvdaes/emoticons/releases/download/18.0.0/emoticons-18.0.0.nvda-addon
+SHA256: 1b08210169c828aa1beb71bb56be38fdb00e3854a3c7e07099a3d741f8791dba
 #NVDA #bot
