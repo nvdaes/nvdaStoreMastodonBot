@@ -1,1 +1,5 @@
-
+Updated add-ons: MSEdgeDiscardAnnouncements stable
+Homepage: https://github.com/beqabeqa473/MSEdgeDiscardAnnouncements
+Download: https://github.com/beqabeqa473/MSEdgeDiscardAnnouncements/releases/download/v0.8/MSEdgeDiscardAnnouncements-0.8.nvda-addon
+SHA256: ccc31575d01d869c67c13709aa320fe3b60facb4d548ff4cd39b90385edc3572
+#NVDA #bot
