@@ -1,5 +1,1 @@
-Updated add-ons: LanguageIdent stable
-Homepage: https://github.com/slohmaier/LanguageIdent
-Download: https://github.com/slohmaier/LanguageIdent/releases/download/0.2.0/LanguageIdent-0.2.0.nvda-addon
-SHA256: 04d9f2a628cf2068db94b6cb7ef5e3a461b0a4d0c0bb9e314ef0a15108a817eb
-#NVDA #bot
+
