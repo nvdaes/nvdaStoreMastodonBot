@@ -1,5 +1,5 @@
-Updated add-ons: extendedWinamp stable
-Homepage: https://github.com/beqabeqa473/extendedwinamp/
-Download: https://github.com/beqabeqa473/extendedWinamp/releases/download/v2.3/extendedWinamp-2.3.nvda-addon
-SHA256: 2128ec7591c6ff46968b6ca9e634cf999a86cde37a76926d7e2ffa68bef6be49
+Updated add-ons: addonUpdater stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/josephsl/addonUpdater/releases/download/23.04/addonUpdater-23.04.2.nvda-addon
+SHA256: 25eb488862eb22b5fa127f932c5f1ef46b75028a8df46a4a6c33c5d8061146d0
 #NVDA #bot

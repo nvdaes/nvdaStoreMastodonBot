@@ -1,1 +1,1 @@
-1	0	views/en/latest/extendedWinamp/stable.json
+1	1	views/en/latest/addonUpdater/stable.json
