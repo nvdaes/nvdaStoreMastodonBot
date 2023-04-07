@@ -1,5 +1,1 @@
-Updated add-ons: quickNotetaker stable
-Homepage: 
-Download: https://github.com/mohammad-suliman/quickNotetaker/releases/download/v1.2/quickNotetaker-1.2.nvda-addon
-SHA256: 750c8bf59883a67eebbf2988e2c31357512581c40ef810c55a194702ef2da406
-#NVDA #bot
+
