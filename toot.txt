@@ -1,5 +1,1 @@
-Updated add-ons: clock stable
-Homepage: https://github.com/hkatic/clock
-Download: https://github.com/hkatic/clock/releases/download/24.04.0/clock-24.04.0.nvda-addon
-SHA256: 2d1a27a1d2f780bce1adb0b6c21b87453705b21a9003a44a9e75ba9432a1a0e0
-#NVDA #bot
+
