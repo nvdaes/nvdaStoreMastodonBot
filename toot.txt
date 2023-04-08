@@ -1,1 +1,5 @@
-
+Updated add-ons: instantTranslate stable
+Homepage: https://addons.nvda-project.org/addons/instantTranslate
+Download: https://github.com/beqabeqa473/instantTranslate/releases/download/v4.5.2/instantTranslate-4.5.2.nvda-addon
+SHA256: 75ba4e2a7ebecd05726d9e3d2b6ea74c777379344b076a05c3e4a09eeda390ad
+#NVDA #bot
