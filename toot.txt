@@ -1,1 +1,5 @@
-
+Updated add-ons: ttAnnouncer stable
+Homepage: https://gozaltech.org
+Download: https://github.com/beqabeqa473/ttAnnouncer/releases/download/v0.4/ttAnnouncer-0.4.nvda-addon
+SHA256: 95c72950b82ed3fa3e1c9680e2ffd57ec04fc6675188b4f338bd9e8cb9ff29d3
+#NVDA #bot
