@@ -1,6 +1,0 @@
-0	1	views/en/latest/chari/dev.json
-0	1	views/en/latest/chari/stable.json
-0	1	views/en/latest/numpadNav/stable.json
-0	1	views/en/latest/splogger/stable.json
-0	1	views/en/latest/spnav/stable.json
-0	1	views/en/latest/trainingkbdcmd/stable.json
