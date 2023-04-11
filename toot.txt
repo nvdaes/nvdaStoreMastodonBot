@@ -1,1 +1,7 @@
-
+Removed add-ons: chari dev
+chari stable
+numpadNav stable
+splogger stable
+spnav stable
+trainingkbdcmd stable
+#NVDA #bot
