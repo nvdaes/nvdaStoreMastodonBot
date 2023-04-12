@@ -149,16 +149,16 @@ jobs:
         git push
         fi
 
-    # - name: Send toot to Mastodon
-      # id: mastodon
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: cbrgm/mastodon-github-action@v1
-      # with:
-        # message: ${{ steps.buildToot.outputs.toot }}
-        # visibility: "public" # default: public
-      # env:
-        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
     - name: Read current sha
       id: curSha
       uses: juliangruber/read-file-action@v1
