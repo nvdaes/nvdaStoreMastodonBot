@@ -1,5 +1,1 @@
-Updated add-ons: cursorLocator stable
-Homepage: https://github.com/nvdaes/cursorLocator
-Download: https://github.com/nvdaes/cursorLocator/releases/download/4.0.0/cursorLocator-4.0.0.nvda-addon
-SHA256: 37bfa2988eb6dff42f3a58c5ae0d163042c06f51a1ed6115044930d59303e68d
-#NVDA #bot
+
