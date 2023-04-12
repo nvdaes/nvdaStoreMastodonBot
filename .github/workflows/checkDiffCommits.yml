@@ -203,6 +203,8 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 'Complementos #bot'
-        to: lista@nvdaes.groups.io
+        # to: lista@nvdaes.groups.io
+        to: araquidonia@gmail.com
         from: Noelia Ruiz
-        body: ${{steps.buildMail.outputs.mailBody }}
+        # body: ${{steps.buildMail.outputs.mailBody }}
+        body: prueba
