@@ -1,1 +1,5 @@
-
+Updated add-ons: ignoreBlanksIndentationReporting stable
+Homepage: https://github.com/SamKacer/IgnoreBlanksIndentation.git
+Download: https://github.com/SamKacer/IgnoreBlanksIndentation/releases/download/v0.4/ignoreBlanksIndentationReporting-0.4.nvda-addon
+SHA256: b7acc1f8b39d3ac5f7a19c658ab1242ff707afbefae9c91680eaed85a794780e
+#NVDA #bot
