@@ -1,5 +1,4 @@
-Updated add-ons: quickdictionary stable
-Homepage: https://github.com/grisov/quickDictionary
-Download: https://github.com/grisov/quickDictionary/releases/download/v2.2/quickDictionary-2.2.nvda-addon
-SHA256: b557706b03ae193df345f4fed726a5b794fd13b1d6c6edcec4a69f908f6263ee
+Updated add-ons: checkGestures stable
+volumeAdjustment dev
+wintenApps dev
 #NVDA #bot
