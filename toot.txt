@@ -1,1 +1,5 @@
-
+Updated add-ons: unmute stable
+Homepage: https://github.com/grisov/unmute
+Download: https://github.com/grisov/unmute/releases/download/v1.5.7/unmute-1.5.7.nvda-addon
+SHA256: 0e5f2d997f449d65c1a13b855e34d2a82ee3be1040d37260f1decfeacf481791
+#NVDA #bot
