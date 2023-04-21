@@ -1,5 +1,1 @@
-Updated add-ons: sentencenav stable
-Homepage: https://github.com/mltony/nvda-sentence-nav
-Download: https://github.com/mltony/nvda-sentence-nav/releases/download/v2.13/SentenceNav-2.13.nvda-addon
-SHA256: 23fbcd58578a276f21c03d74a901de6bd1708035b3108db7f91c6193aeb04f92
-#NVDA #bot
+
