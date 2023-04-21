@@ -1,5 +1,1 @@
-Updated add-ons: winmag stable
-Homepage: https://github.com/CyrilleB79/winMag
-Download: https://github.com/CyrilleB79/winMag/releases/download/V3.2/winMag-3.2.nvda-addon
-SHA256: 2ffade1d8d016875ef0c061ee01df5d52448f7e88a36dd2946e261dc53a572c4
-#NVDA #bot
+
