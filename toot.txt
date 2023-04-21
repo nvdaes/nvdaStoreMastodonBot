@@ -1,5 +1,5 @@
-Updated add-ons: checkGestures stable
-Homepage: https://github.com/grisov/checkGestures
-Download: https://github.com/grisov/checkGestures/releases/download/v1.0.5/checkGestures-1.0.5.nvda-addon
-SHA256: 06002af3f4109bd3b02ace8c4f37d157df2a4ccbf60f9b79a22d2eb20bb6fa33
+Updated add-ons: volumeAdjustment beta
+Homepage: https://github.com/grisov/NVDA_Volume_Adjustment
+Download: https://github.com/grisov/NVDA_Volume_Adjustment/releases/download/v1.3.5/volumeAdjustment-1.3.5.nvda-addon
+SHA256: c852f3cfc0135181b4a42f21ca1da0a694290603dde316f81b28c486584274ed
 #NVDA #bot
