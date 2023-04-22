@@ -1,4 +1,5 @@
-Updated add-ons: placeMarkers stable
-readFeeds stable
-reportPasswords stable
+Updated add-ons: reportSymbols stable
+Homepage: https://github.com/nvdaes/reportSymbols
+Download: https://github.com/nvdaes/reportSymbols/releases/download/11.0.0/reportSymbols-11.0.0.nvda-addon
+SHA256: 34f392eebea90b9c0f02a08bc6960dfb5509042f51d4afae2a39ceed56af1c76
 #NVDA #bot
