@@ -1,4 +1,4 @@
-Updated add-ons: eMule stable
-enhancedAnnotations stable
-pcKbBrl stable
+Updated add-ons: placeMarkers stable
+readFeeds stable
+reportPasswords stable
 #NVDA #bot
