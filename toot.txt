@@ -1,5 +1,1 @@
-Updated add-ons: unigram stable
-Homepage: https://github.com/GerardKessler/Unigram
-Download: https://github.com/GerardKessler/Unigram/releases/download/2.0.0/unigram-2.0.0.nvda-addon
-SHA256: 901caa6d3dcf3d7480bfc0a4cb8473809c39949ad869fc2f0970430760738083
-#NVDA #bot
+
