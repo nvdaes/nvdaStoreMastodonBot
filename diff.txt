@@ -1,0 +1,2 @@
+0	1	views/en/latest/ibir/stable.json
+1	1	views/en/latest/wintenApps/dev.json
