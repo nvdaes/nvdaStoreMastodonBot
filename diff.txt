@@ -1,1 +1,1 @@
-1	1	views/en/latest/wintenApps/stable.json
+1	0	views/en/latest/IntelliJImproved/stable.json
