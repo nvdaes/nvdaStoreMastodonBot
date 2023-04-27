@@ -1,1 +1,5 @@
-
+Updated add-ons: thunderbirdPlus stable
+Homepage: https://www.rptools.org/NVDA-Thunderbird/toContact.html
+Download: https://github.com/RPTools-org/ThunderbirdPlus/releases/download/v4.6/thunderbirdPlus-4.6.3-TB102.nvda-addon
+SHA256: 3830f144586f13e2b09f6a58a656bb3687e806ccb3a16a3233912e2d19837550
+#NVDA #bot
