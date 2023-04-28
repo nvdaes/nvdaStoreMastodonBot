@@ -1,5 +1,1 @@
-Updated add-ons: vismaAdministration stable
-Homepage: 
-Download: https://github.com/towebo/VismaAdministration-NVDAAddOn/releases/download/v2023.0.0/vismaAdministration-2023.0.nvda-addon
-SHA256: 662f5df878ab29dbf4e7f594a3d589054bb1200f5c7d696b8c71f736a966bbf2
-#NVDA #bot
+
