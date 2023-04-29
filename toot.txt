@@ -1,3 +1,1 @@
-Updated add-ons: TeleNVDA stable
-reportSymbols stable
-#NVDA #bot
+
