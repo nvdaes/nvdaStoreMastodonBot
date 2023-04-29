@@ -1,3 +1,5 @@
-Updated add-ons: eMule stable
-placeMarkers stable
+Updated add-ons: reportPasswords stable
+Homepage: https://github.com/nvdaes/reportPasswords
+Download: https://github.com/nvdaes/reportPasswords/releases/download/7.0.0/reportPasswords-7.0.0.nvda-addon
+SHA256: f4d469a806a8377dd514f8cb484ff88e95d700ad063ff87bbc6cfa2f0720b85b
 #NVDA #bot
