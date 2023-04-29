@@ -1,1 +1,2 @@
-1	1	views/en/latest/reportPasswords/stable.json
+1	1	views/en/latest/TeleNVDA/stable.json
+1	1	views/en/latest/reportSymbols/stable.json
