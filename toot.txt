@@ -1,1 +1,5 @@
-
+Updated add-ons: numpadNavMode stable
+Homepage: https://github.com/opensourcesys/numpadNavMode/blob/master/readme.md
+Download: https://github.com/opensourcesys/numpadNavMode/releases/download/v23.1.2/numpadNavMode-23.1.2.nvda-addon
+SHA256: 8527793b30c47e15fdc9d8ebceaa8b84b6a5f2bcf65569b15d285faf1e86d901
+#NVDA #bot
