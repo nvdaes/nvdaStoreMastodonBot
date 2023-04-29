@@ -1,1 +1,5 @@
-
+Updated add-ons: clipContentsDesigner stable
+Homepage: https://github.com/nvdaes/clipContentsDesigner
+Download: https://github.com/nvdaes/clipContentsDesigner/releases/download/20.0.0/clipContentsDesigner-20.0.0.nvda-addon
+SHA256: 58c3ccf5eccafcb12c999bd4687f3ad5256907b65bc0331ed968b6c97bfee719
+#NVDA #bot
