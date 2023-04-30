@@ -1,1 +1,5 @@
-
+Updated add-ons: sayCurrentKeyboardLanguage stable
+Homepage: https://addons.nvda-project.org
+Download: https://github.com/nvdaes/sayCurrentKeyboardLanguage/releases/download/20230430.0.0/sayCurrentKeyboardLanguage-20230430.0.0.nvda-addon
+SHA256: 91cbb595e84e31d0ab73fa32ff5e60a16e3738a3ec93f22c057e23c2d501562b
+#NVDA #bot
