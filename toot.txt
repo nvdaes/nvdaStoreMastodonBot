@@ -1,1 +1,3 @@
-
+Updated add-ons: bluetoothaudio stable
+wordnav stable
+#NVDA #bot
