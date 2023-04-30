@@ -1,5 +1,1 @@
-Updated add-ons: browsernav stable
-Homepage: https://github.com/mltony/nvda-browser-nav
-Download: https://github.com/mltony/nvda-browser-nav/releases/download/v2.5/browsernav-2.5.nvda-addon
-SHA256: d5f299b9838dcdd475898a05be30b689a506de63c0d978ccf1515a75742b3bfc
-#NVDA #bot
+
