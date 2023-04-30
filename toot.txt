@@ -1,1 +1,5 @@
-
+Updated add-ons: urlShortener beta
+Homepage: https://github.com/nvdaes/urlShortener
+Download: https://github.com/nvdaes/urlShortener/releases/download/4.2.0/urlShortener-4.2.0.nvda-addon
+SHA256: 273a77fe96e626043dbbeea2f3f3033f890a0dc5e870b2650a49f187af66c23d
+#NVDA #bot
