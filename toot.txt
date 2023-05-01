@@ -1,5 +1,1 @@
-Updated add-ons: sayProductNameAndVersion stable
-Homepage: https://addons.nvda-project.org
-Download: https://github.com/opensourcesys/sayProductNameAndVersion/releases/download/v2023.3.4/sayProductNameAndVersion-2023.3.4.nvda-addon
-SHA256: 585583f6952fab09ea1708eeb13eb6624c9e4e357484da8fd2b83e2b90c067c2
-#NVDA #bot
+
