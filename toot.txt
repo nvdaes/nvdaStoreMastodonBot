@@ -1,1 +1,5 @@
-
+Updated add-ons: bluetoothaudio stable
+Homepage: https://github.com/mltony/nvda-bluetooth-audio
+Download: https://github.com/mltony/nvda-bluetooth-audio/releases/download/v1.5.1/bluetoothaudio-1.5.1.nvda-addon
+SHA256: bbac3cfee102dd49d24a3e872ca2009f89680592c2ae9335a377182961e22efc
+#NVDA #bot
