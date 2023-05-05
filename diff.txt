@@ -1,0 +1,4 @@
+0	1	views/en/latest/btaudio/stable.json
+1	1	views/en/latest/tesseractOCR/stable.json
+1	1	views/en/latest/thunderbirdPlus/stable.json
+1	1	views/en/latest/unigram/stable.json
