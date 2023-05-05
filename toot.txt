@@ -1,5 +1,1 @@
-Updated add-ons: tesseractOCR stable
-thunderbirdPlus stable
-unigram stable
-Removed add-ons: btaudio stable
-#NVDA #bot
+
