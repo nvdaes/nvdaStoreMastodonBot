@@ -1,1 +1,5 @@
-
+Updated add-ons: wintenApps stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/josephsl/wintenApps/releases/download/23.05/wintenApps-23.05.2.nvda-addon
+SHA256: 66878c6221c3aed8fff41e0da2650102099fa324d5a19c780801695a4768a5c6
+#NVDA #bot
