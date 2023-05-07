@@ -1,0 +1,16 @@
+0	1	views/en/latest/appdict/stable.json
+0	1	views/en/latest/cac/dev.json
+0	1	views/en/latest/cac/stable.json
+0	1	views/en/latest/cig/stable.json
+0	1	views/en/latest/ckbl/dev.json
+0	1	views/en/latest/ckbl/stable.json
+0	1	views/en/latest/cs/stable.json
+0	1	views/en/latest/dx/dev.json
+0	1	views/en/latest/dx/stable.json
+0	1	views/en/latest/ew/stable.json
+0	1	views/en/latest/gc/dev.json
+0	1	views/en/latest/gc/stable.json
+0	1	views/en/latest/it/dev.json
+0	1	views/en/latest/it/stable.json
+0	1	views/en/latest/msedge/stable.json
+0	1	views/en/latest/nvdaremote/stable.json
