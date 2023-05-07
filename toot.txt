@@ -1,17 +1,1 @@
-Removed add-ons: appdict stable
-cac dev
-cac stable
-cig stable
-ckbl dev
-ckbl stable
-cs stable
-dx dev
-dx stable
-ew stable
-gc dev
-gc stable
-it dev
-it stable
-msedge stable
-nvdaremote stable
-#NVDA #bot
+
