@@ -1,5 +1,1 @@
-Updated add-ons: ifInterpreters beta
-Homepage: https://github.com/nvdaes/ifInterpreters
-Download: https://github.com/nvdaes/ifInterpreters/releases/download/1.6.0/ifInterpreters-1.6.0.nvda-addon
-SHA256: dd85b01ce001cfda622a6aade7428bd625e64834c90c89485d04f49404135b99
-#NVDA #bot
+
