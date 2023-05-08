@@ -1,1 +1,5 @@
-
+Updated add-ons: stationPlaylist stable
+Homepage: https://github.com/ChrisDuffley/stationPlaylist
+Download: https://github.com/ChrisDuffley/stationPlaylist/releases/download/23.05/stationPlaylist-23.05.nvda-addon
+SHA256: 485f6908e7ec230084a19ef946829a568b859993aa165be704a48bdbe6c665d8
+#NVDA #bot
