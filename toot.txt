@@ -1,1 +1,3 @@
-
+Updated add-ons: vismaAdministration stable
+wintenApps dev
+#NVDA #bot
