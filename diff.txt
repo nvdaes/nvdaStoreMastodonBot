@@ -1,0 +1,14 @@
+0	1	views/en/latest/VR/stable.json
+0	1	views/en/latest/nvdaproxy/stable.json
+0	1	views/en/latest/rccp/dev.json
+0	1	views/en/latest/rccp/stable.json
+0	1	views/en/latest/st/stable.json
+0	1	views/en/latest/sws/stable.json
+0	1	views/en/latest/tbp/stable.json
+0	1	views/en/latest/ubi/dev.json
+0	1	views/en/latest/ubi/stable.json
+0	1	views/en/latest/updchannelselect/stable.json
+0	1	views/en/latest/wc/stable.json
+1	1	views/en/latest/wintenApps/beta.json
+1	1	views/en/latest/wintenApps/dev.json
+0	1	views/en/latest/zoom/stable.json
