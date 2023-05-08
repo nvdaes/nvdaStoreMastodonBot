@@ -1,2 +1,0 @@
-1	1	views/en/latest/vismaAdministration/stable.json
-1	1	views/en/latest/wintenApps/dev.json
