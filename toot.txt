@@ -1,5 +1,5 @@
-Updated add-ons: stationPlaylist stable
-Homepage: https://github.com/ChrisDuffley/stationPlaylist
-Download: https://github.com/ChrisDuffley/stationPlaylist/releases/download/23.05/stationPlaylist-23.05.nvda-addon
-SHA256: 485f6908e7ec230084a19ef946829a568b859993aa165be704a48bdbe6c665d8
+Updated add-ons: dayOfTheWeek stable
+Homepage: https://addons.nvda-project.org/addons/dayOfTheWeek.en.html
+Download: https://github.com/abdel792/dayOfTheWeek/releases/download/v20230508/dayOfTheWeek-20230508.0.0.nvda-addon
+SHA256: 6b0e12664e47c356f58a3e828863dca55108752fda67440765d8a1b5c972d74f
 #NVDA #bot

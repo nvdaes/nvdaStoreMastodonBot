@@ -1,1 +1,1 @@
-1	1	views/en/latest/stationPlaylist/stable.json
+1	0	views/en/latest/dayOfTheWeek/stable.json
