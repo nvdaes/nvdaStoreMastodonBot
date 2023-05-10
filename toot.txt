@@ -1,1 +1,6 @@
-
+Updated add-ons: Weather_Plus stable
+Removed add-ons: dw dev
+dw stable
+mp3dc dev
+mp3dc stable
+#NVDA #bot
