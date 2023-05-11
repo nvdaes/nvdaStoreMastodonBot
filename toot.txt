@@ -1,5 +1,1 @@
-Updated add-ons: unigramPlus stable
-Homepage: https://github.com/Kostya-Gladkiy/UnigramPlus
-Download: https://github.com/Kostya-Gladkiy/UnigramPlus/releases/download/4.8.3/unigramPlus-4.8.3.nvda-addon
-SHA256: b5f3d8866bd1db254738650ec8071e6b9a6f8ca5576c94d131b111dd6e22b596
-#NVDA #bot
+
