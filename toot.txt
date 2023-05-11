@@ -1,5 +1,1 @@
-Updated add-ons: mathcat stable
-Homepage: https://nsoiffer.github.io/MathCAT/
-Download: https://github.com/NSoiffer/MathCATForPython/releases/download/v0.2.6/MathCAT-0.2.6.nvda-addon
-SHA256: 972ce150ecc164e11e1d45bc747aa62858a240c6bcaff1a7f2d00fde44538409
-#NVDA #bot
+
