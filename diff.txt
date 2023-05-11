@@ -1,6 +1,0 @@
-1	0	views/en/latest/Weather_Plus/stable.json
-0	1	views/en/latest/dw/dev.json
-0	1	views/en/latest/dw/stable.json
-0	1	views/en/latest/mp3dc/dev.json
-0	1	views/en/latest/mp3dc/stable.json
-0	1	views/en/latest/wetp/stable.json
