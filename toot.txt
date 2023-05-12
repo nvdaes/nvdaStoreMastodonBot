@@ -1,1 +1,5 @@
-
+Updated add-ons: Note diary for NVDA stable
+Homepage: https://github.com/JohanAnim/Note-diary
+Download: https://github.com/JohanAnim/Note-diary/releases/download/2023.1/Note.diary.for.NVDA-2023.1.nvda-addon
+SHA256: 5eb00be9679c1e0eca4a3e120ce53654664bee234fbc135d9cea35aa2892ccc2
+#NVDA #bot
