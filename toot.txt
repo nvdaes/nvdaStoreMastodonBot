@@ -1,1 +1,5 @@
-
+Updated add-ons: readFeeds stable
+Homepage: https://github.com/nvdaes/readFeeds
+Download: https://github.com/nvdaes/readFeeds/releases/download/21.0.0/readFeeds-21.0.0.nvda-addon
+SHA256: 9831cb3ae0dffbb1576f0be58fdf619bdecb5568c7cb1b1637f7e8a8ef04172e
+#NVDA #bot
