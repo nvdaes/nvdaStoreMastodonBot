@@ -1,3 +1,1 @@
-Updated add-ons: wintenApps beta
-wintenApps stable
-#NVDA #bot
+
