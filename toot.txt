@@ -1,5 +1,5 @@
-Updated add-ons: readFeeds stable
-Homepage: https://github.com/nvdaes/readFeeds
-Download: https://github.com/nvdaes/readFeeds/releases/download/21.0.0/readFeeds-21.0.0.nvda-addon
-SHA256: 9831cb3ae0dffbb1576f0be58fdf619bdecb5568c7cb1b1637f7e8a8ef04172e
+Updated add-ons: pcKbBrl stable
+Homepage: https://github.com/nvdaes/pcKbBrl
+Download: https://github.com/nvdaes/pcKbBrl/releases/download/28.0.0/pcKbBrl-28.0.0.nvda-addon
+SHA256: 422bbc5a3cb90cd35393dc87e59167b050acd501d054723b4d797b086345a6b7
 #NVDA #bot
