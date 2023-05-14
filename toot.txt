@@ -1,5 +1,1 @@
-Updated add-ons: enhancedAnnotations stable
-Homepage: https://github.com/nvdaes/enhancedAnnotations
-Download: https://github.com/nvdaes/enhancedAnnotations/releases/download/5.0.0/enhancedAnnotations-5.0.0.nvda-addon
-SHA256: a4b2502f58a8e2a2ae2d9e8cdbe49f56dcfd08ead260ad459a949762a96cc650
-#NVDA #bot
+
