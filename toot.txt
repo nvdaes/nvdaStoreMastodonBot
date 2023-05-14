@@ -1,1 +1,5 @@
-
+Updated add-ons: eMule stable
+Homepage: https://github.com/nvdaes/emule
+Download: https://github.com/nvdaes/emule/releases/download/12.0.0/eMule-12.0.0.nvda-addon
+SHA256: d151e6dddde0d486838aab809cf7a8a83b47b4840242cdbf802b0e6d41b5091b
+#NVDA #bot
