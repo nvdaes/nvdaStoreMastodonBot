@@ -1,1 +1,1 @@
-1	1	views/en/latest/numpadNavMode/stable.json
+1	1	views/en/latest/sayProductNameAndVersion/stable.json
