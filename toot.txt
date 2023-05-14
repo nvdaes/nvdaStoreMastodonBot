@@ -1,5 +1,1 @@
-Updated add-ons: audiocinemateca stable
-Homepage: https://github.com/nvda-es/audiocinemateca-para-nvda
-Download: https://github.com/nvda-es/Audiocinemateca-para-NVDA/releases/download/1.1/audiocinemateca-1.1.nvda-addon
-SHA256: 489b02d9dea00f34833f6fbb02e396cbb4a85dbe0b749ae87459664c3cf35940
-#NVDA #bot
+
