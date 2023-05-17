@@ -1,5 +1,1 @@
-Updated add-ons: num2words stable
-Homepage: 
-Download: https://github.com/rmcpantoja/num2words_nvda/releases/download/v0.2/num2words-0.2.nvda-addon
-SHA256: 80b074377c140d2c8870e4d729e061f93034c8b8a83b767218eae6819705bee3
-#NVDA #bot
+
