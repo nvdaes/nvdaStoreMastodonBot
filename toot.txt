@@ -1,3 +1,1 @@
-Updated add-ons: resourceMonitor stable
-soundSplitter stable
-#NVDA #bot
+
