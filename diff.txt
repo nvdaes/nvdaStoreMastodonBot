@@ -1,2 +1,1 @@
-1	1	views/en/latest/wintenApps/beta.json
-1	1	views/en/latest/wintenApps/dev.json
+1	0	views/en/latest/num2words/stable.json
