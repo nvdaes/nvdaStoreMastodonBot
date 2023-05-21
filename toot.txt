@@ -1,1 +1,5 @@
-
+Updated add-ons: nvdaChatGPT stable
+Homepage: 
+Download: https://github.com/mo29cg/nvda-chatGPT/releases/latest/download/nvdaChatGPT.nvda-addon
+SHA256: 14b39f935e2d5358e4afc3f6aa5cc49b84d03979eb42eecaa68fab2a544e3b19
+#NVDA #bot
