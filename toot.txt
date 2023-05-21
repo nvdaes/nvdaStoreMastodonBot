@@ -1,1 +1,5 @@
-
+Updated add-ons: tonysEnhancements stable
+Homepage: https://github.com/mltony/nvda-tonys-enhancements/
+Download: https://github.com/mltony/nvda-tonys-enhancements/releases/download/v1.15/tonysEnhancements-1.15.nvda-addon
+SHA256: b41086c712bc5bc5e1c9b412633e0e2e78469b2cc4b3738e97e3e63cb2b31934
+#NVDA #bot
