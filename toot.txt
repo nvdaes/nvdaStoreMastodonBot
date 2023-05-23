@@ -1,3 +1,3 @@
-Updated add-ons: clipContentsDesigner beta
-Removed add-ons: tony stable
+Updated add-ons: clipContentsDesigner stable
+soundSplitter stable
 #NVDA #bot
