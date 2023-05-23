@@ -1,0 +1,2 @@
+1	1	views/en/latest/clipContentsDesigner/beta.json
+0	1	views/en/latest/tony/stable.json
