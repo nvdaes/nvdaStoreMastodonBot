@@ -1,5 +1,1 @@
-Updated add-ons: landropPlus stable
-Homepage: https://www.rptools.org/NVDA-Thunderbird/toContact.html
-Download: https://github.com/RPTools-org/landropPlus/releases/download/v2023.05.23/landropPlus-2023.05.23.nvda-addon
-SHA256: 886d03648c3a9f52b9827e9137a6ae68cc0ad0f57e588c33d103b695a0c875da
-#NVDA #bot
+
