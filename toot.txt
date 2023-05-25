@@ -1,5 +1,1 @@
-Updated add-ons: addonUpdater stable
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/josephsl/addonUpdater/releases/download/23.06/addonUpdater-23.06.nvda-addon
-SHA256: 4d89e3dcc9c6db1dbcd87f3fe449677eb591ddaedd72f21550cc08bb9319c6dd
-#NVDA #bot
+
