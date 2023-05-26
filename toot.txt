@@ -1,1 +1,5 @@
-
+Updated add-ons: wintenApps beta
+wintenApps dev
+Removed add-ons: outlookextended dev
+winmag dev
+#NVDA #bot
