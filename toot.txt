@@ -1,5 +1,1 @@
-Updated add-ons: soundSplitter stable
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/opensourcesys/soundSplitter/releases/download/v23.5.3/soundSplitter-23.5.3.nvda-addon
-SHA256: 05b1341a60aa19984906b8c4ee1858a34667b475502c6b472f7c39cf9016d98c
-#NVDA #bot
+
