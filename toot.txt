@@ -1,5 +1,5 @@
-Updated add-ons: clipContentsDesigner stable
-Homepage: https://github.com/nvdaes/clipContentsDesigner
-Download: https://github.com/nvdaes/clipContentsDesigner/releases/download/24.0.0/clipContentsDesigner-24.0.0.nvda-addon
-SHA256: ae6366faf64c09887a89e6fc92442fcabdb88fd635d2d16751fd685fe5d25f02
+Updated add-ons: cursorLocator stable
+Homepage: https://github.com/nvdaes/cursorLocator
+Download: https://github.com/nvdaes/cursorLocator/releases/download/6.0.0/cursorLocator-6.0.0.nvda-addon
+SHA256: 71f2ae22741b80696b552367a5085aa40cfb65ce9d0076b8dee3c3e135b8880c
 #NVDA #bot
