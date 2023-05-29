@@ -1,1 +1,5 @@
-
+Updated add-ons: wordCount stable
+Homepage: https://github.com/ruifontes/wordcount
+Download: https://github.com/ruifontes/wordCount/releases/download/2023.05.29/wordCount-2023.05.29.nvda-addon
+SHA256: 9bd64570c5566bc9bc6ad2451d4bc747182f9086372270b07bae8b4b1ad74c07
+#NVDA #bot
