@@ -1,5 +1,1 @@
-Updated add-ons: agenda stable
-Homepage: https://github.com/ruifontes/agenda-for-NVDA
-Download: https://github.com/ruifontes/agenda-for-NVDA/releases/download/2023.06.00/agenda-2023.06.00.nvda-addon
-SHA256: dd4b4edcc7b411d4098bc4e0f4fe9feb1b682284e10f0f7005e78491b63679d2
-#NVDA #bot
+
