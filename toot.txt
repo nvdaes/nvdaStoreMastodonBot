@@ -1,5 +1,1 @@
-Updated add-ons: tesseractOCR stable
-Homepage: https://github.com/ruifontes/tesseractOCR
-Download: https://github.com/ruifontes/tesseractOCR/releases/download/2023.05.30/tesseractOCR-2023.05.30.nvda-addon
-SHA256: c29e2082ad27c71e86700cae610248335182c88439a773504cab1d54a927f3ac
-#NVDA #bot
+
