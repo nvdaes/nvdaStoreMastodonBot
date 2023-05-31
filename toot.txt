@@ -1,5 +1,1 @@
-Updated add-ons: frequentText stable
-Homepage: https://github.com/ruifontes/frequentText
-Download: https://github.com/ruifontes/frequentText/releases/download/2023.05.31/frequentText-2023.05.31.nvda-addon
-SHA256: d2a6e6feb16f11a0df06e54aebc238bdb17616ea3d5b5ee9dc531bed7587c4af
-#NVDA #bot
+
