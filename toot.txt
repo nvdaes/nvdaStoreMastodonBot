@@ -1,1 +1,5 @@
-
+Updated add-ons: TeleNVDA stable
+Homepage: https://github.com/nvda-es/TeleNVDA
+Download: https://github.com/nvda-es/TeleNVDA/releases/download/2023.6.3/TeleNVDA-2023.6.3.nvda-addon
+SHA256: cf0443a90293b001a0bced0b0f0b38e00a31759c8d5d1561cbb8db0943be36a2
+#NVDA #bot
