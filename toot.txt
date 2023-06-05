@@ -1,5 +1,5 @@
-Updated add-ons: winmag stable
-Homepage: https://github.com/CyrilleB79/winMag
-Download: https://github.com/CyrilleB79/winMag/releases/download/V3.3/winMag-3.3.nvda-addon
-SHA256: f58a78a6021de64c6adbdc097468da4cbec2d7bfd2d34a4d297a631798fc8ac6
+Updated add-ons: outlookextended stable
+Homepage: https://github.com/CyrilleB79/outlookExtended
+Download: https://github.com/CyrilleB79/outlookExtended/releases/download/V2.2/outlookExtended-2.2.nvda-addon
+SHA256: 1aeae5fa009b224c77727c755d85dd1005b69b3a89b9fba1fa9e1447b40de3fa
 #NVDA #bot
