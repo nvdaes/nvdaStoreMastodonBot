@@ -1,5 +1,1 @@
-Updated add-ons: WlanReporter stable
-Homepage: 
-Download: https://github.com/kvark128/WlanReporter/releases/download/v2023.04.18/WlanReporter-2023.04.18.nvda-addon
-SHA256: ae8f3371ba3c97cb1d3c9eb90065a802125030815de2cce48d84d0ddcbd2ae65
-#NVDA #bot
+
