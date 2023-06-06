@@ -1,5 +1,1 @@
-Updated add-ons: easyTableNavigator stable
-Homepage: 
-Download: https://github.com/CoBC/easyTableNavigator-1/releases/download/2.4/easyTableNavigator-2.4.nvda-addon
-SHA256: f609113b12e84ce1a2d43c741976049441120e4b89faab4f6dd394e2ba50ec42
-#NVDA #bot
+
