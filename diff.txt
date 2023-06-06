@@ -1,1 +1,2 @@
-1	0	views/en/latest/TonesVolume/stable.json
+1	0	views/en/latest/DesktopFocus/stable.json
+1	0	views/en/latest/HelperScripts/stable.json
