@@ -1,0 +1,1 @@
+1	0	views/en/latest/easyTableNavigator/stable.json
