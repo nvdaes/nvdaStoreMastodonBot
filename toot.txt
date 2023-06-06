@@ -1,5 +1,1 @@
-Updated add-ons: LangReporter stable
-Homepage: 
-Download: https://github.com/kvark128/LangReporter/releases/download/v2023.04.18/LangReporter-2023.04.18.nvda-addon
-SHA256: c890b78754a80500e95dd560068a73def3273427d0b81f6ad528bde616ee84bd
-#NVDA #bot
+
