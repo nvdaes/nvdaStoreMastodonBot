@@ -1,3 +1,5 @@
-Updated add-ons: ProfileDict stable
-TextFragments stable
+Updated add-ons: TonesVolume stable
+Homepage: 
+Download: https://github.com/kvark128/TonesVolume/releases/download/v2023.04.18/TonesVolume-2023.04.18.nvda-addon
+SHA256: 28ddce67f9a89892fc494a9a8c864dba536bc3331cdc96b5230233549f68bfb3
 #NVDA #bot
