@@ -1,1 +1,1 @@
-1	0	views/en/latest/ru_tts/stable.json
+1	0	views/en/latest/LangReporter/stable.json

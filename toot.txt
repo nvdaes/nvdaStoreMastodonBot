@@ -1,5 +1,5 @@
-Updated add-ons: ru_tts stable
-Homepage: https://github.com/kvark128/ru_tts-for-nvda
-Download: https://github.com/kvark128/ru_tts-for-nvda/releases/download/v2023.05.08/ru_tts-2023.05.08.nvda-addon
-SHA256: 8b382782d8b264d5c24380145d9d9cf582dea3b3804bbe2a3d41e5fd01f62e9a
+Updated add-ons: LangReporter stable
+Homepage: 
+Download: https://github.com/kvark128/LangReporter/releases/download/v2023.04.18/LangReporter-2023.04.18.nvda-addon
+SHA256: c890b78754a80500e95dd560068a73def3273427d0b81f6ad528bde616ee84bd
 #NVDA #bot
