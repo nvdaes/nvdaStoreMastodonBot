@@ -1,0 +1,2 @@
+1	0	views/en/latest/ProfileDict/stable.json
+1	0	views/en/latest/TextFragments/stable.json

@@ -1,1 +1,3 @@
-
+Updated add-ons: ProfileDict stable
+TextFragments stable
+#NVDA #bot
