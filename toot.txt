@@ -1,1 +1,4 @@
-
+Updated add-ons: dayOfTheWeek stable
+mp3DirectCut stable
+Removed add-ons: ndtt stable
+#NVDA #bot
