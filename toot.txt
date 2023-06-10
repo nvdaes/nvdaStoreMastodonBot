@@ -1,5 +1,1 @@
-Updated add-ons: evttracker stable
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/opensourcesys/evtTracker/releases/download/v23.5.0/evtTracker-23.5.0.nvda-addon
-SHA256: 02922b13d4161f680389eb564961811d3b6398e3fd38e85974838511e3211d07
-#NVDA #bot
+
