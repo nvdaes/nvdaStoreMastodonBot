@@ -1,1 +1,5 @@
-
+Updated add-ons: whatsAppPlus stable
+Homepage: https://github.com/Kostya-Gladkiy/WhatsAppPlus
+Download: https://github.com/Kostya-Gladkiy/WhatsAppPlus/releases/download/1.9.0/whatsAppPlus-1.9.0.nvda-addon
+SHA256: b4e09fbc5891ae0fda649d4862828ada68bdd59a373486f8e58a64359c952099
+#NVDA #bot
