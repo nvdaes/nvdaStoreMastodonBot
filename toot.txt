@@ -1,5 +1,3 @@
-Updated add-ons: NotepadPlusPlus stable
-Homepage: https://github.com/derekriemer/nvda-notepadplusplus
-Download: https://github.com/derekriemer/nvda-notepadPlusPlus/releases/download/release-2023.06.1/NotepadPlusPlus-2023.06.1.nvda-addon
-SHA256: 96f6f96c71844dea9413165e60b0050c1a4c22673b7a99ad29b4eeeecaa9e45c
+Updated add-ons: wintenApps beta
+wintenApps dev
 #NVDA #bot
