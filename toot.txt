@@ -1,5 +1,1 @@
-Updated add-ons: objPad stable
-Homepage: https://github.com/ChrisDuffley/objPad
-Download: https://github.com/ChrisDuffley/objPad/releases/download/23.06/objPad-23.06.nvda-addon
-SHA256: ea3830c11981ddf56ed977a8ffc1f31e9cad86c2b6dc406df23bc2536a77f3a0
-#NVDA #bot
+
