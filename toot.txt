@@ -1,5 +1,1 @@
-Updated add-ons: pcKbBrl stable
-Homepage: https://github.com/nvdaes/pcKbBrl
-Download: https://github.com/nvdaes/pcKbBrl/releases/download/31.0.0/pcKbBrl-31.0.0.nvda-addon
-SHA256: 4cc013fa863f4c08173bb10653ffde328e8d14aa65d066f00167378d1091282e
-#NVDA #bot
+
