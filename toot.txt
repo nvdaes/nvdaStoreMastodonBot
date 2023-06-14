@@ -1,1 +1,4 @@
-
+Updated add-ons: favoriteFolders stable
+Removed add-ons: etn dev
+etn stable
+#NVDA #bot
