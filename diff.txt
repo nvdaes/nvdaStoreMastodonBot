@@ -1,3 +1,0 @@
-0	1	views/en/latest/etn/dev.json
-0	1	views/en/latest/etn/stable.json
-1	0	views/en/latest/favoriteFolders/stable.json
