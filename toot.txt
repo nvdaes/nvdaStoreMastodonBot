@@ -1,1 +1,3 @@
-
+Updated add-ons: evttracker stable
+numpadNavMode stable
+#NVDA #bot
