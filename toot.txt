@@ -1,1 +1,5 @@
-
+Updated add-ons: speechLogger stable
+Homepage: https://github.com/opensourcesys/speechLogger/blob/master/readme.md
+Download: https://github.com/opensourcesys/speechLogger/releases/download/v23.1.2/speechLogger-23.1.2.nvda-addon
+SHA256: 1678d26b976a4d9716109cbeb9e825867bab284785e01b36c444099936143427
+#NVDA #bot
