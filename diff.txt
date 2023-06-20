@@ -1,0 +1,2 @@
+1	1	views/en/latest/emoticons/stable.json
+0	1	views/en/latest/tz/stable.json

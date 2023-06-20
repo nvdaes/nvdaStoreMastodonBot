@@ -1,1 +1,3 @@
-
+Updated add-ons: emoticons stable
+Removed add-ons: tz stable
+#NVDA #bot
