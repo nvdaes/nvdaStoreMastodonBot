@@ -1,1 +1,5 @@
-
+Updated add-ons: emoticons dev
+Homepage: https://github.com/nvdaes/emoticons
+Download: https://github.com/nvdaes/emoticons/releases/download/21.0.1/emoticons-21.0.1.nvda-addon
+SHA256: 87f2b47c63b7772fbaf47435fbfa79d46960e28c613162b719ff944992527814
+#NVDA #bot
