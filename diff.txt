@@ -1,3 +1,3 @@
-1	1	views/en/latest/cursorLocator/stable.json
-1	1	views/en/latest/enhancedAnnotations/stable.json
-1	1	views/en/latest/placeMarkers/stable.json
+1	1	views/en/latest/pcKbBrl/stable.json
+1	1	views/en/latest/readFeeds/stable.json
+1	1	views/en/latest/reportSymbols/stable.json

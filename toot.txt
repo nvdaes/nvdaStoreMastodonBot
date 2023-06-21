@@ -1,4 +1,4 @@
-Updated add-ons: cursorLocator stable
-enhancedAnnotations stable
-placeMarkers stable
+Updated add-ons: pcKbBrl stable
+readFeeds stable
+reportSymbols stable
 #NVDA #bot
