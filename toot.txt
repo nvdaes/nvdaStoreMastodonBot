@@ -1,3 +1,4 @@
-Updated add-ons: clipContentsDesigner stable
-controlUsageAssistant stable
+Updated add-ons: cursorLocator stable
+enhancedAnnotations stable
+placeMarkers stable
 #NVDA #bot
