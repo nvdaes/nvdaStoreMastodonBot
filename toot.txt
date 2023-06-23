@@ -1,1 +1,5 @@
-
+Updated add-ons: searchwith stable
+Homepage: https://addons.nvda-project.org/addons/searchWith.en.html
+Download: https://github.com/ibrahim-s/searchWith/releases/download/2.5.3/searchWith-2.5.3.nvda-addon
+SHA256: 749fccfd76e352c01ae316344bac2a5e556a1918bfe914182a764d57d456cde3
+#NVDA #bot
