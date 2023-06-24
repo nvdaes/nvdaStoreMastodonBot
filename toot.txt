@@ -1,5 +1,1 @@
-Updated add-ons: access8math stable
-Homepage: https://addons.nvda-project.org/addons/access8math.en.html
-Download: https://github.com/tsengwoody/Access8Math/releases/download/v3.6.2/Access8Math-3.6.2.nvda-addon
-SHA256: 8506493e8675ddd2a8ea055cbbed848541d7d6797acbd7af0bd90d9475e7aa0b
-#NVDA #bot
+
