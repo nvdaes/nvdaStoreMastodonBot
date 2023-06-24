@@ -1,0 +1,1 @@
+1	1	views/en/latest/enhancedTouchGestures/stable.json
