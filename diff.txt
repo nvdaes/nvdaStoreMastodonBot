@@ -1,1 +1,2 @@
-1	1	views/en/latest/numpadNavMode/stable.json
+1	1	views/en/latest/soundSplitter/stable.json
+1	1	views/en/latest/speechLogger/stable.json

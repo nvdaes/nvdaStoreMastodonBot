@@ -1,5 +1,3 @@
-Updated add-ons: numpadNavMode stable
-Homepage: https://github.com/opensourcesys/numpadNavMode/blob/master/readme.md
-Download: https://github.com/opensourcesys/numpadNavMode/releases/download/v23.1.7/numpadNavMode-23.1.7.nvda-addon
-SHA256: 313b430e7126571d3187fe3539249426b78e6311d8611dc01ab69528d0a2d584
+Updated add-ons: soundSplitter stable
+speechLogger stable
 #NVDA #bot
