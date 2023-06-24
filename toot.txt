@@ -1,1 +1,5 @@
-
+Updated add-ons: enhancedTouchGestures stable
+Homepage: https://github.com/kefaslungu/enhancedTouchGestures/blob/main/readme.md
+Download: https://github.com/kefaslungu/enhancedTouchGestures/releases/download/23.06/enhancedTouchGestures-23.06.nvda-addon
+SHA256: ef84a005a4d068f509b65d0651d45c9b2325f6984f5fa9af525cee06326f38fa
+#NVDA #bot
