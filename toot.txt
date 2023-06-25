@@ -1,1 +1,5 @@
-
+Updated add-ons: placeMarkers stable
+Homepage: https://github.com/nvdaes/placeMarkers
+Download: https://github.com/nvdaes/placeMarkers/releases/download/31.0.0/placeMarkers-31.0.0.nvda-addon
+SHA256: 927f6a8c6114e274020e9a3ce8ac3d200183b9e30b5fc6d3dd64bb60b32bde1e
+#NVDA #bot
