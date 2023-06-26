@@ -1,1 +1,4 @@
-
+Updated add-ons: Note diary for NVDA stable
+wintenApps beta
+wintenApps dev
+#NVDA #bot
