@@ -1,5 +1,1 @@
-Updated add-ons: NotepadPlusPlus stable
-Homepage: https://github.com/derekriemer/nvda-notepadplusplus
-Download: https://github.com/derekriemer/nvda-notepadPlusPlus/releases/download/2023.06.3/NotepadPlusPlus-2023.06.3.nvda-addon
-SHA256: 98b649be5b88d32945715685b5da303ffd617d609f02c2818c87105f163fc364
-#NVDA #bot
+
