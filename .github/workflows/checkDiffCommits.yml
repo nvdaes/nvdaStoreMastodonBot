@@ -36,7 +36,16 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: ./main/sha.txt
-
+    - name: Read current sha
+      id: curSha
+      uses: actions/github-script@v6
+      with:
+        script: |
+          const cacheUrl = https://www.nvaccess.org/addonStore/cacheHash.json
+          const result = await request(cacheUrl)
+    - name: Write cur sha
+      run: |
+        echo "${{steps.curSha.outputs.result}}"
     - name: Write diff
       run: |
         cd store
