@@ -37,7 +37,7 @@ jobs:
       with:
         path: ./main/sha.txt
     - name: Read current sha
-      id: curSha
+      id: currentSha
       uses: actions/github-script@v6
       with:
         script: |
@@ -45,7 +45,7 @@ jobs:
           const result = await request(cacheUrl)
     - name: Write cur sha
       run: |
-        echo "${{steps.curSha.outputs.result}}"
+        echo "${{steps.currentSha.outputs.result}}"
     - name: Write diff
       run: |
         cd store
