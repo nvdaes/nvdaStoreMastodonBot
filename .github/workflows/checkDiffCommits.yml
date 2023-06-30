@@ -42,7 +42,8 @@ jobs:
       with:
         script: |
           const cacheUrl = https://www.nvaccess.org/addonStore/cacheHash.json
-          const result = await request(cacheUrl)
+          const result = await github.request(cacheUrl)
+          console.log(result)
     - name: Write cur sha
       run: |
         echo "${{steps.currentSha.outputs.result}}"
