@@ -53,7 +53,7 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
+        git diff --numstat ${{ steps.currentSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
