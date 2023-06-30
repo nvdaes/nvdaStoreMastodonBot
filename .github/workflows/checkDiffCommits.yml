@@ -43,10 +43,12 @@ jobs:
         script: |
           const cacheUrl = 'https://www.nvaccess.org/addonStore/cacheHash.json'
           const result = await github.request(cacheUrl)
-          console.log(result)
+          const data = result.data
+          return data
+        result-encoding: string
     - name: Write cur sha
       run: |
-        echo "${{steps.currentSha.outputs.result}}"
+        echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
     - name: Write diff
       run: |
         cd store
