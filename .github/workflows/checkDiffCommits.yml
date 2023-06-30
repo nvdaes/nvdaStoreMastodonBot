@@ -44,7 +44,7 @@ jobs:
           const cacheUrl = 'https://www.nvaccess.org/addonStore/cacheHash.json'
           const result = await github.request(cacheUrl)
           const data = result.data
-          return data
+          return data.trim()
         result-encoding: string
     - name: Write cur sha
       if: ${{ steps.prevSha.outputs.content }} != ${{ steps.currentSha.outputs.result }}
