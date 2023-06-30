@@ -1,5 +1,5 @@
-Updated add-ons: charInfo stable
-Homepage: https://addons.nvda-project.org/addons/charInfo.en.html
-Download: https://github.com/CyrilleB79/charInfo/releases/download/V2.4/charInfo-2.4.nvda-addon
-SHA256: 9b205289045881d760bf16f6abf9e8d0c887024fcd42b96ad98019ba803b255c
+Updated add-ons: addonUpdater stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/josephsl/addonUpdater/releases/download/23.07/addonUpdater-23.07.1.nvda-addon
+SHA256: a2eb09a199f8b1edcd2b6a6a67e3a47e0465e02b92e71db96a97c7c4395005e7
 #NVDA #bot
