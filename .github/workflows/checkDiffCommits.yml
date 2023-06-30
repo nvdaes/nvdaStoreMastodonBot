@@ -36,6 +36,7 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: ./main/sha.txt
+        trim: true
     - name: Read current sha
       id: currentSha
       uses: actions/github-script@v6
