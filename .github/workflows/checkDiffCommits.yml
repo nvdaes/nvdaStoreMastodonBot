@@ -40,19 +40,12 @@ jobs:
           const data = result.data
           return data.trim()
         result-encoding: string
-    - name: Exit if current is equal to previous sha
-      if: '${{ steps.prevSha.outputs.content == steps.currentSha.outputs.result }}'
-      run: |
-        exit 1
-    - name: Report failure
-      if: ${{ failure() }}
-      run: |
-        echo "Stop workflow"
-        exit 0
     - name: Write current sha
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
     - name: Checkout store
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       uses: actions/checkout@v3
       with:
          repository: nvaccess/addon-datastore
@@ -60,16 +53,19 @@ jobs:
          fetch-depth: 0
 
     - name: Write diff
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
         cd store
         git checkout views
         git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
     - name: Read diff
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: diff
       uses: juliangruber/read-file-action@v1
       with:
         path: ./main/diff.txt
     - name: Process diff
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: processDiff
       uses: actions/github-script@v6
       with:
