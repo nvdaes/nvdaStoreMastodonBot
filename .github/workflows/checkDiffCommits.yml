@@ -40,11 +40,12 @@ jobs:
           const data = result.data
           return data.trim()
         result-encoding: string
-    - name: Write cur sha
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
+    - name: Exit if current is equal to previous sha
+      if: '${{ steps.prevSha.outputs.content == steps.currentSha.outputs.result }}'
       run: |
-        echo "${{ steps.prevSha.outputs.content }}"
-        echo "${{ steps.currentSha.outputs.result }}"
+        exit 0
+    - name: Write current sha
+      run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
     - name: Checkout store
       uses: actions/checkout@v3
