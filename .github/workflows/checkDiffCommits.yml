@@ -46,7 +46,9 @@ jobs:
         exit 1
     - name: Report failure
       if: ${{ failure() }}
-      run: echo "Stop workflow"
+      run: |
+        echo "Stop workflow"
+        exit 0
     - name: Write current sha
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
