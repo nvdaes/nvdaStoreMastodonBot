@@ -43,7 +43,7 @@ jobs:
     - name: Exit if current is equal to previous sha
       if: '${{ steps.prevSha.outputs.content == steps.currentSha.outputs.result }}'
       run: |
-        exit 0
+        exit 1
     - name: Write current sha
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
