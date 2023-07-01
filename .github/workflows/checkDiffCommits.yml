@@ -146,6 +146,8 @@ jobs:
             toot += `Download: ${url}\n`
             toot += `SHA256: ${sha}\n`
           }
+          const curSha = `${{ steps.currentSha.outputs.content }}`
+          toot += `Commit: https://github.com/nvaccess/addon-datastore/commit/${curSha}\n`
           toot += '#NVDA #bot'
           console.log(toot)
           core.setOutput('toot', toot) 
