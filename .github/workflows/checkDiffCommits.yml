@@ -146,7 +146,7 @@ jobs:
             toot += `Download: ${url}\n`
             toot += `SHA256: ${sha}\n`
           }
-          const curSha = `${{ steps.currentSha.outputs.content }}`
+          const curSha = `${{ steps.currentSha.outputs.result }}`
           toot += `Commit: https://github.com/nvaccess/addon-datastore/commit/${curSha}\n`
           toot += '#NVDA #bot'
           console.log(toot)
@@ -203,7 +203,7 @@ jobs:
             mailBody += `Código fuente: ${sourceURL}\n`
             mailBody += `SHA256: ${sha}\n`
           }
-          const curSha = `${{ steps.currentSha.outputs.content }}`
+          const curSha = `${{ steps.currentSha.outputs.result }}`
           mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${curSha}`
           console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
