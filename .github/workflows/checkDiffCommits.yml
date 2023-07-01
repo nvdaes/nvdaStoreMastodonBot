@@ -45,7 +45,6 @@ jobs:
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
     - name: Checkout store
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       uses: actions/checkout@v3
       with:
          repository: nvaccess/addon-datastore
@@ -53,19 +52,16 @@ jobs:
          fetch-depth: 0
 
     - name: Write diff
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
         cd store
         git checkout views
         git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
     - name: Read diff
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: diff
       uses: juliangruber/read-file-action@v1
       with:
         path: ./main/diff.txt
     - name: Process diff
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: processDiff
       uses: actions/github-script@v6
       with:
@@ -122,14 +118,16 @@ jobs:
           core.setOutput('displayEs', displayEs)
         result-encoding: string
     - name: Get metadata
-      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.processDiff.outputs.filename }}
+
       id: getMetadata
+      if: ${{ steps.processDiff.outputs.filename }}
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
-      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && '${{ steps.diff.outputs.content }} != "\n"'
+
       id: buildToot
+      if: '${{ steps.diff.outputs.content }} != "\n"'
       uses: actions/github-script@v6
       with:
         script: |
@@ -153,10 +151,8 @@ jobs:
           core.setOutput('toot', toot) 
         result-encoding: string
     - name: Write toot
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
     - name: Push changes
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
         # cd store
         # git log -1 --pretty="format:%H" > ../main/sha.txt
@@ -170,8 +166,8 @@ jobs:
         fi
 
     - name: Send toot to Mastodon
-      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.buildToot.outputs.toot }}
       id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
@@ -181,7 +177,6 @@ jobs:
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
     - name: Build mail
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: buildMail
       uses: actions/github-script@v6
       with:
@@ -212,7 +207,7 @@ jobs:
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Send mail
-      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.buildMail.outputs.mailBody }}
+      if: ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
