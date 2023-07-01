@@ -41,7 +41,7 @@ jobs:
           return data.trim()
         result-encoding: string
     - name: Write cur sha
-      if: "${{ steps.prevSha.outputs.content }} != ${{ steps.currentSha.outputs.result }}"
+      if: '${{ steps.prevSha.outputs.content }}' != '${{ steps.currentSha.outputs.result }}'
       run: |
         echo "${{ steps.prevSha.outputs.content }}"
         echo "${{ steps.currentSha.outputs.result }}"
