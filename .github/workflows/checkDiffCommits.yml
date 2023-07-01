@@ -122,8 +122,8 @@ jobs:
           core.setOutput('displayEs', displayEs)
         result-encoding: string
     - name: Get metadata
-      id: getMetadata
       if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.processDiff.outputs.filename }}
+      id: getMetadata
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
@@ -170,8 +170,8 @@ jobs:
         fi
 
     - name: Send toot to Mastodon
-      id: mastodon
       if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.buildToot.outputs.toot }}
+      id: mastodon
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
