@@ -1,6 +1,1 @@
-Updated add-ons: filezilla stable
-Homepage: 
-Download: https://github.com/RPTools-org/filezilla/releases/download/v2023.06.23/filezilla-2023.06.23.nvda-addon
-SHA256: 535227118a9021c6659c25e9de147a758b606321f892aa0578cb1891c66f15a2
-Commit: https://github.com/nvaccess/addon-datastore/commit/0e74074
-#NVDA #bot
+
