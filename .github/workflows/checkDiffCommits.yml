@@ -123,12 +123,12 @@ jobs:
         result-encoding: string
     - name: Get metadata
       id: getMetadata
-      if: ${{ steps.processDiff.outputs.filename }}
+      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.processDiff.outputs.filename }}
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.filename }}"
     - name: Build toot
-      if: '${{ steps.diff.outputs.content }} != "\n"'
+      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && '${{ steps.diff.outputs.content }} != "\n"'
       id: buildToot
       uses: actions/github-script@v6
       with:
@@ -153,8 +153,10 @@ jobs:
           core.setOutput('toot', toot) 
         result-encoding: string
     - name: Write toot
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
     - name: Push changes
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
         # cd store
         # git log -1 --pretty="format:%H" > ../main/sha.txt
@@ -169,7 +171,7 @@ jobs:
 
     - name: Send toot to Mastodon
       id: mastodon
-      if: ${{ steps.buildToot.outputs.toot }}
+      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.buildToot.outputs.toot }}
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
@@ -179,6 +181,7 @@ jobs:
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
     - name: Build mail
+      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       id: buildMail
       uses: actions/github-script@v6
       with:
@@ -209,7 +212,7 @@ jobs:
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Send mail
-      if: ${{ steps.buildMail.outputs.mailBody }}
+      if: ('${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}') && ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
