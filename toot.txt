@@ -1,6 +1,1 @@
-Updated add-ons: switchSynth stable
-Homepage: 
-Download: https://github.com/tspivey/switchSynth/releases/download/v1.06.2/switchSynth-1.06.2.nvda-addon
-SHA256: d3ee8585c93fe924f975678900d2dfa5bcd3f21d3f7ebb11655c26a15b7fc7c3
-Commit: https://github.com/nvaccess/addon-datastore/commit/8d6a3d8
-#NVDA #bot
+
