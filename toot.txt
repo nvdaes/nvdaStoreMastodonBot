@@ -1,1 +1,6 @@
-
+Updated add-ons: evttracker stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/opensourcesys/evtTracker/releases/download/v23.5.3/evtTracker-23.5.3.nvda-addon
+SHA256: 7ab88aa8a11414f18ce3d9b7590ed4c211ebd4bd9d257dc66aee7b2638836708
+Commit: https://github.com/nvaccess/addon-datastore/commit/3a9d890
+#NVDA #bot
