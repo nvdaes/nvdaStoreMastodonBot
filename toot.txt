@@ -1,6 +1,1 @@
-Updated add-ons: Autoclip stable
-Homepage: https://github.com/mzanm/NVDAAutoclip
-Download: https://github.com/mzanm/NVDAAutoclip/releases/download/v1.0.2/Autoclip-1.0.2.nvda-addon
-SHA256: e49a98ded7229cb9588700f17a01a22a3fe2f477c10b8bab8c63264015d136b0
-Commit: https://github.com/nvaccess/addon-datastore/commit/aaf3bb0
-#NVDA #bot
+
