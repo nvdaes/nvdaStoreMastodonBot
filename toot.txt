@@ -1,6 +1,6 @@
-Updated add-ons: mp3DirectCut stable
-Homepage: https://addons.nvda-project.org/addons/mp3DirectCut.en.html
-Download: https://github.com/abdel792/mp3DirectCut/releases/download/v23.07/mp3DirectCut-20230708.0.0.nvda-addon
-SHA256: e2514b0c4090d1e08762823cd120c26611bb9643ab51c381657ed826ae5c5d12
-Commit: https://github.com/nvaccess/addon-datastore/commit/2d23e26
+Updated add-ons: sayCurrentKeyboardLanguage stable
+Homepage: https://addons.nvda-project.org/addons/sayCurrentKeyboardLanguage.en.html
+Download: https://github.com/abdel792/sayCurrentKeyboardLanguage/releases/download/v23.07/sayCurrentKeyboardLanguage-20230708.0.0.nvda-addon
+SHA256: 97e68f9fea3b864ecdd1ac4076b945617e914642f2f3193eaba59037305b2cab
+Commit: https://github.com/nvaccess/addon-datastore/commit/4598e9a
 #NVDA #bot
