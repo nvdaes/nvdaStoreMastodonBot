@@ -1,1 +1,4 @@
-
+Updated add-ons: clipContentsDesigner stable
+pcKbBrl stable
+Commit: https://github.com/nvaccess/addon-datastore/commit/4cc593c
+#NVDA #bot
