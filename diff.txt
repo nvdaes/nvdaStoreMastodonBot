@@ -1,1 +1,1 @@
-1	1	views/en/latest/dayOfTheWeek/stable.json
+1	1	views/en/latest/mp3DirectCut/stable.json

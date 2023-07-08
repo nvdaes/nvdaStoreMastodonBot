@@ -1,6 +1,6 @@
-Updated add-ons: dayOfTheWeek stable
-Homepage: https://addons.nvda-project.org/addons/dayOfTheWeek.en.html
-Download: https://github.com/abdel792/dayOfTheWeek/releases/download/v23.07/dayOfTheWeek-20230708.0.0.nvda-addon
-SHA256: fa19725036dd8b31af33fb66a49cd34f86b66235593111e42e60ebe9e39ec804
-Commit: https://github.com/nvaccess/addon-datastore/commit/47dcffe
+Updated add-ons: mp3DirectCut stable
+Homepage: https://addons.nvda-project.org/addons/mp3DirectCut.en.html
+Download: https://github.com/abdel792/mp3DirectCut/releases/download/v23.07/mp3DirectCut-20230708.0.0.nvda-addon
+SHA256: e2514b0c4090d1e08762823cd120c26611bb9643ab51c381657ed826ae5c5d12
+Commit: https://github.com/nvaccess/addon-datastore/commit/2d23e26
 #NVDA #bot
