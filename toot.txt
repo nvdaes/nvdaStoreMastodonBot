@@ -1,1 +1,6 @@
-
+Updated add-ons: resourceMonitor stable
+Homepage: https://addons.nvda-project.org/
+Download: https://github.com/kefaslungu/resourceMonitor/releases/download/23.06/resourceMonitor-23.06.nvda-addon
+SHA256: 94c1a636716688026f0f11f890bd6ab4f4d86988e1dff5ce6149d1ff502d1b3d
+Commit: https://github.com/nvaccess/addon-datastore/commit/13a4c8c
+#NVDA #bot
