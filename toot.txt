@@ -1,1 +1,6 @@
-
+Updated add-ons: versionCollector beta
+Homepage: https://github.com/XLTechie/versionCollector
+Download: https://github.com/opensourcesys/versionCollector/releases/download/v23.00.02-beta/versionCollector-23.00.02.nvda-addon
+SHA256: 0635e0e8e090fbd358f8bc4cc110f807ab3c9042f3579bf8614454a8934207b2
+Commit: https://github.com/nvaccess/addon-datastore/commit/abdd37c
+#NVDA #bot
