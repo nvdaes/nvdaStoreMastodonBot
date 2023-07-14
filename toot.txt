@@ -1,4 +1,1 @@
-Updated add-ons: wintenApps beta
-wintenApps dev
-Commit: https://github.com/nvaccess/addon-datastore/commit/fee4e87
-#NVDA #bot
+
