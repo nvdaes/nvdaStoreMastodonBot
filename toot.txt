@@ -1,6 +1,1 @@
-Updated add-ons: dayOfTheWeek stable
-Homepage: https://addons.nvda-project.org/addons/dayOfTheWeek.en.html
-Download: https://github.com/abdel792/dayOfTheWeek/releases/download/v23.07.15/dayOfTheWeek-20230715.0.0.nvda-addon
-SHA256: 393cb4e97add9ebe68c64568a725409277443719690834fff1709d28d2031087
-Commit: https://github.com/nvaccess/addon-datastore/commit/d057887
-#NVDA #bot
+
