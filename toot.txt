@@ -1,4 +1,1 @@
-Updated add-ons: addonUpdater stable
-mp3DirectCut stable
-Commit: https://github.com/nvaccess/addon-datastore/commit/1376107
-#NVDA #bot
+
