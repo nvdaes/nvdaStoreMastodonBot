@@ -94,5 +94,5 @@ wintenApps beta
 wintenApps dev
 wordnav stable
 zoomEnhancements stable
-Commit: https://github.com/nvaccess/addon-datastore/commit/530c5e4
+Commit: https://github.com/nvaccess/addon-datastore/commit/253b2b5
 #NVDA #bot
