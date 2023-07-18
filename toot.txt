@@ -1,1 +1,6 @@
-
+Updated add-ons: killProcess stable
+Homepage: 
+Download: https://github.com/rayo-alcantar/KillProcess/releases/download/v1.1.1/killProcess-1.1.1.nvda-addon
+SHA256: 23106ee86978276f1cb29692ee5be723150251e2b97101927a313a4424fdfb7c
+Commit: https://github.com/nvaccess/addon-datastore/commit/5604fb6
+#NVDA #bot
