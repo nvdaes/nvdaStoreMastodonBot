@@ -1,6 +1,1 @@
-Updated add-ons: wintenApps dev
-Homepage: https://addons.nvda-project.org/
-Download: https://github.com/josephsl/wintenApps/releases/download/23.07/wintenApps-20230719.0.0.nvda-addon
-SHA256: 1cbbcdfc5542701455ec557e00467321f6a1ba715235d0ef89b8d347f6d3c768
-Commit: https://github.com/nvaccess/addon-datastore/commit/83e1696
-#NVDA #bot
+
