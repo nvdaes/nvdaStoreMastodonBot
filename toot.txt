@@ -1,4 +1,1 @@
-Updated add-ons: dictionaries stable
-wintenApps beta
-Commit: https://github.com/nvaccess/addon-datastore/commit/ace807a
-#NVDA #bot
+
