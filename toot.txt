@@ -1,1 +1,6 @@
-
+Updated add-ons: favoriteFolders stable
+Homepage: https://github.com/ruifontes/favoriteFolders
+Download: https://github.com/ruifontes/favoriteFolders/releases/download/2023.07.20/favoriteFolders-2023.07.20.nvda-addon
+SHA256: d0d75b4426590b654dfbd4fe18e2d2cf0bbb471e64027888242cf8ce8cc0e92a
+Commit: https://github.com/nvaccess/addon-datastore/commit/ab49a5e
+#NVDA #bot
