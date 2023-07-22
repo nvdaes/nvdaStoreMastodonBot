@@ -45,7 +45,6 @@ jobs:
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
     - name: Checkout store
-      if: '${{ steps.currentSha.outputs.result.length > 0 }}'
       uses: actions/checkout@v3
       with:
          repository: nvaccess/addon-datastore
