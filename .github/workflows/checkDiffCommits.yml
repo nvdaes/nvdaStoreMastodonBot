@@ -55,6 +55,12 @@ jobs:
     - name: Write current sha
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
+    - name: Read previous sha
+      id: prevSha
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./sha.txt
+        trim: true
     - name: Checkout store
       uses: actions/checkout@v3
       with:
