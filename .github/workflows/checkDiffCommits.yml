@@ -35,12 +35,12 @@ jobs:
           return data.trim()
         result-encoding: string
     - name: Restore cached hash
-       id: cache
-       uses: actions/cache/restore@v3
-       with:
-         path: |
-           ./sha.txt
-         key: hash-${{ steps.currentSha.outputs.result }}
+      id: cache
+      uses: actions/cache/restore@v3
+      with:
+        path: |
+          ./sha.txt
+        key: hash-${{ steps.currentSha.outputs.result }}
         restore-keys: |
           hash-
 
