@@ -218,5 +218,5 @@ jobs:
       uses: actions/cache/save@v3
       with:
         path: |
-          ./hash.txt
+          ./sha.txt
         key: ${{ steps.currentSha.outputs.result }}
