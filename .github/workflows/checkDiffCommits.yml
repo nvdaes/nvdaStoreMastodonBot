@@ -46,12 +46,6 @@ jobs:
     - name: Exit if store is the same
       if: steps.cache.outputs.cache-hit == 'true'
       run: exit 0
-    - name: Read previous sha
-      id: prevSha
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./sha.txt
-        trim: true
     - name: Write current sha
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
