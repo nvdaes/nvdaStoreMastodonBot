@@ -41,8 +41,8 @@ jobs:
         path: |
           ./sha.txt
         key: sha-${{ steps.currentSha.outputs.result }}
-          restore-keys: |
-            sha-
+        restore-keys: |
+          sha-
 
     - name: Read previous sha
       id: prevSha
