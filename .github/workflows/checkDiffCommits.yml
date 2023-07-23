@@ -41,9 +41,6 @@ jobs:
         path: |
           ./sha.txt
         key: ${{ steps.currentSha.outputs.result }}
-    - name: Exit if store is the same
-      if: steps.cache.outputs.cache-hit
-      run: exit 0
 
     - name: Read previous sha
       id: prevSha
