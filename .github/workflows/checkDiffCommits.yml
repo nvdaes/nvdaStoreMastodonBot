@@ -34,16 +34,18 @@ jobs:
           const data = result.data
           return data.trim()
         result-encoding: string
-    - name: Restore cached hash
-      id: cache
-      uses: actions/cache/restore@v3
-      with:
-        path: |
-          ./sha.txt
-        key: sha-${{ steps.currentSha.outputs.result }}
-        restore-keys: |
-          sha-
-
+    # - name: Restore cached hash
+       # id: cache
+       # uses: actions/cache/restore@v3
+       # with:
+         # path: |
+           # ./sha.txt
+         # key: sha-${{ steps.currentSha.outputs.result }}
+        # restore-keys: |
+          # sha-
+    - name: Write current sha
+      run: |
+        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
     - name: Read previous sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
@@ -51,9 +53,7 @@ jobs:
         path: ./sha.txt
         trim: true
 
-    - name: Write current sha
-      run: |
-        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
+
     - name: Checkout store
       uses: actions/checkout@v3
       with:
@@ -221,4 +221,5 @@ jobs:
       with:
         path: |
           ./sha.txt
-        key: ${{ steps.cache.outputs.cache-primary-key }}
+        # key: ${{ steps.cache.outputs.cache-primary-key }}
+        key: ${{ steps.currentSha.outputs.result }}
