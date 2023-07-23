@@ -40,7 +40,7 @@ jobs:
       with:
         path: |
           ./sha.txt
-          key: sha-${{ steps.currentSha.outputs.result }}
+        key: sha-${{ steps.currentSha.outputs.result }}
           restore-keys: |
             sha-
 
