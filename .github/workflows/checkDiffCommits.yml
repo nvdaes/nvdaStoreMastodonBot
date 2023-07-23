@@ -40,7 +40,6 @@ jobs:
       with:
         path: |
           ./sha.txt
-        key: ${{ steps.currentSha.outputs.result }}
 
     - name: Read previous sha
       id: prevSha
@@ -219,4 +218,4 @@ jobs:
       with:
         path: |
           ./hash.txt
-        key: ${{ steps.cache.outputs.cache-primary-key }}
+
