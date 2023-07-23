@@ -36,7 +36,7 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache@v3
+      uses: actions/cache/restore@v3
       with:
         path: |
           ./sha.txt
@@ -48,6 +48,7 @@ jobs:
       with:
         path: ./sha.txt
         trim: true
+
     - name: Write current sha
       run: |
         echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
@@ -212,3 +213,10 @@ jobs:
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
+    - name: Save hash
+      id: cacheSave
+      uses: actions/cache/save@v3
+      with:
+        path: |
+          ./hash.txt
+        key: ${{ steps.cache.outputs.cache-primary-key }}
