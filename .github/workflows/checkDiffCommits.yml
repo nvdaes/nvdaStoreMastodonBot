@@ -36,13 +36,13 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache@v3
       with:
         path: |
           ./sha.txt
         key: ${{ steps.currentSha.outputs.result }}
     - name: Exit if store is the same
-      if: steps.cache.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit == 'true'
       run: exit 0
 
     - name: Read previous sha
@@ -215,10 +215,3 @@ jobs:
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
-    - name: Save hash
-      id: cacheHashSave
-      uses: actions/cache/save@v3
-      with:
-        path: |
-          ./sha.txt
-        key: ${{ steps.cache.outputs.cache-primary-key }}
