@@ -222,4 +222,4 @@ jobs:
         path: |
           ./sha.txt
         # key: ${{ steps.cache.outputs.cache-primary-key }}
-        key: ${{ steps.currentSha.outputs.result }}
+        key: hash-${{ steps.currentSha.outputs.result }}
