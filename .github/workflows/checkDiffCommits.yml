@@ -44,15 +44,16 @@ jobs:
     - name: Exit if store is the same
       if: steps.cache.outputs.cache-hit == 'true'
       run: exit 0
-    - name: Write current sha
-      run: |
-        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
+
     - name: Read previous sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
       with:
         path: ./sha.txt
         trim: true
+    - name: Write current sha
+      run: |
+        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
     - name: Checkout store
       uses: actions/checkout@v3
       with:
@@ -161,16 +162,16 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
-    # - name: Send toot to Mastodon
-      # id: mastodon
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: cbrgm/mastodon-github-action@v1
-      # with:
-        # message: ${{ steps.buildToot.outputs.toot }}
-        # visibility: "public" # default: public
-      # env:
-        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
     - name: Build mail
       id: buildMail
@@ -202,18 +203,18 @@ jobs:
           console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
-    # - name: Send mail
-      # if: ${{ steps.buildMail.outputs.mailBody }}
-      # uses: dawidd6/action-send-mail@v3
-      # with:
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{secrets.MAIL_USERNAME}}
-        # password: ${{secrets.MAIL_PASSWORD}}
-        # subject: 'Complementos #bot'
-        # to: lista@nvdaes.groups.io
-        # from: Noelia Ruiz
-        # body: ${{steps.buildMail.outputs.mailBody }}
+    - name: Send mail
+      if: ${{ steps.buildMail.outputs.mailBody }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: 'Complementos #bot'
+        to: lista@nvdaes.groups.io
+        from: Noelia Ruiz
+        body: ${{steps.buildMail.outputs.mailBody }}
     - name: Save hash
       id: cacheHashSave
       uses: actions/cache/save@v3
