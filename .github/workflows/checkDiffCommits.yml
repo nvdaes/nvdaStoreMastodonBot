@@ -14,8 +14,6 @@ jobs:
   diffs:
   
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
 
@@ -221,5 +219,5 @@ jobs:
       uses: actions/cache/save@v3
       with:
         path: |
-          ./store
-        key: ${{ steps.cacheHashRestore.outputs.cache-primary-key }}
+          ./sha.txt
+        key: ${{ steps.cache.outputs.cache-primary-key }}
