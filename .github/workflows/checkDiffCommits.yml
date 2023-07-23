@@ -24,12 +24,8 @@ jobs:
       with:
          repository: nvdaes/nvdaStoreMastodonBot
          path: main
-    - name: Read previous sha
-      id: prevSha
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./main/sha.txt
-        trim: true
+
+
     - name: Read current sha
       id: currentSha
       uses: actions/github-script@v6
@@ -40,10 +36,25 @@ jobs:
           const data = result.data
           return data.trim()
         result-encoding: string
+    - name: Restore cached hash
+      id: cache
+      uses: actions/cache/restore@v3
+      with:
+        path: |
+          ./sha.txt
+        key: ${{ steps.currentSha.outputs.result }}
+    - name: Exit if store is the same
+      if: steps.cache.outputs.cache-hit == 'true'
+      run: exit 0
+    - name: Read previous sha
+      id: prevSha
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./sha.txt
+        trim: true
     - name: Write current sha
-      if: '${{ steps.prevSha.outputs.content != steps.currentSha.outputs.result }}'
       run: |
-        echo "${{steps.currentSha.outputs.result}}" > ./main/sha.txt
+        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
     - name: Checkout store
       uses: actions/checkout@v3
       with:
@@ -55,12 +66,12 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../main/diff.txt
+        git diff --numstat ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
       with:
-        path: ./main/diff.txt
+        path: ./diff.txt
     - name: Process diff
       id: processDiff
       uses: actions/github-script@v6
@@ -152,31 +163,16 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
-    - name: Write toot
-      run: echo "${{ steps.buildToot.outputs.toot}}" > ./main/toot.txt
-    - name: Push changes
-      run: |
-        # cd store
-        # git log -1 --pretty="format:%H" > ../main/sha.txt
-        cd main
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        if ! git diff-index --quiet HEAD; then
-        git commit -m "Update sha"
-        git push
-        fi
-
-    - name: Send toot to Mastodon
-      id: mastodon
-      if: ${{ steps.buildToot.outputs.toot }}
-      uses: cbrgm/mastodon-github-action@v1
-      with:
-        message: ${{ steps.buildToot.outputs.toot }}
-        visibility: "public" # default: public
-      env:
-        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    # - name: Send toot to Mastodon
+      # id: mastodon
+      # if: ${{ steps.buildToot.outputs.toot }}
+      # uses: cbrgm/mastodon-github-action@v1
+      # with:
+        # message: ${{ steps.buildToot.outputs.toot }}
+        # visibility: "public" # default: public
+      # env:
+        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
     - name: Build mail
       id: buildMail
@@ -208,16 +204,22 @@ jobs:
           console.log(mailBody)
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
-    - name: Send mail
-      if: ${{ steps.buildMail.outputs.mailBody }}
-      uses: dawidd6/action-send-mail@v3
+    # - name: Send mail
+      # if: ${{ steps.buildMail.outputs.mailBody }}
+      # uses: dawidd6/action-send-mail@v3
+      # with:
+        # server_address: smtp.gmail.com
+        # server_port: 465
+        # username: ${{secrets.MAIL_USERNAME}}
+        # password: ${{secrets.MAIL_PASSWORD}}
+        # subject: 'Complementos #bot'
+        # to: lista@nvdaes.groups.io
+        # from: Noelia Ruiz
+        # body: ${{steps.buildMail.outputs.mailBody }}
+    - name: Save hash
+      id: cacheHashSave
+      uses: actions/cache/save@v3
       with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: 'Complementos #bot'
-        to: lista@nvdaes.groups.io
-        from: Noelia Ruiz
-        body: ${{steps.buildMail.outputs.mailBody }}
-
+        path: |
+          ./store
+        key: ${{ steps.cacheHashRestore.outputs.cache-primary-key }}
