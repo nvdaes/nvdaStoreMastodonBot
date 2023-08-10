@@ -85,7 +85,7 @@ jobs:
             let file = filesChanged[0]
             var filename = file.split(/\t/)[2]
           }
-          core.setOutput('filename', filename)
+
           console.log(`${numberOfFilesChanged} ${diff}`)
           var display = ``
           var displayEs = ``
@@ -126,6 +126,9 @@ jobs:
           console.log(display)
           core.setOutput('display', display)
           core.setOutput('displayEs', displayEs)
+          if (filesRemoved.length !== 1) {
+                    core.setOutput('filename', filename)
+                  }
         result-encoding: string
     - name: Get metadata
 
