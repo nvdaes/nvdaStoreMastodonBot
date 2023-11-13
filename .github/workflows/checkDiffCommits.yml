@@ -155,9 +155,11 @@ jobs:
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL}}`
             const sha = `${{ steps.getMetadata.outputs.sha256 }}`
+            const reviewUrl = `${{ steps.getMetadata.outputs.reviewUrl }}`
             toot += `Homepage: ${homepage}\n`
             toot += `Download: ${url}\n`
             toot += `SHA256: ${sha}\n`
+            toot += `Community reviews: ${reviewUrl}\n`
           }
           const curSha = `${{ steps.currentSha.outputs.result }}`
           toot += `Commit: https://github.com/nvaccess/addon-datastore/commit/${curSha}\n`
@@ -194,12 +196,14 @@ jobs:
             const url = `${{ steps.getMetadata.outputs.URL}}`
             const sourceURL = `${{ steps.getMetadata.outputs.sourceURL }}`
             const sha = `${{ steps.getMetadata.outputs.sha256 }}`
+            const reviewUrl = `${{ steps.getMetadata.outputs.reviewUrl }}`
             mailBody += `Versión: ${addonVersionName}\n`
             mailBody += `Publicado por ${publisher}\n`
             mailBody += `Página de inicio: ${homepage}\n`
             mailBody += `Descarga: ${url}\n`
             mailBody += `Código fuente: ${sourceURL}\n`
             mailBody += `SHA256: ${sha}\n`
+            mailBody += `Revisiones de la comunidad: ${reviewUrl}\n`
           }
           const curSha = `${{ steps.currentSha.outputs.result }}`
           mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${curSha}`
