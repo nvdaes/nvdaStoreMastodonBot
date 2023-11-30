@@ -167,16 +167,16 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
-    #- name: Send toot to Mastodon
-      #id: mastodon
-      #if: ${{ steps.buildToot.outputs.toot }}
-      #uses: cbrgm/mastodon-github-action@v1
-      #with:
-        #message: ${{ steps.buildToot.outputs.toot }}
-        #visibility: "public" # default: public
-      #env:
-        #MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        #MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
     - name: Build mail
       id: buildMail
