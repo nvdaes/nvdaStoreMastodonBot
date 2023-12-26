@@ -222,9 +222,8 @@ jobs:
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
-        
-        
-        - name: Send mail to feeds subgroup
+
+    - name: Send mail to feeds subgroup
       if: ${{ steps.buildToot.outputs.toot }}
       uses: dawidd6/action-send-mail@v3
       with:
