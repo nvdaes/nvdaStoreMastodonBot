@@ -73,7 +73,7 @@ jobs:
         path: ./diff.txt
     - name: Process diff
       id: processDiff
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           const diff = `${{ steps.diff.outputs.content }}`
@@ -169,7 +169,7 @@ jobs:
         result-encoding: string
     - name: Build mail
       id: buildMail
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           var mailBody = ``
