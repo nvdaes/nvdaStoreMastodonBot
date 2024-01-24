@@ -18,7 +18,7 @@ jobs:
     steps:
 
     - name: Checkout current
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
          repository: nvdaes/nvdaStoreMastodonBot
          path: main
@@ -26,7 +26,7 @@ jobs:
 
     - name: Read current sha
       id: currentSha
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           const cacheUrl = 'https://www.nvaccess.org/addonStore/cacheHash.json'
@@ -36,7 +36,7 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       with:
         path: |
           ./sha.txt
@@ -55,7 +55,7 @@ jobs:
         echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
 
     - name: Checkout store
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
          repository: nvaccess/addon-datastore
          path: store
@@ -141,7 +141,7 @@ jobs:
 
       id: buildToot
       if: '${{ steps.diff.outputs.content }} != "\n"'
-      uses: actions/github-script@v6
+      uses: actions/github-script@v7
       with:
         script: |
           var toot = ``
@@ -167,17 +167,6 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot) 
         result-encoding: string
-    - name: Send toot to Mastodon
-      id: mastodon
-      if: ${{ steps.buildToot.outputs.toot }}
-      uses: cbrgm/mastodon-github-action@v1
-      with:
-        message: ${{ steps.buildToot.outputs.toot }}
-        visibility: "public" # default: public
-      env:
-        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
-
     - name: Build mail
       id: buildMail
       uses: actions/github-script@v6
@@ -243,3 +232,14 @@ jobs:
           ./sha.txt
         # key: ${{ steps.cache.outputs.cache-primary-key }}
         key: hash-${{ steps.currentSha.outputs.result }}
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+
