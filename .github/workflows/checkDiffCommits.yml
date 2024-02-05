@@ -178,7 +178,9 @@ jobs:
             return
           }
           var mailBody = `${{ steps.processDiff.outputs.displayEs }}`
+          var subjectPrefix = ``
           if (numberOfFilesChanged === 1) {
+            subjectPrefix += `${{ steps.processDiff.outputs.displayEs }}`
             const addonVersionName = `${{ steps.getMetadata.outputs.addonVersionName }}`
             const publisher = `${{ steps.getMetadata.outputs.publisher }}`
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
@@ -197,6 +199,8 @@ jobs:
           const curSha = `${{ steps.currentSha.outputs.result }}`
           mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${curSha}`
           console.log(mailBody)
+          const subject = `${subjectPrefix}. Complementos #bot`
+          core.setOutput('subject', subject) 
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
     - name: Send mail
@@ -207,7 +211,7 @@ jobs:
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: 'Complementos #bot'
+        subject: ${{ steps.buildMail.outputs.subject }}
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
