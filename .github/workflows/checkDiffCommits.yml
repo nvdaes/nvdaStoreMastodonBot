@@ -236,7 +236,7 @@ jobs:
           ./sha.txt
         # key: ${{ steps.cache.outputs.cache-primary-key }}
         key: hash-${{ steps.currentSha.outputs.result }}
-      - name: Send toot to Mastodon
+    - name: Send toot to Mastodon
       id: mastodon
       if: ${{ steps.buildToot.outputs.toot }}
       uses: cbrgm/mastodon-github-action@v1
