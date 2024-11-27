@@ -165,7 +165,14 @@ jobs:
           toot += `Commit: https://github.com/nvaccess/addon-datastore/commit/${curSha}\n`
           toot += '#NVDA #bot'
           console.log(toot)
-          core.setOutput('toot', toot) 
+          core.setOutput('toot', toot)
+    - name: Get es metadata
+
+      id: getEsMetadata
+      if: ${{ steps.processDiff.outputs.filename }}
+      uses: ActionsTools/read-json-action@main
+      with:
+        file_path: "store/${{ steps.processDiff.outputs.filename }}".replace("/en", "/es")
         result-encoding: string
     - name: Build mail
       id: buildMail
@@ -183,6 +190,7 @@ jobs:
             subjectPrefix += `${{ steps.processDiff.outputs.displayEs }}. `
             const addonVersionName = `${{ steps.getMetadata.outputs.addonVersionName }}`
             const publisher = `${{ steps.getMetadata.outputs.publisher }}`
+            const description = `${{ steps.getMetadata.outputs.description }}`
             const homepage = `${{ steps.getMetadata.outputs.homepage }}`
             const url = `${{ steps.getMetadata.outputs.URL}}`
             const sourceURL = `${{ steps.getMetadata.outputs.sourceURL }}`
@@ -190,6 +198,7 @@ jobs:
             const reviewUrl = `${{ steps.getMetadata.outputs.reviewUrl }}`
             mailBody += `Versión: ${addonVersionName}\n`
             mailBody += `Publicado por ${publisher}\n`
+            mailBody += `Descripción: ${description}\n`
             mailBody += `Página de inicio: ${homepage}\n`
             mailBody += `Descarga: ${url}\n`
             mailBody += `Código fuente: ${sourceURL}\n`
