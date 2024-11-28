@@ -128,7 +128,8 @@ jobs:
           core.setOutput('displayEs', displayEs)
           if (filesRemoved.length !== 1) {
                     core.setOutput('filename', filename)
-                    core.setOutput('esfilename', filename.replace('/en/', '/es/'))
+                    let esfilename = filename.replace('/en/', '/es/')
+                    core.setOutput('esfilename', esfilename)
 
                   }
         result-encoding: string
