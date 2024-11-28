@@ -84,6 +84,8 @@ jobs:
           if (numberOfFilesChanged === 1) {
             let file = filesChanged[0]
             var filename = file.split(/\t/)[2]
+            var esfilename = filename.replace('/en/', '/es')
+
           }
 
           console.log(`${numberOfFilesChanged} ${diff}`)
@@ -128,7 +130,6 @@ jobs:
           core.setOutput('displayEs', displayEs)
           if (filesRemoved.length !== 1) {
                     core.setOutput('filename', filename)
-                    let esfilename = filename.replace('/en/', '/es/')
                     core.setOutput('esfilename', esfilename)
 
                   }
