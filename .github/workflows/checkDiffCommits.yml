@@ -179,7 +179,6 @@ jobs:
         file_path: "store/${{ steps.processDiff.outputs.esfilename }}"
     - name: Build mail
       id: buildMail
-      if: always()
       uses: actions/github-script@v7
       with:
         script: |
