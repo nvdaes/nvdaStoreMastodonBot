@@ -42,7 +42,6 @@ jobs:
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
         restore-keys: |
-          hash-${{ steps.currentSha.outputs.result }}
           hash-
 
     - name: Read previous sha
