@@ -215,18 +215,18 @@ jobs:
           core.setOutput('subject', subject) 
           core.setOutput('mailBody', mailBody) 
         result-encoding: string
-    # - name: Send mail
-      # if: ${{ steps.buildMail.outputs.mailBody }}
-      # uses: dawidd6/action-send-mail@v3
-      # with:
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{secrets.MAIL_USERNAME}}
-        # password: ${{secrets.MAIL_PASSWORD}}
-        # subject: ${{ steps.buildMail.outputs.subject }}
-        # to: lista@nvdaes.groups.io
-        # from: Noelia Ruiz
-        # body: ${{steps.buildMail.outputs.mailBody }}
+    - name: Send mail
+      if: ${{ steps.buildMail.outputs.mailBody }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: ${{ steps.buildMail.outputs.subject }}
+        to: lista@nvdaes.groups.io
+        from: Noelia Ruiz
+        body: ${{steps.buildMail.outputs.mailBody }}
 
     - name: Send mail to feeds subgroup
       if: ${{ steps.buildToot.outputs.toot }}
@@ -237,17 +237,17 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: 'Add-ons #addonstore'
-        to: araquidonia@gmail.com
+        to: feeds@nvda-addons.groups.io
         from: Noelia Ruiz
         body: ${{ steps.buildToot.outputs.toot }}
-    # - name: Send toot to Mastodon
-      # id: mastodon
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: cbrgm/mastodon-github-action@v1
-      # with:
-        # message: ${{ steps.buildToot.outputs.toot }}
-        # visibility: "public" # default: public
-      # env:
-        # MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        # MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+    - name: Send toot to Mastodon
+      id: mastodon
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
