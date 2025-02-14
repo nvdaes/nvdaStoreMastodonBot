@@ -36,7 +36,7 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache/restore@v4
+      uses: actions/cache@v4
       with:
         path: |
           ./sha.txt
@@ -240,14 +240,6 @@ jobs:
         to: araquidonia@gmail.com
         from: Noelia Ruiz
         body: ${{ steps.buildToot.outputs.toot }}
-    - name: Save hash
-      id: cacheSave
-      uses: actions/cache/save@v3
-      with:
-        path: |
-          ./sha.txt
-        # key: ${{ steps.cache.outputs.cache-primary-key }}
-        key: hash-${{ steps.currentSha.outputs.result }}
     # - name: Send toot to Mastodon
       # id: mastodon
       # if: ${{ steps.buildToot.outputs.toot }}
