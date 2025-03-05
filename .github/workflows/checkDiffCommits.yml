@@ -13,7 +13,7 @@ jobs:
 
   diffs:
   
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
 
@@ -83,6 +83,7 @@ jobs:
             let file = filesChanged[0]
             var filename = file.split(/\t/)[2]
             var esfilename = filename.replace('/en/', '/es/')
+            esfilename.replace('/mathcat/', '/MathCAT/')
 
           }
 
