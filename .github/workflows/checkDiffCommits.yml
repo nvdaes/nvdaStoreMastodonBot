@@ -45,8 +45,8 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
-    - name: Manually write previous sha
-      run: echo 354975ec > ./sha.txt
+    # - name: Manually write previous sha
+      # run: echo 354975ec > ./sha.txt
     - name: Read previous sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
