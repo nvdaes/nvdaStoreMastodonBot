@@ -13,7 +13,7 @@ jobs:
 
   diffs:
   
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
 
@@ -41,18 +41,16 @@ jobs:
         path: |
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
-        restore-keys: |
-          hash-
-
+    - name: Write previous sha
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
     - name: Read previous sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
       with:
         path: ./sha.txt
         trim: true
-    - name: Write current sha
-      run: |
-        echo "${{steps.currentSha.outputs.result}}" > ./sha.txt
 
     - name: Checkout store
       uses: actions/checkout@v4
@@ -240,6 +238,7 @@ jobs:
         to: feeds@nvda-addons.groups.io
         from: Noelia Ruiz
         body: ${{ steps.buildToot.outputs.toot }}
+
     - name: Send toot to Mastodon
       id: mastodon
       if: ${{ steps.buildToot.outputs.toot }}
