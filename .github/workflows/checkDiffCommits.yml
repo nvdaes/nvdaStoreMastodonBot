@@ -41,10 +41,7 @@ jobs:
         path: |
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
-    - name: Write previous sha
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
+
     # - name: Manually write previous sha
       # run: echo 354975ec > ./sha.txt
     - name: Read previous sha
@@ -53,7 +50,10 @@ jobs:
       with:
         path: ./sha.txt
         trim: true
-
+    - name: Write previous sha
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
     - name: Checkout store
       uses: actions/checkout@v4
       with:
