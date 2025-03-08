@@ -42,8 +42,8 @@ jobs:
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
 
-    - name: Manually write previous sha
-      run: echo 2b40f8ca > ./sha.txt
+    # - name: Manually write previous sha
+      # run: echo 2b40f8ca > ./sha.txt
     - name: Read previous sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
