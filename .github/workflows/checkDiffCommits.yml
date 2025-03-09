@@ -54,7 +54,7 @@ jobs:
       if: ${{ failure() }}
       run: echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
     - name: Save cache on failure
-      if: ${{ failure }}
+      if: ${{ failure() }}
       uses: actions/cache/save@v4
       with:
         path: |
