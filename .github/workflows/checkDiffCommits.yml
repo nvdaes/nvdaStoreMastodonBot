@@ -52,14 +52,14 @@ jobs:
         trim: true
     - name: Write sha on failure
       if: ${{ failure() }}
-      run: echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
+      run: echo 2b40f8ca > ./sha.txt
     - name: Save cache on failure
       if: ${{ failure() }}
       uses: actions/cache/save@v4
       with:
         path: |
           ./sha.txt
-        key: ${{ steps.cache.outputs.cache-primary-key }}
+        key: hash-2b40f8ca 
 
     - name: Write previous sha
       if: steps.cache.outputs.cache-hit != 'true'
