@@ -36,7 +36,7 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: |
           ./sha.txt
@@ -50,10 +50,28 @@ jobs:
       with:
         path: ./sha.txt
         trim: true
+    - name: Write sha on failure
+      if: ${{ failure() }}
+      run: echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
+    - name: Save cache on failure
+      if: ${{ failure {{}}}}
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          ./sha.txt
+        key: ${{ steps.cache.outputs.cache-primary-key }}
+
     - name: Write previous sha
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
+    - name: Save cache on success
+      if: steps.cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        path: |
+          ./sha.txt
+        key: ${{ steps.cache.outputs.cache-primary-key }}
     - name: Checkout store
       uses: actions/checkout@v4
       with:
