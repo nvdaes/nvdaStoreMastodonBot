@@ -38,48 +38,24 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache/restore@v4
+      uses: actions/cache@v4
       with:
         path: |
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
-
-    # - name: Manually write previous sha
-      # run: echo 2b40f8ca > ./sha.txt
-    - name: Read previous sha
+        restore-keys: |
+          hash-
+    - name: Read prev sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
       with:
         path: ./sha.txt
         trim: true
-    - name: Write sha on failure
-      if: ${{ failure() }}
-      run: |
-        echo 2b40f8ca > ./sha.txt
-        git config user.name github-actions
-        git config user.email github-actions@github.com
-        git add .
-        git commit -m "Update sha"
-        git push
-    - name: Save cache on failure
-      if: ${{ failure() }}
-      uses: actions/cache/save@v4
-      with:
-        path: |
-          ./sha.txt
-        key: hash-2b40f8ca 
 
     - name: Write previous sha
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
-    - name: Save cache on success
-      if: steps.cache.outputs.cache-hit != 'true'
-      uses: actions/cache/save@v4
-      with:
-        path: |
-          ./sha.txt
-        key: ${{ steps.cache.outputs.cache-primary-key }}
     - name: Checkout store
       uses: actions/checkout@v4
       with:
