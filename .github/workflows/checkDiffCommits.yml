@@ -14,6 +14,8 @@ jobs:
   diffs:
   
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
 
@@ -52,7 +54,13 @@ jobs:
         trim: true
     - name: Write sha on failure
       if: ${{ failure() }}
-      run: echo 2b40f8ca > ./sha.txt
+      run: |
+        echo 2b40f8ca > ./sha.txt
+        git config user.name github-actions
+        git config user.email github-actions@github.com
+        git add .
+        git commit -m "Update sha"
+        git push
     - name: Save cache on failure
       if: ${{ failure() }}
       uses: actions/cache/save@v4
