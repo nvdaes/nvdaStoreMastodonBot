@@ -174,9 +174,8 @@ jobs:
           console.log(toot)
           core.setOutput('toot', toot)
     - name: Get es metadata
-
       id: getEsMetadata
-      if: ${{ steps.processDiff.outputs.esfilename }}
+      if: ${{ steps.processDiff.outputs.esfilename && }} hashFiles(${{steps.processDiff.outputs.esfilename }})
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.esfilename }}"
