@@ -94,6 +94,7 @@ jobs:
           }
 
           console.log(`${numberOfFilesChanged} ${diff}`)
+          console.log(esfilename)
           var display = ``
           var displayEs = ``
           function updated(value) { return value.startsWith('1') }
