@@ -87,8 +87,8 @@ jobs:
             let file = filesChanged[0]
             var filename = file.split(/\t/)[2]
             var esfilename = filename.replace('/en/', '/es/')
-            esfilename.replace('/mathcat/', '/MathCAT/')
-            esfilename.replace('/searchwith/', '/searchWith/')
+            esfilename = esfilename.replace('/mathcat/', '/MathCAT/')
+            esfilename = esfilename.replace('/searchwith/', '/searchWith/')
 
 
           }
