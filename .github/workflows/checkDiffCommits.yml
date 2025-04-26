@@ -88,6 +88,8 @@ jobs:
             var filename = file.split(/\t/)[2]
             var esfilename = filename.replace('/en/', '/es/')
             esfilename.replace('/mathcat/', '/MathCAT/')
+            esfilename.replace('/searchwith/', '/searchWith/')
+
 
           }
 
@@ -175,7 +177,7 @@ jobs:
           core.setOutput('toot', toot)
     - name: Get es metadata
       id: getEsMetadata
-      if: ${{ steps.processDiff.outputs.esfilename }} && hashFiles(${{ steps.processDiff.outputs.esfilename }})
+      if: ${{ steps.processDiff.outputs.esfilename }}
       uses: ActionsTools/read-json-action@main
       with:
         file_path: "store/${{ steps.processDiff.outputs.esfilename }}"
