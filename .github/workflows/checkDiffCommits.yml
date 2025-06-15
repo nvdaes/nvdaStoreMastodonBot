@@ -233,18 +233,18 @@ jobs:
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
 
-    - name: Send mail to feeds subgroup
-      if: ${{ steps.buildToot.outputs.toot }}
-      uses: dawidd6/action-send-mail@v3
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: 'Add-ons #addonstore'
-        to: feeds@nvda-addons.groups.io
-        from: Noelia Ruiz
-        body: ${{ steps.buildToot.outputs.toot }}
+    # - name: Send mail to feeds subgroup
+      # if: ${{ steps.buildToot.outputs.toot }}
+      # uses: dawidd6/action-send-mail@v3
+      # with:
+        # server_address: smtp.gmail.com
+        # server_port: 465
+        # username: ${{secrets.MAIL_USERNAME}}
+        # password: ${{secrets.MAIL_PASSWORD}}
+        #subject: 'Add-ons #addonstore'
+        #to: feeds@nvda-addons.groups.io
+        # from: Noelia Ruiz
+        # body: ${{ steps.buildToot.outputs.toot }}
 
     - name: Send toot to Mastodon
       id: mastodon
@@ -252,6 +252,17 @@ jobs:
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
+        visibility: "public" # default: public
+      env:
+        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
+        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
+
+    - name: Send toot to Mastodon on failure
+      if: failure()
+      id: mastodonFailure
+      uses: cbrgm/mastodon-github-action@v1
+      with:
+        message: Seems that the bot cannot send info about add-on updates because limit of 500 characters has been exceeded
         visibility: "public" # default: public
       env:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
