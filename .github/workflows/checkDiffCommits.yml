@@ -38,14 +38,13 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache@v4
+      uses: actions/cache/restore@v4
       with:
         path: |
           ./sha.txt
         key: hash-${{ steps.currentSha.outputs.result }}
         restore-keys: |
           hash-
-        save-always: true
     - name: Read prev sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
@@ -258,3 +257,11 @@ jobs:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
         MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
 
+    - name: Always Save cache
+      id: save
+      if: always() && steps.cache.outputs.cache-hit != 'true'
+      uses: actions/cache/save@v4
+      with:
+        key: ${{ steps.cache.outputs.cache-primary-key }}
+        path: |
+          ./sha.txt
