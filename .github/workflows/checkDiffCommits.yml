@@ -7,7 +7,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 * * *'
+    - cron:  '*/5 * * * *'
     
 jobs:
 
@@ -233,18 +233,18 @@ jobs:
         from: Noelia Ruiz
         body: ${{steps.buildMail.outputs.mailBody }}
 
-    # - name: Send mail to feeds subgroup
-      # if: ${{ steps.buildToot.outputs.toot }}
-      # uses: dawidd6/action-send-mail@v3
-      # with:
-        # server_address: smtp.gmail.com
-        # server_port: 465
-        # username: ${{secrets.MAIL_USERNAME}}
-        # password: ${{secrets.MAIL_PASSWORD}}
-        #subject: 'Add-ons #addonstore'
-        #to: feeds@nvda-addons.groups.io
-        # from: Noelia Ruiz
-        # body: ${{ steps.buildToot.outputs.toot }}
+    - name: Send mail to feeds subgroup
+      if: ${{ steps.buildToot.outputs.toot }}
+      uses: dawidd6/action-send-mail@v3
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: 'Add-ons #addonstore'
+        to: feeds@nvda-addons.groups.io
+        from: Noelia Ruiz
+        body: ${{ steps.buildToot.outputs.toot }}
 
     - name: Send toot to Mastodon
       id: mastodon
