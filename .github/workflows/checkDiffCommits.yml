@@ -45,6 +45,7 @@ jobs:
         key: hash-${{ steps.currentSha.outputs.result }}
         restore-keys: |
           hash-
+        save-always: true
     - name: Read prev sha
       id: prevSha
       uses: juliangruber/read-file-action@v1
@@ -252,17 +253,6 @@ jobs:
       uses: cbrgm/mastodon-github-action@v1
       with:
         message: ${{ steps.buildToot.outputs.toot }}
-        visibility: "public" # default: public
-      env:
-        MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
-        MASTODON_ACCESS_TOKEN: ${{ secrets.MASTODON_ACCESS_TOKEN }} # access token
-
-    - name: Send toot to Mastodon on failure
-      if: failure()
-      id: mastodonFailure
-      uses: cbrgm/mastodon-github-action@v1
-      with:
-        message: Seems that the bot cannot send info about add-on updates because limit of 500 characters has been exceeded
         visibility: "public" # default: public
       env:
         MASTODON_URL: ${{ secrets.MASTODON_URL }} # https://example.social
