@@ -77,8 +77,7 @@ jobs:
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
-        git checkout HEAD
-        git diff --staged --numstat -U0 -G addonVersionName ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
+        git diff --staged --numstat -U0 -G addonVersionName HEAD.views views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
