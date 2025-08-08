@@ -66,18 +66,18 @@ jobs:
     - name: Write diff
       run: |
         cd store
-        git checkout views
-        for file in ./views/en/latest/*/*.json; do
-        jq --tab . "${file}" > "${file}.tmp"
-        mv "${file}.tmp" "${file}"
-        done
-        git add .
         git checkout ${{ steps.prevSha.outputs.content }} -b previous
         for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
-        git diff --staged --numstat -U0 -G addonVersionName HEAD.views views/en/latest > ../diff.txt
+        git add .
+        git checkout views
+        for file in ./views/en/latest/*/*.json; do
+        jq --tab . "${file}" > "${file}.tmp"
+        mv "${file}.tmp" "${file}"
+        done
+        git diff --staged --numstat -U0 -G addonVersionName  views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
