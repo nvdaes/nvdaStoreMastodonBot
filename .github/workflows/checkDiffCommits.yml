@@ -67,7 +67,7 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat -w --diff-filter=AMD -G \"addonVersionName\": ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
+        git diff --numstat -w --diff-filter=AMD -G \"addonVersionName\": -U0 ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
