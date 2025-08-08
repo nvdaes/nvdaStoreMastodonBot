@@ -68,6 +68,7 @@ jobs:
       run: |
         cd store
         git config --local user.name "Github Actions"
+        git config --local user.email "nrm1977@gmail.com"
         git checkout ${{ steps.prevSha.outputs.content }} -b prev
         for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
