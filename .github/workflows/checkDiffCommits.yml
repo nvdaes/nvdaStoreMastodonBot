@@ -82,7 +82,7 @@ jobs:
         done
         git add .
         git commit -m "Normalize json files"
-        git diff --numstat -U0 -G addonVersionName prev..HEAD > ../diff.txt
+        git diff --numstat -U0 -G addonVersionName prev..HEAD views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
