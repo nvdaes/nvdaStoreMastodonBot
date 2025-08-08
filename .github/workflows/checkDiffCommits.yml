@@ -60,24 +60,29 @@ jobs:
       uses: actions/checkout@v4
       with:
          repository: nvaccess/addon-datastore
+         ref: views
          path: store
          fetch-depth: 0
 
     - name: Write diff
       run: |
         cd store
-        git checkout ${{ steps.prevSha.outputs.content }} -b previous
+        git config --local user.name "Github Actions"
+        git checkout ${{ steps.prevSha.outputs.content }} -b prev
         for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
         git add .
+        git commit -m "Normalize json files"
         git checkout views
         for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
-        git diff --staged --numstat -U0 -G addonVersionName > ../diff.txt
+        git add .
+        git commit -m "Normalize json files"
+        git diff --numstat -U0 -G addonVersionName prev..HEAD > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
