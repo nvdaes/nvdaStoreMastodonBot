@@ -67,7 +67,18 @@ jobs:
       run: |
         cd store
         git checkout views
-        git diff --numstat -w --diff-filter=AMD -G \"addonVersionName\": -U0 ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
+        for file in ./addons/*/*.json; do
+        jq --tab . "${file}" > "${file}.tmp"
+        mv "${file}.tmp" "${file}"
+        done
+        git add .
+        git checkout ${{ steps.prevSha.outputs.content }} -b previous
+        for file in ./addons/*/*.json; do
+        jq --tab . "${file}" > "${file}.tmp"
+        mv "${file}.tmp" "${file}"
+        done
+        git checkout HEAD
+        git diff --staged --numstat -U0 -G addonVersionName ${{ steps.prevSha.outputs.content }}..HEAD views/en/latest > ../diff.txt
     - name: Read diff
       id: diff
       uses: juliangruber/read-file-action@v1
