@@ -67,13 +67,13 @@ jobs:
       run: |
         cd store
         git checkout views
-        for file in ./addons/*/*.json; do
+        for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
         git add .
         git checkout ${{ steps.prevSha.outputs.content }} -b previous
-        for file in ./addons/*/*.json; do
+        for file in ./views/en/latest/*/*.json; do
         jq --tab . "${file}" > "${file}.tmp"
         mv "${file}.tmp" "${file}"
         done
