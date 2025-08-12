@@ -46,7 +46,7 @@ jobs:
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        curl --location --output new.json https://addonstore.nvaccess.org/en/all/new.json
+        curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
 
     - name: Rename files
       if: steps.cache.outputs.cache-hit != 'true'
@@ -55,6 +55,7 @@ jobs:
     - name: Test
       run: |
         jq -S '.[] | .addonId' ./old.json > ./test.json 
+        cat ./test.json
         diff ./test.json ./test.json
 
     - name: Send mail
