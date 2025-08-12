@@ -50,6 +50,7 @@ jobs:
 
     - name: Rename files
       run: |
+        if: steps.cache.outputs.cache-hit != 'true'
         mv new.json old.json -f
 
     - name: Send mail
