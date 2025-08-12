@@ -55,7 +55,7 @@ jobs:
     - name: Test
       run: |
         jq -S . ./old.json > ./test.json
-        diff ./old.json ./test.json
+        diff ./test.json ./test.json
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
