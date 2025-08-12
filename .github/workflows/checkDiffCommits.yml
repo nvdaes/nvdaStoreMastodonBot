@@ -40,13 +40,17 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          ./latest.json
+          ./old.json
         key: hash-${{ steps.currentSha.outputs.result }}
 
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
+
+    - name: Rename files
+      run: |
+        mv new.json old.json -f
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
@@ -92,4 +96,4 @@ jobs:
       with:
         key: ${{ steps.cache.outputs.cache-primary-key }}
         path: |
-          ./sha.txt
+          ./old.json
