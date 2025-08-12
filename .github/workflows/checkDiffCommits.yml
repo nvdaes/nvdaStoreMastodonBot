@@ -42,9 +42,6 @@ jobs:
         path: |
           ./old.json
         key: hash-${{ steps.currentSha.outputs.result }}
-    - name: Compare
-      run: |
-        diff <(jq -S . old.json) <(jq -S . new.json)
 
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
