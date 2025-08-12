@@ -56,7 +56,7 @@ jobs:
       run: |
         echo "{a": "b}" > a.json
         echo "{b": "c}" > b.json
-        jsondiff-jdiff a.json b.json
+        jsondiff a.json b.json
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
