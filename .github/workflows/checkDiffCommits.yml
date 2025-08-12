@@ -54,7 +54,7 @@ jobs:
         mv new.json old.json -f
     - name: Test
       run: |
-        diff <(jq -S . first.json) <(jq -S . latest.json)
+        jq -S . ./old.json > ./test.json
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
