@@ -49,8 +49,8 @@ jobs:
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
 
     - name: Rename files
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        if: steps.cache.outputs.cache-hit != 'true'
         mv new.json old.json -f
 
     - name: Send mail
