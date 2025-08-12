@@ -49,7 +49,7 @@ jobs:
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
+        curl --location --output new.json https://addonstore.nvaccess.org/en/all/new.json
 
     - name: Rename files
       if: steps.cache.outputs.cache-hit != 'true'
