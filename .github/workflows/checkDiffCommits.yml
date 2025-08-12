@@ -54,7 +54,7 @@ jobs:
         mv new.json old.json -f
     - name: Test
       run: |
-        jq -S '.[] | .addonId, addonVersionName' ./old.json > ./test.json 
+        jq -S '.[] | {addonId, addonVersionName}' ./old.json > ./test.json 
         cat ./test.json
         diff ./test.json ./test.json
 
