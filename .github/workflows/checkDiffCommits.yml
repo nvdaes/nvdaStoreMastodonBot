@@ -20,11 +20,10 @@ jobs:
     steps:
 
     - name: Checkout current
-      uses: actions/checkout@v4
+      uses: actions/checkout@v5
       with:
          repository: nvdaes/nvdaStoreMastodonBot
          path: main
-
 
     - name: Read current sha
       id: currentSha
@@ -41,201 +40,14 @@ jobs:
       uses: actions/cache/restore@v4
       with:
         path: |
-          ./sha.txt
+          ./latest.json
         key: hash-${{ steps.currentSha.outputs.result }}
-        restore-keys: |
-          hash-
-    - name: Read prev sha
-      id: prevSha
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./sha.txt
-        trim: true
 
-    - name: Write previous sha
+    - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        echo ${{ steps.currentSha.outputs.result }} > ./sha.txt
-    - name: Checkout store
-      uses: actions/checkout@v4
-      with:
-         repository: nvaccess/addon-datastore
-         ref: views
-         path: store
-         fetch-depth: 0
+        curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
 
-    - name: Write diff
-      run: |
-        cd store
-        git config --local user.name "Github Actions"
-        git config --local user.email "nrm1977@gmail.com"
-        git checkout ${{ steps.prevSha.outputs.content }} -b prev
-        for file in ./views/en/latest/*/*.json; do
-        jq --tab . "${file}" > "${file}.tmp"
-        mv "${file}.tmp" "${file}"
-        done
-        git add .
-        git commit -m "Normalize json files"
-        git checkout views
-        for file in ./views/en/latest/*/*.json; do
-        jq --tab . "${file}" > "${file}.tmp"
-        mv "${file}.tmp" "${file}"
-        done
-        git add .
-        git commit -m "Normalize json files"
-        git diff --numstat -G sha256 prev..HEAD views/en/latest > ../diff.txt
-    - name: Read diff
-      id: diff
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./diff.txt
-    - name: Process diff
-      id: processDiff
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const diff = `${{ steps.diff.outputs.content }}`
-          const filesChanged = diff.split('\n')
-          const numberOfFilesChanged = filesChanged.length -1
-          core.setOutput('numberOfFilesChanged', numberOfFilesChanged)
-          var filename
-          if (numberOfFilesChanged === 1) {
-            let file = filesChanged[0]
-            var filename = file.split(/\t/)[2]
-            var esfilename = filename.replace('/en/', '/es/')
-            esfilename = esfilename.replace('/mathcat/', '/MathCAT/')
-            esfilename = esfilename.replace('/searchwith/', '/searchWith/')
-
-
-          }
-
-          console.log(`${numberOfFilesChanged} ${diff}`)
-          console.log(esfilename)
-          var display = ``
-          var displayEs = ``
-          function updated(value) { return value.startsWith('1') }
-          function removed(value) { return value.startsWith('0') }
-          const filesUpdated = filesChanged.filter(updated)
-          const filesRemoved = filesChanged.filter(removed)
-          if (filesUpdated.length > 0) {
-            display += `Updated add-ons: ` 
-            displayEs += `Complementos actualizados: ` 
-          }
-          for (file of filesUpdated) {
-            let id = file.split('/')[3]
-            let jsonFile = file.split('/')[4]
-            if (id === undefined) {
-              continue
-            }
-            let fileToDisplay = `${id} ${jsonFile}`.slice(0, -5) + '\n'
-            let fileToDisplayEs = (`${id} ${jsonFile}`.slice(0, -5) + '\n').replace('stable', 'estable')
-            display += fileToDisplay
-            displayEs += fileToDisplayEs
-          }
-          if (filesRemoved.length > 0) {
-            display += `Removed add-ons: ` 
-            displayEs += `Complementos eliminados: ` 
-          }
-          for (file of filesRemoved) {
-            let id = file.split('/')[3]
-            let jsonFile = file.split('/')[4]
-            if (id === undefined) {
-              continue
-            }
-            let fileToDisplay = `${id} ${jsonFile}`.slice(0, -5) + '\n'
-            let fileToDisplayEs = (`${id} ${jsonFile}`.slice(0, -5) + '\n').replace('stable', 'estable')
-            display += fileToDisplay
-            displayEs += fileToDisplayEs
-          }
-          console.log(display)
-          core.setOutput('display', display)
-          core.setOutput('displayEs', displayEs)
-          if (filesRemoved.length !== 1) {
-                    core.setOutput('filename', filename)
-                    core.setOutput('esfilename', esfilename)
-
-                  }
-        result-encoding: string
-    - name: Get metadata
-
-      id: getMetadata
-      if: ${{ steps.processDiff.outputs.filename }}
-      uses: ActionsTools/read-json-action@main
-      with:
-        file_path: "store/${{ steps.processDiff.outputs.filename }}"
-    - name: Build toot
-
-      id: buildToot
-      if: '${{ steps.diff.outputs.content }} != "\n"'
-      uses: actions/github-script@v7
-      with:
-        script: |
-          var toot = ``
-          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
-          if (numberOfFilesChanged === 0) {
-            core.setOutput('toot', toot)
-            return
-          }
-          var toot = `${{ steps.processDiff.outputs.display }}`
-          if (numberOfFilesChanged === 1) {
-            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
-            const url = `${{ steps.getMetadata.outputs.URL}}`
-            const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            const reviewUrl = `${{ steps.getMetadata.outputs.reviewUrl }}`
-            toot += `Homepage: ${homepage}\n`
-            toot += `Download: ${url}\n`
-            toot += `SHA256: ${sha}\n`
-            toot += `Community reviews: ${reviewUrl}\n`
-          }
-          const curSha = `${{ steps.currentSha.outputs.result }}`
-          toot += `Commit: https://github.com/nvaccess/addon-datastore/commit/${curSha}\n`
-          toot += '#NVDA #bot'
-          console.log(toot)
-          core.setOutput('toot', toot)
-    - name: Get es metadata
-      id: getEsMetadata
-      if: ${{ steps.processDiff.outputs.esfilename }}
-      uses: ActionsTools/read-json-action@main
-      with:
-        file_path: "store/${{ steps.processDiff.outputs.esfilename }}"
-    - name: Build mail
-      id: buildMail
-      uses: actions/github-script@v7
-      with:
-        script: |
-          var mailBody = ``
-          const numberOfFilesChanged = ${{ steps.processDiff.outputs.numberOfFilesChanged }}
-          if (numberOfFilesChanged === 0) {
-            return
-          }
-          var mailBody = `${{ steps.processDiff.outputs.displayEs }}`
-          var subjectPrefix = ``
-          if (numberOfFilesChanged === 1) {
-            subjectPrefix += `${{ steps.processDiff.outputs.displayEs }}. `
-            const addonVersionName = `${{ steps.getMetadata.outputs.addonVersionName }}`
-            const publisher = `${{ steps.getMetadata.outputs.publisher }}`
-            const description = `${{ steps.getEsMetadata.outputs.description }}`
-            const homepage = `${{ steps.getMetadata.outputs.homepage }}`
-            const url = `${{ steps.getMetadata.outputs.URL}}`
-            const sourceURL = `${{ steps.getMetadata.outputs.sourceURL }}`
-            const sha = `${{ steps.getMetadata.outputs.sha256 }}`
-            const reviewUrl = `${{ steps.getMetadata.outputs.reviewUrl }}`
-            mailBody += `Versión: ${addonVersionName}\n`
-            mailBody += `Publicado por ${publisher}\n`
-            mailBody += `Descripción: ${description}\n`
-            mailBody += `Página de inicio: ${homepage}\n`
-            mailBody += `Descarga: ${url}\n`
-            mailBody += `Código fuente: ${sourceURL}\n`
-            mailBody += `SHA256: ${sha}\n`
-            mailBody += `Revisiones de la comunidad: ${reviewUrl}\n`
-          }
-          const curSha = `${{ steps.currentSha.outputs.result }}`
-          mailBody += `Referencia en addon-datastore: https://github.com/nvaccess/addon-datastore/commit/${curSha}`
-          console.log(mailBody)
-          const subject = `${subjectPrefix}Complementos #bot`
-          core.setOutput('subject', subject) 
-          core.setOutput('mailBody', mailBody) 
-        result-encoding: string
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
