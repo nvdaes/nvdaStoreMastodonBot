@@ -54,6 +54,7 @@ jobs:
         #mv new.json old.json -f
     - name: Test
       run: |
+        pip install jsondiff
         jq 'sort_by(.addonId)' ./old.json > test.json
         jq 'sort_by(.addonId)' ./new.json > test1.json
         jsondiff ./test.json ./test1.json > test.txt
