@@ -44,17 +44,19 @@ jobs:
         key: hash-${{ steps.currentSha.outputs.result }}
 
     - name: Download latest add-ons
-      if: steps.cache.outputs.cache-hit != 'true'
+      # if: steps.cache.outputs.cache-hit != 'true'
       run: |
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
 
-    - name: Rename files
-      if: steps.cache.outputs.cache-hit != 'true'
-      run: |
-        mv new.json old.json -f
+    # - name: Rename files
+      # if: steps.cache.outputs.cache-hit != 'true'
+      #run: |
+        #mv new.json old.json -f
     - name: Test
       run: |
         jq 'sort_by(.addonId)' ./old.json > test.json
+        jq 'sort_by(.addonId)' ./new.json > test1.json
+
 
         cat ./test.json
         diff ./test.json ./test.json
