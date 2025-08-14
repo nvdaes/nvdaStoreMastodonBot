@@ -9,5 +9,5 @@ function getDiff() {
 	fileContents = fs.readFileSync(last.json)
 	let data2 = JSON.parse(fileContents)
 	const rejected = lodash._reject(data2, function(o) { return data1._find(o)})
-	console.log(rejected.length)
+	console.log(`${rejected[0].sha256})
 }
