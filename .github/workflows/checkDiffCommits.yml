@@ -23,7 +23,6 @@ jobs:
       uses: actions/checkout@v4
       with:
          repository: nvdaes/nvdaStoreMastodonBot
-         path: main
 
     - name: Read current sha
       id: currentSha
@@ -53,12 +52,12 @@ jobs:
       #run: |
         #mv new.json old.json -f
     - name: Test
-      run: |
-        pip install jsondiff
-        jq 'sort_by(.addonId)' ./old.json > test.json
-        jq 'sort_by(.addonId)' ./new.json > test1.json
-        jsondiff ./test.json ./test1.json > test.txt
-        cat test.txt
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const data = requires('./github.workflows/getData.js')
+          console.log(data)
+
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
