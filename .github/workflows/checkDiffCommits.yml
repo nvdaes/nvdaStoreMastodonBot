@@ -44,9 +44,11 @@ jobs:
       run: |
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
     - name: Install lodash
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         npm install lodash
     - name: Get diffs
+      if: steps.cache.outputs.cache-hit != 'true'
       uses: actions/github-script@v7
       with:
         script: |
