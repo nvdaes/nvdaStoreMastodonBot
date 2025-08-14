@@ -57,7 +57,7 @@ jobs:
       with:
         script: |
           const getDiff = require('./.github/workflows/getDiff.js')
-          const diff = getDiff()
+          const diff = getDiff({core})
           console.log(diff.length)
 
     - name: Rename files

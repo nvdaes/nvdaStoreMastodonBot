@@ -3,9 +3,8 @@ const fs = require('fs')
 const differenceWith = require('lodash/differenceWith')
 const isEqual = require('lodash/isEqual')
 const find = require('lodash/find')
-const core = require('core')
 
-function getDiff() {
+function getDiff({core}) {
 	let fileContents = fs.readFileSync('old.json')
 	let data1 = JSON.parse(fileContents)
 	fileContents = fs.readFileSync('new.json')
