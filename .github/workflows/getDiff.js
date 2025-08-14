@@ -8,7 +8,6 @@ function getDiff() {
 	let data1 = JSON.parse(fileContents)
 	fileContents = fs.readFileSync(last.json)
 	let data2 = JSON.parse(fileContents)
-	const rejected = lodash._reject(data2, function(o) { return lodash._find(data1, function(o) { return o})})
-	console.log(`${rejected[0]}`)
-	return rejected
+	let diff = lodash._difference(data2, data1)
+	return diff
 }
