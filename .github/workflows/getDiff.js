@@ -18,5 +18,8 @@ function getDiff({core}) {
 	let esMailBody = ``
 	esDiff.forEach((item) => esMailBody += `${item.addonId} ${item.addonVersionName}\n${item.description}\n\n`)
 	core.setOutput('mailBody', mailBody)
+	core.setOutput('esSubject', 'Complementos #bot')
+	core.setOutput('esMailBody', esMailBody)
+
 	return diff
 }

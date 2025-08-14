@@ -52,6 +52,7 @@ jobs:
       run: |
         npm install lodash
     - name: Get diffs
+      id: getDiff
       if: steps.cache.outputs.cache-hit != 'true'
       uses: actions/github-script@v7
       with:
@@ -66,17 +67,17 @@ jobs:
         mv new.json old.json -f
           
     - name: Send mail
-      if: ${{ steps.buildMail.outputs.mailBody }}
+      if: ${{ steps.getDiff.outputs.esMailBody }}
       uses: dawidd6/action-send-mail@v3
       with:
         server_address: smtp.gmail.com
         server_port: 465
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
-        subject: ${{ steps.buildMail.outputs.subject }}
+        subject: ${{ steps.getDiff.outputs.subject }}
         to: lista@nvdaes.groups.io
         from: Noelia Ruiz
-        body: ${{steps.buildMail.outputs.mailBody }}
+        body: ${{steps.buildMail.outputs.esMailBody }}
 
     - name: Send mail to feeds subgroup
       if: ${{ steps.buildToot.outputs.toot }}
