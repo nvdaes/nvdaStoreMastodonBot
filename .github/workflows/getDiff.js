@@ -16,6 +16,7 @@ function getDiff() {
 	let mailBody = ``
 	diff.forEach((item) => mailBody += `${item.addonId} ${item.addonVersionName}\n${item.description}\n\n`)
 	let esDiff = diff.map((item) => find(dataEs, (o) => o.sha256 == item.sha256))
-	console.log(esDiff)
+	let esMailBody = ``
+	esDiff.forEach((item) => esMailBody += `${item.addonId} ${item.addonVersionName}\n${item.description}\n\n`)
 	return diff
 }
