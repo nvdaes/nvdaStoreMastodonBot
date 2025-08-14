@@ -1,6 +1,5 @@
 module.exports = getDiff
 const fs = require('fs')
-const fs = require('fs')
 const lodash = require('lodash')
 
 
