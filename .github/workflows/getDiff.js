@@ -11,6 +11,8 @@ function getDiff() {
 	let data2 = JSON.parse(fileContents)
 	let diff = differenceWith(data2, data1, isEqual)
 	diff.forEach((item) => console.log(item.sha256))
-	console.log(`${diff}`)
+	let mailBody = ``
+	diff.forEach((item) => mailBody += `${item.addonId} ${item.addonVersionName}\n$${item.description}\n`)
+	console.log(mailBody)
 	return diff
 }
