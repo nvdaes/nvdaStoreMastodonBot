@@ -15,8 +15,6 @@ function getDiff() {
 	let diff = differenceWith(data2, data1, isEqual)
 	let mailBody = ``
 	diff.forEach((item) => mailBody += `${item.addonId} ${item.addonVersionName}\n${item.description}\n\n`)
-	esDiff = diff.map((item) => find(dataEs, (o) => o.sha256 === item.sha256), item.sha256)
-	console.log(esDiff)
-
+	diff.forEach((item) => find(dataEs, (o) => o.sha256 == item.sha256))
 	return diff
 }
