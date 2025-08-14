@@ -1,6 +1,7 @@
 module.exports = getDiff
 const fs = require('fs')
-const difference = require('lodash/difference')
+const differenceWith = require('lodash/differenceWith')
+const isEqual = require('lodash/isEqual')
 
 
 function getDiff() {
@@ -8,6 +9,6 @@ function getDiff() {
 	let data1 = JSON.parse(fileContents)
 	fileContents = fs.readFileSync('new.json')
 	let data2 = JSON.parse(fileContents)
-	let diff = difference(data2, data1)
+	let diff = differenceWith(data2, data1, isEqual)
 	return diff
 }
