@@ -3,6 +3,7 @@ const fs = require('fs')
 const differenceWith = require('lodash/differenceWith')
 const isEqual = require('lodash/isEqual')
 const find = require('lodash/find')
+const sortBy = require('lodash/sortBy')
 
 function getDiff({core}) {
 	let fileContents = fs.readFileSync('old.json')
@@ -12,6 +13,7 @@ function getDiff({core}) {
 	fileContents = fs.readFileSync('es.json')
 	let dataEs = JSON.parse(fileContents)
 	let diff = differenceWith(data2, data1, isEqual)
+	diff = sortBy(diff, [(o) => o.addonId])
 	let mailBody = ``
 	diff.forEach((item) => mailBody += `${item.addonId} ${item.addonVersionName}\n${item.description}\n\n`)
 	let esDiff = diff.map((item) => find(dataEs, (o) => o.sha256 == item.sha256))
