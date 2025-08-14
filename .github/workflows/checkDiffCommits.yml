@@ -64,7 +64,7 @@ jobs:
         script: |
           const getDiff = require('./.github/workflows/getDiff.js')
           const rejected = getDiff
-          console.log(`${rejected[0].sha256}`)
+          console.log(`${rejected[0]}`)
           
 
     - name: Send mail
