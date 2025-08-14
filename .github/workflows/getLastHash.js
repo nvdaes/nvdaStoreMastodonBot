@@ -1,4 +1,4 @@
-module.exports = getHash
+module.exports = getLastHash
 
 async function getLastHash({github}) {
 	const cacheUrl = 'https://addonstore.nvaccess.org/cacheHash.json'
