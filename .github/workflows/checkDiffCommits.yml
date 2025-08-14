@@ -63,6 +63,9 @@ jobs:
       with:
         script: |
           const getDiff = require('./.github/workflows/getDiff.js')
+          const rejected = getDiff
+          console.log(`${rejected[0].sha256}`)
+          
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
