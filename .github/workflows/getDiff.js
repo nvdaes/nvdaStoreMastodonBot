@@ -10,5 +10,6 @@ function getDiff() {
 	fileContents = fs.readFileSync('new.json')
 	let data2 = JSON.parse(fileContents)
 	let diff = differenceWith(data2, data1, isEqual)
+	console.log(`${diff}`)
 	return diff
 }
