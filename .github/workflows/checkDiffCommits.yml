@@ -45,6 +45,8 @@ jobs:
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
+        curl --location --output es.json https://addonstore.nvaccess.org/es/all/latest.json
+
     - name: Install lodash
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
