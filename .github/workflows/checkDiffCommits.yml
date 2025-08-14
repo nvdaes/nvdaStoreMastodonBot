@@ -58,6 +58,11 @@ jobs:
     - name: Install lodash
       run: |
         npm install lodash
+    - name: Get diffs
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const getDiff = require('./.github/workflows/getDiff.js')
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
