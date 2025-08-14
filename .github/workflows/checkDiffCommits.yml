@@ -40,21 +40,9 @@ jobs:
         key: hash-${{ steps.currentSha.outputs.result }}
 
     - name: Download latest add-ons
-      # if: steps.cache.outputs.cache-hit != 'true'
+      if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        curl --location --output new.json https://addonstore.nvaccess.org/es/all/latest.json
-
-    # - name: Rename files
-      # if: steps.cache.outputs.cache-hit != 'true'
-      #run: |
-        #mv new.json old.json -f
-    - name: Test
-      uses: actions/github-script@v7
-      with:
-        script: |
-          const getData = require('./.github/workflows/getData.js')
-          const data = getData('new.json')
-          console.log(`${data[0].sha256}`)
+        curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
     - name: Install lodash
       run: |
         npm install lodash
@@ -64,9 +52,13 @@ jobs:
         script: |
           const getDiff = require('./.github/workflows/getDiff.js')
           const diff = getDiff()
-          console.log(`${diff[0].sha256}`)
-          
+          console.log(diff.length)
 
+    - name: Rename files
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: |
+        mv new.json old.json -f
+          
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
       uses: dawidd6/action-send-mail@v3
