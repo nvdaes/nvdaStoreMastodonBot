@@ -21,8 +21,6 @@ jobs:
 
     - name: Checkout current
       uses: actions/checkout@v4
-      with:
-         repository: nvdaes/nvdaStoreMastodonBot
 
     - name: Read current sha
       id: currentSha
@@ -57,7 +55,9 @@ jobs:
           const getData = require('./.github/workflows/getData.js')
           const data = getData('new.json')
           console.log(`${data[0].sha256}`)
-
+    - name: Install lodash
+      run: |
+        npm install lodash
 
     - name: Send mail
       if: ${{ steps.buildMail.outputs.mailBody }}
