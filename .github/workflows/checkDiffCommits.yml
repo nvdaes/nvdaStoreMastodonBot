@@ -78,7 +78,7 @@ jobs:
         #to: lista@nvdaes.groups.io
         to: nrm1977@gmail.com
         from: Noelia Ruiz
-        body: "${{steps.getDiff.outputs.esMailBody }}\n\nhttps://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA/checks?check_suite_id=$GITHUB_CHECK_SUITE_ID"
+        body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
     - name: Send mail to feeds subgroup
       if: ${{ steps.buildToot.outputs.toot }}
