@@ -30,7 +30,7 @@ jobs:
       with:
         script: |
           const getLastHash = require('./.github/workflows/getLastHash.js')
-          return getLastHash()
+          await getLastHash({github})
         result-encoding: string
     - name: Restore cached hash
       id: cache
