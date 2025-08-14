@@ -75,7 +75,8 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: ${{ steps.getDiff.outputs.esSubject }}
-        to: lista@nvdaes.groups.io
+        #to: lista@nvdaes.groups.io
+        to: nrm1977@gmail.com
         from: Noelia Ruiz
         body: ${{steps.getDiff.outputs.esMailBody }}
 
