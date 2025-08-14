@@ -57,7 +57,7 @@ jobs:
         script: |
           const getData = require('./.github/workflows/getData.js')
           const data = getData('new.json')
-          console.log(`${data[0]}`)
+          console.log(`${data[0].sha256}`)
 
 
     - name: Send mail
