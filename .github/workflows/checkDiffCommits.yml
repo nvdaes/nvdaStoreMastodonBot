@@ -29,10 +29,8 @@ jobs:
       uses: actions/github-script@v7
       with:
         script: |
-          const cacheUrl = 'https://addonstore.nvaccess.org/cacheHash.json'
-          const result = await github.request(cacheUrl)
-          const data = result.data
-          return data.trim()
+          const getLastHash = require('./.github/workflows/getLastHash.js')
+          return getLastHash()
         result-encoding: string
     - name: Restore cached hash
       id: cache
