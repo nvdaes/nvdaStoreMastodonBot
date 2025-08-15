@@ -7,7 +7,7 @@ on:
 
   schedule:
     # * is a special character in YAML so you have to quote this string
-    - cron:  '0 0 * * *'
+    - cron:  '0 * * * *'
     
 jobs:
 
@@ -82,8 +82,8 @@ jobs:
         username: ${{secrets.MAIL_USERNAME}}
         password: ${{secrets.MAIL_PASSWORD}}
         subject: ${{ steps.getDiff.outputs.esSubject }}
-        to: lista@nvdaes.groups.io
-        #to: nrm1977@gmail.com
+        #to: lista@nvdaes.groups.io
+        to: nrm1977@gmail.com
         from: Noelia Ruiz
         body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
