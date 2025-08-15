@@ -55,7 +55,6 @@ jobs:
           ${{ runner.os }}-node-
 
     - name: Install lodash
-      if: steps.cache.outputs.cache-hit != 'true'
       run: |
         npm install
     - name: Get diffs
