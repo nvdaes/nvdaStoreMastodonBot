@@ -47,6 +47,7 @@ jobs:
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
         curl --location --output es.json https://addonstore.nvaccess.org/es/all/latest.json
     - name: Cache npm dependencies
+      id: cacheNpm
       uses: actions/cache@v4
       with:
         path: '~/.npm'
@@ -55,6 +56,7 @@ jobs:
           ${{ runner.os }}-node-
 
     - name: Install lodash
+      if: steps.cacheNpm.outputs.cache-hit != 'true'
       run: |
         npm install
     - name: Get diffs
