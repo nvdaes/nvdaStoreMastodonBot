@@ -57,7 +57,7 @@ jobs:
     - name: Install lodash
       if: steps.cache.outputs.cache-hit != 'true'
       run: |
-        npm install lodash
+        npm install
     - name: Get diffs
       id: getDiff
       if: steps.cache.outputs.cache-hit != 'true'
