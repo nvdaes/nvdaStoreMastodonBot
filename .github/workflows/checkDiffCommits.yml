@@ -38,8 +38,8 @@ jobs:
         path: |
           ./old.json
         key: hash-${{ steps.currentSha.outputs.result }}
-        restore-keys: |
-          hash-
+        #restore-keys: |
+          #hash-
 
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
@@ -59,7 +59,7 @@ jobs:
         npm install
     - name: Get diffs
       id: getDiff
-      if: steps.cache.outputs.cache-hit != 'true'
+      #if: steps.cache.outputs.cache-hit != 'true'
       uses: actions/github-script@v7
       with:
         script: |
