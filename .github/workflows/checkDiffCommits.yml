@@ -38,8 +38,8 @@ jobs:
         path: |
           ./old.json
         key: hash-${{ steps.currentSha.outputs.result }}
-        #restore-keys: |
-          #hash-
+        restore-keys: |
+          hash-
 
     - name: Download latest add-ons
       if: steps.cache.outputs.cache-hit != 'true'
