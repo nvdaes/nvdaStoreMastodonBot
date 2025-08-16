@@ -60,7 +60,6 @@ jobs:
         npm install
     - name: Get diffs
       id: getDiff
-      if: steps.cache.outputs.cache-hit != 'true'
       uses: actions/github-script@v7
       with:
         script: |
@@ -113,7 +112,7 @@ jobs:
 
     - name: Always Save cache
       id: save
-      if: always() && steps.cache.outputs.cache-hit != 'true'
+      if: ${{ steps.getDiff.outputs.esMailBody }}
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.cache.outputs.cache-primary-key }}
