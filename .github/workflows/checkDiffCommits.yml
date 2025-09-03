@@ -113,7 +113,7 @@ jobs:
 
     - name: Always Save cache
       id: save
-      if: ${{ steps.getDiff.outputs.esMailBody }}
+      #if: ${{ steps.getDiff.outputs.esMailBody }}
       uses: actions/cache/save@v4
       with:
         key: ${{ steps.cache.outputs.cache-primary-key }}
