@@ -20,6 +20,10 @@ function getDiff({core}) {
 	let esMailBody = ``
 	if (esDiff.length > 0) { esMailBody += `Complementos actualizados (${diff.length}):\n`}
 	esDiff.forEach((item) => esMailBody += `# ${item.addonId} ${item.addonVersionName}, ${item.channel} (publicado por ${item.publisher})\n${item.description}\nProbado con NVDA ${item.lastTestedVersion.major}.${item.lastTestedVersion.minor}\nPágina de inicio: ${item.homepage}\nRevisiones de la comunidad: ${item.reviewUrl}\n\n`)
+	diff = differenceWith(data1, data2, isEqual)
+	esDiff = diff.map((item) => find(dataEs, (o) => o.sha256 == item.sha256))
+	if (esDiff.length > 0) { esMailBody += `Complementos eliminados (${diff.length}):\n`}
+	esDiff.forEach((item) => esMailBody += `# ${item.addonId} ${item.addonVersionName}, ${item.channel} (publicado por ${item.publisher})\n${item.description}\nProbado con NVDA ${item.lastTestedVersion.major}.${item.lastTestedVersion.minor}\nPágina de inicio: ${item.homepage}\nRevisiones de la comunidad: ${item.reviewUrl}\n\n`)
 	core.setOutput('mailBody', mailBody)
 	core.setOutput('esSubject', 'Complementos #bot')
 	core.setOutput('esMailBody', esMailBody)
