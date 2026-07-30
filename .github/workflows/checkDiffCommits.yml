@@ -84,7 +84,7 @@ jobs:
         subject: ${{ steps.getDiff.outputs.esSubject }}
         to: lista@nvdaes.groups.io
         #to: nrm1977@gmail.com
-        from: Noelia Ruiz
+        from: nrm1977@gmail.com
         body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
     - name: send mail if body is too large
       if: failure()
@@ -96,7 +96,7 @@ jobs:
         password: ${{secrets.MAIL_PASSWORD}}
         subject: ${{ steps.getDiff.outputs.esSubject }}
         to: lista@nvdaes.groups.io
-        from: Noelia Ruiz
+        from: nrm1977@gmail.com
         body: Parece que los cambios en los complementos ocupan demasiado espacio. Puedes revisar el siguiente enlace producido por el bot de la lista:\n\n ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
 
