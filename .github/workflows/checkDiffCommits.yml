@@ -86,6 +86,19 @@ jobs:
         #to: nrm1977@gmail.com
         from: Noelia Ruiz
         body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+    - name: send mail if body is too large
+      if: ${failure()}
+      uses: dawidd6/action-send-mail@v12
+      with:
+        server_address: smtp.gmail.com
+        server_port: 465
+        username: ${{secrets.MAIL_USERNAME}}
+        password: ${{secrets.MAIL_PASSWORD}}
+        subject: ${{ steps.getDiff.outputs.esSubject }}
+        to: lista@nvdaes.groups.io
+        from: Noelia Ruiz
+        body: Parece que los cambios en los complementos ocupan demasiado espacio. Puedes revisar el siguiente enlace producido por el bot de la lista:\n\n ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
 
     - name: Send mail to feeds subgroup
       if: ${{ steps.buildToot.outputs.toot }}
