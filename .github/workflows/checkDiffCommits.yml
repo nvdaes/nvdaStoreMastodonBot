@@ -20,11 +20,11 @@ jobs:
     steps:
 
     - name: Checkout current
-      uses: actions/checkout@v4
+      uses: actions/checkout@v7
 
     - name: Read current sha
       id: currentSha
-      uses: actions/github-script@v7
+      uses: actions/github-script@v9
       with:
         script: |
           const getLastHash = require('./.github/workflows/getLastHash.js')
@@ -33,7 +33,7 @@ jobs:
         result-encoding: string
     - name: Restore cached hash
       id: cache
-      uses: actions/cache/restore@v4
+      uses: actions/cache/restore@v5
       with:
         path: |
           ./old.json
@@ -47,7 +47,7 @@ jobs:
         curl --location --output new.json https://addonstore.nvaccess.org/en/all/latest.json
         curl --location --output es.json https://addonstore.nvaccess.org/es/all/latest.json
     - name: Cache npm dependencies
-      uses: actions/cache@v4
+      uses: actions/cache@v5
       with:
         path: '~/.npm'
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -61,7 +61,7 @@ jobs:
     - name: Get diffs
       id: getDiff
       if: steps.cache.outputs.cache-hit != 'true'
-      uses: actions/github-script@v7
+      uses: actions/github-script@v9
       with:
         script: |
           const getDiff = require('./.github/workflows/getDiff.js')
@@ -86,18 +86,6 @@ jobs:
         #to: nrm1977@gmail.com
         from: nrm1977@gmail.com
         body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-    - name: send mail if body is too large
-      if: failure()
-      uses: dawidd6/action-send-mail@v12
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: ${{ steps.getDiff.outputs.esSubject }}
-        to: lista@nvdaes.groups.io
-        from: nrm1977@gmail.com
-        body: Parece que los cambios en los complementos ocupan demasiado espacio. Puedes revisar el siguiente enlace producido por el bot de la lista:\n\n ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
 
     - name: Send mail to feeds subgroup
