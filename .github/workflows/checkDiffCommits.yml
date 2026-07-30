@@ -87,7 +87,7 @@ jobs:
         from: Noelia Ruiz
         body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
     - name: send mail if body is too large
-      if: ${failure()}
+      if: failure()
       uses: dawidd6/action-send-mail@v12
       with:
         server_address: smtp.gmail.com
