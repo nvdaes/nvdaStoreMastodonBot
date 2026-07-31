@@ -73,19 +73,19 @@ jobs:
       run: |
         mv new.json old.json -f
           
-    - name: Send mail
-      if: ${{ steps.getDiff.outputs.esMailBody }}
-      uses: dawidd6/action-send-mail@v12
-      with:
-        server_address: smtp.gmail.com
-        server_port: 465
-        username: ${{secrets.MAIL_USERNAME}}
-        password: ${{secrets.MAIL_PASSWORD}}
-        subject: ${{ steps.getDiff.outputs.esSubject }}
-        to: lista@nvdaes.groups.io
+    #- name: Send mail
+      #if: ${{ steps.getDiff.outputs.esMailBody }}
+      #uses: dawidd6/action-send-mail@v12
+      #with:
+        #server_address: smtp.gmail.com
+        #server_port: 465
+        #username: ${{secrets.MAIL_USERNAME}}
+        #password: ${{secrets.MAIL_PASSWORD}}
+        #subject: ${{ steps.getDiff.outputs.esSubject }}
+        #to: lista@nvdaes.groups.io
         #to: nrm1977@gmail.com
-        from: nrm1977@gmail.com
-        body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        #from: nrm1977@gmail.com
+        #body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
 
     - name: Send mail to feeds subgroup
