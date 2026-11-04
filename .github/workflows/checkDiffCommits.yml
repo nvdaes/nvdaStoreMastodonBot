@@ -85,7 +85,7 @@ jobs:
         to: lista@nvdaes.groups.io
         #to: nrm1977@gmail.com
         from: nrm1977@gmail.com
-        body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+        html_body: "${{steps.getDiff.outputs.esMailBody }}\n\n${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
 
 
     #- name: Send mail to feeds subgroup
